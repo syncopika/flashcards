@@ -1,0 +1,19 @@
+[
+    {"value": "明ける", "romaji": "akeru (あける)", "definition": "to become daylight"},
+    {"value": "暗記", "romaji": "anki (あんき)", "definition": "memorization"},
+    {"value": "分析", "romaji": "bunseki (ぶんせき)", "definition": "analysis"},
+    {"value": "出会う", "romaji": "deau (であう)", "definition": "to meet by chance; encounter"},
+    {"value": "読書", "romaji": "dokusho (どくしょ)", "definition": "reading"},
+    {"value": "読む", "romaji": "yomu (よむ)", "definition": "to read"},
+    {"value": "書く", "romaji": "kaku (かく)", "definition": "to write"},
+    {"value": "読者", "romaji": "dokusha (どくしゃ)", "definition": "reader"},
+    {"value": "著者", "romaji": "chosha (ちょしゃ)", "definition": "author, writer"},
+    {"value": "努力", "romaji": "doryoku (どりょく)", "definition": "effort, hard work"},
+    {"value": "不足", "romaji": "fusoku (ふそく)", "definition": "insufficiency, shortage, lack of"},
+    {"value": "外出", "romaji": "gaishutsu (がいしゅつ)", "definition": "going out, leaving (one's home, office, etc.)"},
+    {"value": "学問", "romaji": "gakumon (がくもん)", "definition": "scholarship, study, learning"},
+    {"value": "学習", "romaji": "gakushuu (がくしゅう)", "definition": "study, learning"},
+    {"value": "販売", "romaji": "hanbai (はんばい)", "definition": "sales, selling, marketing"},
+    {"value": "発明", "romaji": "hatsumei (はつめい)", "definition": "invention"},
+    {"value": "外す", "romaji": "hazusu (はずす)", "definition": "to remove, undo, drop, miss"}
+]

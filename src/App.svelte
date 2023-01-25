@@ -42,6 +42,38 @@
         data = mapper.processJapaneseDataset(d);
       }
       
+      currCardIndex = 0;
+      totalCards = data.length;
+  }
+  
+  const onChangeSearch = async () => {
+      const mapper = new Mapper();
+      const res = await fetch(`datasets/${selected}.json`);
+      const d = await res.json();
+      
+      let currData: Record<string, string>[];
+      if(selected === "chinese"){
+        currData = mapper.processChineseDataset(d);
+      }else if(selected === "japanese"){
+        currData = mapper.processJapaneseDataset(d);
+      }
+      
+      const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+      if(searchInput){
+          const inputVal = searchInput.value;
+          if(inputVal !== ""){
+            // then filter data
+            const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');
+            if(selectedRadioBtn){
+                // TODO: create type here?
+                const selectedSide: string = selectedRadioBtn.value;
+                currData = currData.filter(x => (x[selectedSide]).includes(inputVal));
+            }
+          }
+      }
+      
+      currCardIndex = 0;
+      data = currData;
       totalCards = data.length;
   }
   
@@ -59,6 +91,14 @@
             <option value={ds}>{ds}</option>
         {/each}
     </select>
+    <p> | </p>
+    <p> search: </p>
+    <input class="searchInput" type="text" name="search" on:input={onChangeSearch}>
+    <p> | </p>
+    <input type="radio" id="search-front-choice" name="search-side-choice" value="front" on:change={onChangeSearch}>
+    <label for="search-front-choice">front</label>
+    <input type="radio" id="search-back-choice" name="search-side-choice" value="back" on:change={onChangeSearch}>
+    <label for="search-back-choice">back</label>
   </div>
 
   <h1>flashcards</h1>
@@ -112,5 +152,9 @@
     .icon {
         position: relative;
         z-index: 10;
+    }
+    
+    #search-front-choice, #search-back-choice {
+        display: inline-block;
     }
 </style>

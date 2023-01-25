@@ -15,5 +15,19 @@
     {"value": "学習", "romaji": "gakushuu (がくしゅう)", "definition": "study, learning"},
     {"value": "販売", "romaji": "hanbai (はんばい)", "definition": "sales, selling, marketing"},
     {"value": "発明", "romaji": "hatsumei (はつめい)", "definition": "invention"},
-    {"value": "外す", "romaji": "hazusu (はずす)", "definition": "to remove, undo, drop, miss"}
+    {"value": "外す", "romaji": "hazusu (はずす)", "definition": "to remove, undo, drop, miss"},
+    {"value": "一言", "romaji": "hitokoto (ひとこと)", "definition": "single word; few words; brief comment"},
+    {"value": "一致", "romaji": "icchi (いっち)", "definition": "agreement, union; match; coincidence"},
+    {"value": "邪魔", "romaji": "jama (じゃま)", "definition": "hindrance"},
+    {"value": "会合", "romaji": "kaigou (かいごう)", "definition": "meeting, assembly, gathering; association"},
+    {"value": "開始", "romaji": "kaishi (かいし)", "definition": "to start, commence"},
+    {"value": "記念", "romaji": "kinen (きねん)", "definition": "commemoration"},
+    {"value": "気に入る", "romaji": "kiniiru (きにいる)", "definition": "to like, take a liking to"},
+    {"value": "記入", "romaji": "kinyuu (きにゅう)", "definition": "an entry; to fill out (e.g. forms)"},
+    {"value": "記憶", "romaji": "kioku (きおく)", "definition": "memory, recollection"},
+    {"value": "期待", "romaji": "kitai (きたい)", "definition": "expectation, anticipation, hope"},
+    {"value": "転ぶ", "romaji": "korobu (ころぶ)", "definition": "to fall down, to fall over"},
+    {"value": "訓練", "romaji": "kunren (くんれん)", "definition": "training"},
+    {"value": "協力", "romaji": "kyouryoku (きょうりょく)", "definition": "cooperation, collaboration"},
+    {"value": "吸収", "romaji": "kyuushuu (きゅうしゅう)", "definition": "absorption; suction; attraction"}
 ]

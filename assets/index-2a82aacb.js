@@ -724,14 +724,14 @@ class Mapper {
 const App_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[14] = list[i];
+  child_ctx[15] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[14] + ""
+    ctx[15] + ""
   );
   let t;
   return {
@@ -739,7 +739,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[14];
+      ctx[15];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -759,14 +759,14 @@ function create_if_block(ctx) {
   card = new Card({
     props: {
       frontData: (
-        /*data*/
+        /*filteredData*/
         ctx[1][
           /*currCardIndex*/
           ctx[2]
         ].front
       ),
       backData: (
-        /*data*/
+        /*filteredData*/
         ctx[1][
           /*currCardIndex*/
           ctx[2]
@@ -784,16 +784,16 @@ function create_if_block(ctx) {
     },
     p(ctx2, dirty) {
       const card_changes = {};
-      if (dirty & /*data, currCardIndex*/
+      if (dirty & /*filteredData, currCardIndex*/
       6)
-        card_changes.frontData = /*data*/
+        card_changes.frontData = /*filteredData*/
         ctx2[1][
           /*currCardIndex*/
           ctx2[2]
         ].front;
-      if (dirty & /*data, currCardIndex*/
+      if (dirty & /*filteredData, currCardIndex*/
       6)
-        card_changes.backData = /*data*/
+        card_changes.backData = /*filteredData*/
         ctx2[1][
           /*currCardIndex*/
           ctx2[2]
@@ -830,27 +830,25 @@ function create_fragment(ctx) {
   let t7;
   let input0;
   let t8;
-  let p3;
-  let t10;
   let input1;
-  let t11;
+  let t9;
   let label0;
-  let t13;
+  let t11;
   let input2;
-  let t14;
+  let t12;
   let label1;
   let div0_class_value;
-  let t16;
+  let t14;
   let h1;
-  let t18;
+  let t16;
   let counter;
   let updating_currCardIndex;
   let updating_totalCards;
-  let t19;
+  let t17;
   let div1;
-  let t20;
+  let t18;
   let br;
-  let t21;
+  let t19;
   let navigate;
   let updating_currCardIndex_1;
   let updating_totalCards_1;
@@ -925,7 +923,7 @@ function create_fragment(ctx) {
       main = element("main");
       div0 = element("div");
       p0 = element("p");
-      p0.textContent = "dataset:  ";
+      p0.textContent = "dataset:";
       t2 = space();
       select = element("select");
       for (let i = 0; i < each_blocks.length; i += 1) {
@@ -940,30 +938,27 @@ function create_fragment(ctx) {
       t7 = space();
       input0 = element("input");
       t8 = space();
-      p3 = element("p");
-      p3.textContent = "|";
-      t10 = space();
       input1 = element("input");
-      t11 = space();
+      t9 = space();
       label0 = element("label");
       label0.textContent = "front";
-      t13 = space();
+      t11 = space();
       input2 = element("input");
-      t14 = space();
+      t12 = space();
       label1 = element("label");
       label1.textContent = "back";
-      t16 = space();
+      t14 = space();
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t18 = space();
+      t16 = space();
       create_component(counter.$$.fragment);
-      t19 = space();
+      t17 = space();
       div1 = element("div");
       if (if_block)
         if_block.c();
-      t20 = space();
+      t18 = space();
       br = element("br");
-      t21 = space();
+      t19 = space();
       create_component(navigate.$$.fragment);
       attr(button, "class", "icon svelte-5r7op5");
       attr(p0, "class", "svelte-5r7op5");
@@ -981,7 +976,6 @@ function create_fragment(ctx) {
       attr(input0, "class", "searchInput svelte-5r7op5");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
-      attr(p3, "class", "svelte-5r7op5");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
@@ -1023,26 +1017,24 @@ function create_fragment(ctx) {
       append(div0, t7);
       append(div0, input0);
       append(div0, t8);
-      append(div0, p3);
-      append(div0, t10);
       append(div0, input1);
-      append(div0, t11);
+      append(div0, t9);
       append(div0, label0);
-      append(div0, t13);
+      append(div0, t11);
       append(div0, input2);
-      append(div0, t14);
+      append(div0, t12);
       append(div0, label1);
-      append(main, t16);
+      append(main, t14);
       append(main, h1);
-      append(main, t18);
+      append(main, t16);
       mount_component(counter, main, null);
-      append(main, t19);
+      append(main, t17);
       append(main, div1);
       if (if_block)
         if_block.m(div1, null);
-      append(main, t20);
+      append(main, t18);
       append(main, br);
-      append(main, t21);
+      append(main, t19);
       mount_component(navigate, main, null);
       current = true;
       if (!mounted) {
@@ -1212,13 +1204,15 @@ function instance($$self, $$props, $$invalidate) {
   let datasets = ["chinese", "japanese"];
   let selected = "chinese";
   let data = [];
+  let filteredData = [];
   let currCardIndex = 0;
   let totalCards = data.length;
   onMount(async () => {
     const mapper = new Mapper();
     const res = await fetch("datasets/chinese.json");
     const d = await res.json();
-    $$invalidate(1, data = mapper.processChineseDataset(d));
+    data = mapper.processChineseDataset(d);
+    $$invalidate(1, filteredData = data);
     $$invalidate(3, totalCards = data.length);
   });
   let showOptionsPanel = false;
@@ -1230,23 +1224,15 @@ function instance($$self, $$props, $$invalidate) {
     const res = await fetch(`datasets/${selected}.json`);
     const d = await res.json();
     if (selected === "chinese") {
-      $$invalidate(1, data = mapper.processChineseDataset(d));
+      data = mapper.processChineseDataset(d);
     } else if (selected === "japanese") {
-      $$invalidate(1, data = mapper.processJapaneseDataset(d));
+      data = mapper.processJapaneseDataset(d);
     }
     $$invalidate(2, currCardIndex = 0);
     $$invalidate(3, totalCards = data.length);
+    $$invalidate(1, filteredData = data);
   };
   const onChangeSearch = async () => {
-    const mapper = new Mapper();
-    const res = await fetch(`datasets/${selected}.json`);
-    const d = await res.json();
-    let currData;
-    if (selected === "chinese") {
-      currData = mapper.processChineseDataset(d);
-    } else if (selected === "japanese") {
-      currData = mapper.processJapaneseDataset(d);
-    }
     const searchInput = document.querySelector(".searchInput");
     if (searchInput) {
       const inputVal = searchInput.value;
@@ -1254,13 +1240,14 @@ function instance($$self, $$props, $$invalidate) {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');
         if (selectedRadioBtn) {
           const selectedSide = selectedRadioBtn.value;
-          currData = currData.filter((x) => x[selectedSide].includes(inputVal));
+          $$invalidate(1, filteredData = data.filter((x) => x[selectedSide].includes(inputVal)));
         }
+      } else {
+        $$invalidate(1, filteredData = data);
       }
     }
     $$invalidate(2, currCardIndex = 0);
-    $$invalidate(1, data = currData);
-    $$invalidate(3, totalCards = data.length);
+    $$invalidate(3, totalCards = filteredData.length);
   };
   function select_change_handler() {
     selected = select_value(this);
@@ -1285,7 +1272,7 @@ function instance($$self, $$props, $$invalidate) {
   }
   return [
     selected,
-    data,
+    filteredData,
     currCardIndex,
     totalCards,
     showOptionsPanel,

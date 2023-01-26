@@ -29,5 +29,11 @@
     {"value": "転ぶ", "romaji": "korobu (ころぶ)", "definition": "to fall down, to fall over"},
     {"value": "訓練", "romaji": "kunren (くんれん)", "definition": "training"},
     {"value": "協力", "romaji": "kyouryoku (きょうりょく)", "definition": "cooperation, collaboration"},
-    {"value": "吸収", "romaji": "kyuushuu (きゅうしゅう)", "definition": "absorption; suction; attraction"}
+    {"value": "吸収", "romaji": "kyuushuu (きゅうしゅう)", "definition": "absorption; suction; attraction"},
+    {"value": "学ぶ", "romaji": "manabu (まなぶ)", "definition": "to study in depth; to learn"},
+    {"value": "満足", "romaji": "manzoku (まんぞく)", "definition": "satisfaction"},
+    {"value": "味方", "romaji": "mikata (みかた)", "definition": "friend, ally, supporter"},
+    {"value": "入場", "romaji": "nyuujou (にゅうじょう)", "definition": "entrance; admission"},
+    {"value": "収める", "romaji": "osameru (おさめる)", "definition": "to supply; to dedicate; make an offering; pay"},
+    {"value": "連続", "romaji": "renzoku (れんぞく)", "definition": "continuation, succession, series"}
 ]

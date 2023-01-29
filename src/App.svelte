@@ -130,7 +130,6 @@
     }
     
     .options-panel-on {
-        height: 65px;
         top: 0;
         transition: 0.5s;
     }

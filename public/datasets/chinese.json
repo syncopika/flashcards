@@ -51,5 +51,20 @@
     {"value": "享受", "pinyin": "xiang3 shou4", "definition": "to enjoy"},
     {"value": "思考", "pinyin": "si1 kao3", "definition": "to think about, ponder on"},
     {"value": "觀點", "pinyin": "guan1 dian3", "definition": "perspective, point-of-view"},
-    {"value": "流暢", "pinyin": "liu2 chang4", "definition": "fluent, flowing, smooth"}
+    {"value": "流暢", "pinyin": "liu2 chang4", "definition": "fluent, flowing, smooth"},
+    {"value": "感到", "pinyin": "gan3 dao4", "definition": "to feel; to sense"},
+    {"value": "放鬆", "pinyin": "fang4 song1", "definition": "to loosen; to relax"},
+    {"value": "平靜", "pinyin": "ping2 jing4", "definition": "peaceful, tranquil, quiet"},
+    {"value": "孤單", "pinyin": "gu1 dan1", "definition": "lonely, lonesome, solitary"},
+    {"value": "並且", "pinyin": "bing4 qie3", "definition": "and, furthermore, moreover"},
+    {"value": "區別", "pinyin": "qu1 bie2", "definition": "to distinguish; to differentiate; difference, distinction"},
+    {"value": "令人", "pinyin": "ling4 ren2", "definition": "to make one, to cause people (to do something); a good person"},
+    {"value": "管弦", "pinyin": "guan3 xian2", "definition": "orchestral music"},
+    {"value": "樂隊", "pinyin": "yue4 dui4", "definition": "band, group of musicians"},
+    {"value": "良好", "pinyin": "liang2 hao3", "definition": "good, fine"},
+    {"value": "忽略", "pinyin": "hu1 lue4", "definition": "to overlook, disregard, ignore; to forget (about something)"},
+    {"value": "煩惱", "pinyin": "fan2 nao3", "definition": "to be annoyed, vexed, distressed, upset"},
+    {"value": "事情", "pinyin": "shi4 qing2", "definition": "matter, affair, thing"},
+    {"value": "閱", "pinyin": "yue4", "definition": "to look at, peruse, examine, review; to experience"},
+    {"value": "線", "pinyin": "xian4", "definition": "thread, route, line"}
 ]

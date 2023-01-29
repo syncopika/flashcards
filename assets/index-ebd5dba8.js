@@ -960,9 +960,9 @@ function create_fragment(ctx) {
       br = element("br");
       t19 = space();
       create_component(navigate.$$.fragment);
-      attr(button, "class", "icon svelte-5r7op5");
-      attr(p0, "class", "svelte-5r7op5");
-      attr(select, "class", "svelte-5r7op5");
+      attr(button, "class", "icon svelte-ar9qk4");
+      attr(p0, "class", "svelte-ar9qk4");
+      attr(select, "class", "svelte-ar9qk4");
       if (
         /*selected*/
         ctx[0] === void 0
@@ -971,28 +971,28 @@ function create_fragment(ctx) {
           /*select_change_handler*/
           ctx[9].call(select)
         ));
-      attr(p1, "class", "svelte-5r7op5");
-      attr(p2, "class", "svelte-5r7op5");
-      attr(input0, "class", "searchInput svelte-5r7op5");
+      attr(p1, "class", "svelte-ar9qk4");
+      attr(p2, "class", "svelte-ar9qk4");
+      attr(input0, "class", "searchInput svelte-ar9qk4");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-5r7op5");
+      attr(input1, "class", "svelte-ar9qk4");
       attr(label0, "for", "search-front-choice");
-      attr(label0, "class", "svelte-5r7op5");
+      attr(label0, "class", "svelte-ar9qk4");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-5r7op5");
+      attr(input2, "class", "svelte-ar9qk4");
       attr(label1, "for", "search-back-choice");
-      attr(label1, "class", "svelte-5r7op5");
+      attr(label1, "class", "svelte-ar9qk4");
       attr(div0, "class", div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[4] ? "options-panel-on" : "options-panel-off") + " svelte-5r7op5");
-      attr(div1, "class", "cardContainer svelte-5r7op5");
+      (ctx[4] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
+      attr(div1, "class", "cardContainer svelte-ar9qk4");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -1110,7 +1110,7 @@ function create_fragment(ctx) {
       }
       if (!current || dirty & /*showOptionsPanel*/
       16 && div0_class_value !== (div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[4] ? "options-panel-on" : "options-panel-off") + " svelte-5r7op5")) {
+      (ctx2[4] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4")) {
         attr(div0, "class", div0_class_value);
       }
       const counter_changes = {};

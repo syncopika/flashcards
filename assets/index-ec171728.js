@@ -376,13 +376,13 @@ function create_if_block_1(ctx) {
     m(target, anchor) {
       insert(target, div, anchor);
       div.innerHTML = /*frontData*/
-      ctx[0];
+      ctx[1];
     },
     p(ctx2, dirty) {
       if (dirty & /*frontData*/
-      1)
+      2)
         div.innerHTML = /*frontData*/
-        ctx2[0];
+        ctx2[1];
     },
     d(detaching) {
       if (detaching)
@@ -400,13 +400,13 @@ function create_if_block$1(ctx) {
     m(target, anchor) {
       insert(target, div, anchor);
       div.innerHTML = /*backData*/
-      ctx[1];
+      ctx[2];
     },
     p(ctx2, dirty) {
       if (dirty & /*backData*/
-      2)
+      4)
         div.innerHTML = /*backData*/
-        ctx2[1];
+        ctx2[2];
     },
     d(detaching) {
       if (detaching)
@@ -422,10 +422,10 @@ function create_fragment$3(ctx) {
   let dispose;
   let if_block0 = (
     /*front*/
-    ctx[2] && create_if_block_1(ctx)
+    ctx[3] && create_if_block_1(ctx)
   );
   let if_block1 = !/*front*/
-  ctx[2] && create_if_block$1(ctx);
+  ctx[3] && create_if_block$1(ctx);
   return {
     c() {
       div = element("div");
@@ -436,7 +436,7 @@ function create_fragment$3(ctx) {
         if_block1.c();
       attr(div, "class", div_class_value = null_to_empty(
         /*front*/
-        ctx[2] ? "cardInner" : "cardInnerFlipped"
+        ctx[3] ? "cardInner" : "cardInnerFlipped"
       ) + " svelte-12pg5f0");
     },
     m(target, anchor) {
@@ -451,7 +451,7 @@ function create_fragment$3(ctx) {
           div,
           "click",
           /*flip*/
-          ctx[3]
+          ctx[0]
         );
         mounted = true;
       }
@@ -459,7 +459,7 @@ function create_fragment$3(ctx) {
     p(ctx2, [dirty]) {
       if (
         /*front*/
-        ctx2[2]
+        ctx2[3]
       ) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
@@ -473,7 +473,7 @@ function create_fragment$3(ctx) {
         if_block0 = null;
       }
       if (!/*front*/
-      ctx2[2]) {
+      ctx2[3]) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
         } else {
@@ -486,9 +486,9 @@ function create_fragment$3(ctx) {
         if_block1 = null;
       }
       if (dirty & /*front*/
-      4 && div_class_value !== (div_class_value = null_to_empty(
+      8 && div_class_value !== (div_class_value = null_to_empty(
         /*front*/
-        ctx2[2] ? "cardInner" : "cardInnerFlipped"
+        ctx2[3] ? "cardInner" : "cardInnerFlipped"
       ) + " svelte-12pg5f0")) {
         attr(div, "class", div_class_value);
       }
@@ -510,22 +510,25 @@ function create_fragment$3(ctx) {
 function instance$3($$self, $$props, $$invalidate) {
   let front = true;
   const flip = () => {
-    $$invalidate(2, front = !front);
+    $$invalidate(3, front = !front);
   };
   let { frontData = "front of card" } = $$props;
   let { backData = "back of card" } = $$props;
   $$self.$$set = ($$props2) => {
     if ("frontData" in $$props2)
-      $$invalidate(0, frontData = $$props2.frontData);
+      $$invalidate(1, frontData = $$props2.frontData);
     if ("backData" in $$props2)
-      $$invalidate(1, backData = $$props2.backData);
+      $$invalidate(2, backData = $$props2.backData);
   };
-  return [frontData, backData, front, flip];
+  return [flip, frontData, backData, front];
 }
 class Card extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$3, safe_not_equal, { frontData: 0, backData: 1 });
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, { flip: 0, frontData: 1, backData: 2 });
+  }
+  get flip() {
+    return this.$$.ctx[0];
   }
 }
 const Counter_svelte_svelte_type_style_lang = "";
@@ -691,7 +694,18 @@ function instance$1($$self, $$props, $$invalidate) {
 class Navigate extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$1, create_fragment$1, safe_not_equal, { currCardIndex: 2, totalCards: 3 });
+    init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+      currCardIndex: 2,
+      totalCards: 3,
+      prev: 0,
+      next: 1
+    });
+  }
+  get prev() {
+    return this.$$.ctx[0];
+  }
+  get next() {
+    return this.$$.ctx[1];
   }
 }
 class Mapper {
@@ -724,14 +738,14 @@ class Mapper {
 const App_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[15] = list[i];
+  child_ctx[20] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[15] + ""
+    ctx[20] + ""
   );
   let t;
   return {
@@ -739,7 +753,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[15];
+      ctx[20];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -756,24 +770,24 @@ function create_each_block(ctx) {
 function create_if_block(ctx) {
   let card;
   let current;
-  card = new Card({
-    props: {
-      frontData: (
-        /*filteredData*/
-        ctx[1][
-          /*currCardIndex*/
-          ctx[2]
-        ].front
-      ),
-      backData: (
-        /*filteredData*/
-        ctx[1][
-          /*currCardIndex*/
-          ctx[2]
-        ].back
-      )
-    }
-  });
+  let card_props = {
+    frontData: (
+      /*filteredData*/
+      ctx[1][
+        /*currCardIndex*/
+        ctx[2]
+      ].front
+    ),
+    backData: (
+      /*filteredData*/
+      ctx[1][
+        /*currCardIndex*/
+        ctx[2]
+      ].back
+    )
+  };
+  card = new Card({ props: card_props });
+  ctx[15](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -811,6 +825,7 @@ function create_if_block(ctx) {
       current = false;
     },
     d(detaching) {
+      ctx[15](null);
       destroy_component(card, detaching);
     }
   };
@@ -857,17 +872,17 @@ function create_fragment(ctx) {
   let dispose;
   let each_value = (
     /*datasets*/
-    ctx[5]
+    ctx[7]
   );
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
   }
   function counter_currCardIndex_binding(value) {
-    ctx[10](value);
+    ctx[13](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[11](value);
+    ctx[14](value);
   }
   let counter_props = {};
   if (
@@ -892,10 +907,10 @@ function create_fragment(ctx) {
     ctx[3] > 0 && create_if_block(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[12](value);
+    ctx[17](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[13](value);
+    ctx[18](value);
   }
   let navigate_props = {};
   if (
@@ -913,6 +928,7 @@ function create_fragment(ctx) {
     ctx[3];
   }
   navigate = new Navigate({ props: navigate_props });
+  ctx[16](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
@@ -969,7 +985,7 @@ function create_fragment(ctx) {
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[9].call(select)
+          ctx[12].call(select)
         ));
       attr(p1, "class", "svelte-ar9qk4");
       attr(p2, "class", "svelte-ar9qk4");
@@ -991,7 +1007,7 @@ function create_fragment(ctx) {
       attr(label1, "for", "search-back-choice");
       attr(label1, "class", "svelte-ar9qk4");
       attr(div0, "class", div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[4] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
+      (ctx[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
       attr(div1, "class", "cardContainer svelte-ar9qk4");
     },
     m(target, anchor) {
@@ -1040,40 +1056,46 @@ function create_fragment(ctx) {
       if (!mounted) {
         dispose = [
           listen(
+            window,
+            "keydown",
+            /*handleKeydown*/
+            ctx[8]
+          ),
+          listen(
             button,
             "click",
             /*toggleOptionsPanel*/
-            ctx[6]
-          ),
-          listen(
-            select,
-            "change",
-            /*select_change_handler*/
             ctx[9]
           ),
           listen(
             select,
             "change",
+            /*select_change_handler*/
+            ctx[12]
+          ),
+          listen(
+            select,
+            "change",
             /*onChange*/
-            ctx[7]
+            ctx[10]
           ),
           listen(
             input0,
             "input",
             /*onChangeSearch*/
-            ctx[8]
+            ctx[11]
           ),
           listen(
             input1,
             "change",
             /*onChangeSearch*/
-            ctx[8]
+            ctx[11]
           ),
           listen(
             input2,
             "change",
             /*onChangeSearch*/
-            ctx[8]
+            ctx[11]
           )
         ];
         mounted = true;
@@ -1081,9 +1103,9 @@ function create_fragment(ctx) {
     },
     p(ctx2, [dirty]) {
       if (dirty & /*datasets*/
-      32) {
+      128) {
         each_value = /*datasets*/
-        ctx2[5];
+        ctx2[7];
         let i;
         for (i = 0; i < each_value.length; i += 1) {
           const child_ctx = get_each_context(ctx2, each_value, i);
@@ -1101,7 +1123,7 @@ function create_fragment(ctx) {
         each_blocks.length = each_value.length;
       }
       if (dirty & /*selected, datasets*/
-      33) {
+      129) {
         select_option(
           select,
           /*selected*/
@@ -1109,8 +1131,8 @@ function create_fragment(ctx) {
         );
       }
       if (!current || dirty & /*showOptionsPanel*/
-      16 && div0_class_value !== (div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[4] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4")) {
+      64 && div0_class_value !== (div0_class_value = "options-panel " + /*showOptionsPanel*/
+      (ctx2[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4")) {
         attr(div0, "class", div0_class_value);
       }
       const counter_changes = {};
@@ -1194,6 +1216,7 @@ function create_fragment(ctx) {
       destroy_component(counter);
       if (if_block)
         if_block.d();
+      ctx[16](null);
       destroy_component(navigate);
       mounted = false;
       run_all(dispose);
@@ -1207,6 +1230,20 @@ function instance($$self, $$props, $$invalidate) {
   let filteredData = [];
   let currCardIndex = 0;
   let totalCards = data.length;
+  let navComponent;
+  let cardComponent;
+  function handleKeydown(evt) {
+    if (evt.code === "ArrowLeft") {
+      if (navComponent)
+        navComponent.prev();
+    } else if (evt.code === "ArrowRight") {
+      if (navComponent)
+        navComponent.next();
+    } else if (evt.code === "Space") {
+      if (cardComponent)
+        cardComponent.flip();
+    }
+  }
   onMount(async () => {
     const mapper = new Mapper();
     const res = await fetch("datasets/chinese.json");
@@ -1217,7 +1254,7 @@ function instance($$self, $$props, $$invalidate) {
   });
   let showOptionsPanel = false;
   const toggleOptionsPanel = () => {
-    $$invalidate(4, showOptionsPanel = !showOptionsPanel);
+    $$invalidate(6, showOptionsPanel = !showOptionsPanel);
   };
   const onChange = async () => {
     const mapper = new Mapper();
@@ -1252,7 +1289,7 @@ function instance($$self, $$props, $$invalidate) {
   function select_change_handler() {
     selected = select_value(this);
     $$invalidate(0, selected);
-    $$invalidate(5, datasets);
+    $$invalidate(7, datasets);
   }
   function counter_currCardIndex_binding(value) {
     currCardIndex = value;
@@ -1261,6 +1298,18 @@ function instance($$self, $$props, $$invalidate) {
   function counter_totalCards_binding(value) {
     totalCards = value;
     $$invalidate(3, totalCards);
+  }
+  function card_binding($$value) {
+    binding_callbacks[$$value ? "unshift" : "push"](() => {
+      cardComponent = $$value;
+      $$invalidate(5, cardComponent);
+    });
+  }
+  function navigate_binding($$value) {
+    binding_callbacks[$$value ? "unshift" : "push"](() => {
+      navComponent = $$value;
+      $$invalidate(4, navComponent);
+    });
   }
   function navigate_currCardIndex_binding(value) {
     currCardIndex = value;
@@ -1275,14 +1324,19 @@ function instance($$self, $$props, $$invalidate) {
     filteredData,
     currCardIndex,
     totalCards,
+    navComponent,
+    cardComponent,
     showOptionsPanel,
     datasets,
+    handleKeydown,
     toggleOptionsPanel,
     onChange,
     onChangeSearch,
     select_change_handler,
     counter_currCardIndex_binding,
     counter_totalCards_binding,
+    card_binding,
+    navigate_binding,
     navigate_currCardIndex_binding,
     navigate_totalCards_binding
   ];

@@ -2,7 +2,7 @@
     export let currCardIndex: number;
     export let totalCards: number;
     
-    const prev = () => {
+    export const prev = () => {
         if(currCardIndex - 1 < 0){
             currCardIndex = totalCards - 1;
         }else{
@@ -10,13 +10,14 @@
         }
     };
     
-    const next = () => {
+    export const next = () => {
         if(currCardIndex + 1 > totalCards - 1){
             currCardIndex = 0;
         }else{
             currCardIndex++;
         }
     };
+    
 </script>
 
 <style>

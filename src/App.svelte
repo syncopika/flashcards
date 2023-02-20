@@ -16,6 +16,22 @@
   let currCardIndex: number = 0;
   let totalCards: number = data.length;
   
+  // get references to these components that have functions we want to call
+  let navComponent;
+  let cardComponent;
+  
+  // https://stackoverflow.com/questions/58287729/how-can-i-export-a-function-from-a-svelte-component-that-changes-a-value-in-the
+  // https://svelte.dev/tutorial/svelte-window
+  function handleKeydown(evt){
+    if(evt.code === 'ArrowLeft'){
+        if(navComponent) navComponent.prev();
+    }else if(evt.code === 'ArrowRight'){
+        if(navComponent) navComponent.next();
+    }else if(evt.code === 'Space'){
+        if(cardComponent) cardComponent.flip();
+    }
+  }
+  
   // fetch data
   onMount(async () => {
       const mapper = new Mapper();
@@ -72,6 +88,8 @@
   
 </script>
 
+<svelte:window on:keydown={handleKeydown} />
+
 <button class="icon" on:click={toggleOptionsPanel}>
   <i class="fa fa-bars"></i>
 </button>
@@ -99,13 +117,13 @@
   
   <div class='cardContainer'>
     {#if totalCards > 0}
-        <Card frontData={filteredData[currCardIndex].front} backData={filteredData[currCardIndex].back} />
+        <Card bind:this={cardComponent} frontData={filteredData[currCardIndex].front} backData={filteredData[currCardIndex].back} />
     {/if}
   </div>
   
   <br />
   
-  <Navigate bind:currCardIndex bind:totalCards />
+  <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
   
 </main>
 

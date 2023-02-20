@@ -65,5 +65,13 @@
     {"value": "能力", "romaji": "nouryoku (のうりょく)", "definition": "ability; faculty"},
     {"value": "お昼", "romaji": "ohiru (おひる)", "definition": "lunch; midday; daytime"},
     {"value": "収める", "romaji": "osameru (おさめる)", "definition": "to supply; to dedicate; to make an offering; to pay"},
-    {"value": "利益", "romaji": "rieki (りえき)", "definition": "profit; gains; benefit"}
+    {"value": "利益", "romaji": "rieki (りえき)", "definition": "profit; gains; benefit"},
+    {"value": "特集", "romaji": "tokushu (とくしゅう)", "definition": "special program, edition or collection"},
+    {"value": "迷惑", "romaji": "meiwaku (めいわく)", "definition": "nuisance; annoyance; annoying"},
+    {"value": "尊敬", "romaji": "sonkei (そんけい)", "definition": "to respect; to honor; to hold in high esteem; respectable"},
+    {"value": "環境", "romaji": "kankyo (かんきょう)", "definition": "environment; surroundings; the natural environment"},
+    {"value": "違う", "romaji": "chigau (ちがう)", "definition": "wrong"},
+    {"value": "体育", "romaji": "taiiku (たいいく)", "definition": "physical education; sports"},
+    {"value": "全然", "romaji": "zenzen (ぜんぜん)", "definition": "not at all; complete, entirely"},
+    {"value": "危険", "romaji": "kiken (きけん)", "definition": "hazardous, dangerous"}
 ]

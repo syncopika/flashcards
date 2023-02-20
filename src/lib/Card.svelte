@@ -1,7 +1,7 @@
 <script lang="ts">
   let front: boolean = true; // if front of card is shown currently
   
-  const flip = () => {
+  export const flip = () => {
     front = !front;
   }
   

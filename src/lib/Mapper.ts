@@ -27,4 +27,14 @@ export class Mapper {
             };
         });
     }
+    
+    // example data: {"character": "ㄅ", "pinyin": "b"}
+    processBopomofoDataset(jsonData: any[]): Record<string, string>[] {
+         return jsonData.map(obj => {
+            return {
+                front: obj.character,
+                back: `<p>pinyin: ${obj.pinyin}</p>`,
+            };
+        });
+    }
 }

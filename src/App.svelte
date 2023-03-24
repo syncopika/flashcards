@@ -6,6 +6,7 @@
   import { onMount } from 'svelte';
   
   let datasets: string[] = [
+    "bopomofo",
     "chinese",
     "japanese"
   ];
@@ -58,6 +59,8 @@
         data = mapper.processChineseDataset(d);
       }else if(selected === "japanese"){
         data = mapper.processJapaneseDataset(d);
+      }else if(selected === "bopomofo"){
+        data = mapper.processBopomofoDataset(d);
       }
       
       currCardIndex = 0;
@@ -73,7 +76,7 @@
             // then filter data
             const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');
             if(selectedRadioBtn){
-                // TODO: create type here?
+                // TODO: create type here (e.g. instead of string, either 'front' or 'back')?
                 const selectedSide: string = selectedRadioBtn.value;
                 filteredData = data.filter(x => (x[selectedSide]).includes(inputVal));
             }
@@ -84,6 +87,23 @@
       
       currCardIndex = 0;
       totalCards = filteredData.length;
+  }
+  
+  const shuffle = () => {
+      // TODO: make some animation to go along with this?
+      
+      // shuffle the cards - https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+      const maxIndex = filteredData.length - 1;
+      for(let i = 0; i < filteredData.length - 2; i++){
+        const newIdx = Math.floor(Math.random() * (maxIndex - i) + i);
+        const temp = filteredData[i];
+        filteredData[i] = filteredData[newIdx];
+        filteredData[newIdx] = temp;
+      }
+      
+      // update current card @ current index after shuffle
+      const newCurrIdx = Math.floor(Math.random() * maxIndex);
+      currCardIndex = newCurrIdx;
   }
   
 </script>
@@ -109,6 +129,7 @@
     <label for="search-front-choice">front</label>
     <input type="radio" id="search-back-choice" name="search-side-choice" value="back" on:change={onChangeSearch}>
     <label for="search-back-choice">back</label>
+    <button on:click={shuffle}>shuffle</button>
   </div>
 
   <h1>flashcards</h1>

@@ -21,7 +21,7 @@
     {"value": "割", "pinyin": "ge1", "definition": "cut, divide, partition;cede"},
     {"value": "剿", "pinyin": "chao1,jiao3", "definition": "to destroy, to exterminate, to annihilate"},
     {"value": "劺", "pinyin": "mou2", "definition": "exhortation and encouragement;strong"},
-    {"value": "劻", "pinyin": "kuang1", "definition": "flurried, be in flurry, zealous"},
+    {"value": "劻", "pinyin": "kuang1", "definition": "flustered, zealous"},
     {"value": "劼", "pinyin": "jie2", "definition": "be discreet, prudent, cautious;surname"},
     {"value": "劵", "pinyin": "juan4", "definition": "certificate, ticket;title deeds;"},
     {"value": "劾", "pinyin": "he2", "definition": "examine into;impeach, charge"},
@@ -211,5 +211,14 @@
     {"value": "戴", "pinyin": "dai4", "definition": "difficult; to wear (on one's head); to put on (an accessory)"},
     {"value": "特定", "pinyin": "te4 ding4", "definition": "difficult; specific; particular"},
     {"value": "遇", "pinyin": "yu4", "definition": "to meet; to come across; to encounter"},
-    {"value": "個子", "pinyin": "ge4 zi", "definition": "height; build; stature"}
+    {"value": "個子", "pinyin": "ge4 zi", "definition": "height; build; stature"},
+    {"value": "堅持", "pinyin": "jian1 chi2", "definition": "to persist; to persevere; to insist on"},
+    {"value": "終於", "pinyin": "zhong1 yu2", "definition": "at last; finally; eventually"},
+    {"value": "偶爾", "pinyin": "ou3 er3", "definition": "now and then; from time to time; sometimes"},
+    {"value": "答應", "pinyin": "da2 ying2", "definition": "to respond; to answer"},
+    {"value": "靠近", "pinyin": "kao4 jin4", "definition": "to approach; to come closer"},
+    {"value": "矮", "pinyin": "ai3", "definition": "short stature"},
+    {"value": "克服", "pinyin": "ke4 fu2", "definition": "to overcome; to conquer"},
+    {"value": "認識", "pinyin": "ren4 shi", "definition": "to know (someone); to recognize (somebody or something); to be familiar with"},
+    {"value": "交", "pinyin": "jiao3", "definition": "friendship; to join; to unite; continuous"}
 ]

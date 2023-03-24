@@ -95,5 +95,12 @@
     {"value": "一瞬", "romaji": "isshun (いっしゅん)", "definition": "instant; moment; for an instant"},
     {"value": "一層", "romaji": "issou (いっそう)", "definition": "much more; still more; single layer; sooner; preferably"},
     {"value": "一体", "romaji": "ittai (いったい)", "definition": "what in the world (used for emphasis and to express incredulity)"},
-    {"value": "所謂", "romaji": "iwayuru (いわゆる)", "definition": "what is called; as it is called; so to speak"}
+    {"value": "所謂", "romaji": "iwayuru (いわゆる)", "definition": "what is called; as it is called; so to speak"},
+    {"value": "謝罪", "romaji": "shazai (しゃざい)", "definition": "apology"},
+    {"value": "勘弁", "romaji": "kanben (かんべん)", "definition": "forgive; forbear; pardon"},
+    {"value": "茶番", "romaji": "chaban (ちゃばん)", "definition": "a server of tea; a farce; a foolish performance"},
+    {"value": "面倒", "romaji": "mendou (めんどう)", "definition": "troublesome; inconvenient"},
+    {"value": "減る", "romaji": "heru (へる)", "definition": "to be reduced or decreased; to become fewer"},
+    {"value": "機会", "romaji": "kikai (きかい)", "definition": "opportunity; chance"},
+    {"value": "反省", "romaji": "hansei (はんせい)", "definition": "reflection; introspection; contemplation"}
 ]

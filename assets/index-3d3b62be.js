@@ -734,18 +734,27 @@ class Mapper {
       };
     });
   }
+  // example data: {"character": "ㄅ", "pinyin": "b"}
+  processBopomofoDataset(jsonData) {
+    return jsonData.map((obj) => {
+      return {
+        front: obj.character,
+        back: `<p>pinyin: ${obj.pinyin}</p>`
+      };
+    });
+  }
 }
 const App_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[20] = list[i];
+  child_ctx[21] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[20] + ""
+    ctx[21] + ""
   );
   let t;
   return {
@@ -753,7 +762,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[20];
+      ctx[21];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -787,7 +796,7 @@ function create_if_block(ctx) {
     )
   };
   card = new Card({ props: card_props });
-  ctx[15](card);
+  ctx[16](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -825,13 +834,13 @@ function create_if_block(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[15](null);
+      ctx[16](null);
       destroy_component(card, detaching);
     }
   };
 }
 function create_fragment(ctx) {
-  let button;
+  let button0;
   let t0;
   let main;
   let div0;
@@ -852,18 +861,20 @@ function create_fragment(ctx) {
   let input2;
   let t12;
   let label1;
-  let div0_class_value;
   let t14;
-  let h1;
+  let button1;
+  let div0_class_value;
   let t16;
+  let h1;
+  let t18;
   let counter;
   let updating_currCardIndex;
   let updating_totalCards;
-  let t17;
-  let div1;
-  let t18;
-  let br;
   let t19;
+  let div1;
+  let t20;
+  let br;
+  let t21;
   let navigate;
   let updating_currCardIndex_1;
   let updating_totalCards_1;
@@ -879,10 +890,10 @@ function create_fragment(ctx) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
   }
   function counter_currCardIndex_binding(value) {
-    ctx[13](value);
+    ctx[14](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[14](value);
+    ctx[15](value);
   }
   let counter_props = {};
   if (
@@ -907,10 +918,10 @@ function create_fragment(ctx) {
     ctx[3] > 0 && create_if_block(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[17](value);
+    ctx[18](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[18](value);
+    ctx[19](value);
   }
   let navigate_props = {};
   if (
@@ -928,13 +939,13 @@ function create_fragment(ctx) {
     ctx[3];
   }
   navigate = new Navigate({ props: navigate_props });
-  ctx[16](navigate);
+  ctx[17](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
     c() {
-      button = element("button");
-      button.innerHTML = `<i class="fa fa-bars"></i>`;
+      button0 = element("button");
+      button0.innerHTML = `<i class="fa fa-bars"></i>`;
       t0 = space();
       main = element("main");
       div0 = element("div");
@@ -964,19 +975,22 @@ function create_fragment(ctx) {
       label1 = element("label");
       label1.textContent = "back";
       t14 = space();
+      button1 = element("button");
+      button1.textContent = "shuffle";
+      t16 = space();
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t16 = space();
+      t18 = space();
       create_component(counter.$$.fragment);
-      t17 = space();
+      t19 = space();
       div1 = element("div");
       if (if_block)
         if_block.c();
-      t18 = space();
+      t20 = space();
       br = element("br");
-      t19 = space();
+      t21 = space();
       create_component(navigate.$$.fragment);
-      attr(button, "class", "icon svelte-ar9qk4");
+      attr(button0, "class", "icon svelte-ar9qk4");
       attr(p0, "class", "svelte-ar9qk4");
       attr(select, "class", "svelte-ar9qk4");
       if (
@@ -985,7 +999,7 @@ function create_fragment(ctx) {
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[12].call(select)
+          ctx[13].call(select)
         ));
       attr(p1, "class", "svelte-ar9qk4");
       attr(p2, "class", "svelte-ar9qk4");
@@ -1006,12 +1020,13 @@ function create_fragment(ctx) {
       attr(input2, "class", "svelte-ar9qk4");
       attr(label1, "for", "search-back-choice");
       attr(label1, "class", "svelte-ar9qk4");
+      attr(button1, "class", "svelte-ar9qk4");
       attr(div0, "class", div0_class_value = "options-panel " + /*showOptionsPanel*/
       (ctx[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
       attr(div1, "class", "cardContainer svelte-ar9qk4");
     },
     m(target, anchor) {
-      insert(target, button, anchor);
+      insert(target, button0, anchor);
       insert(target, t0, anchor);
       insert(target, main, anchor);
       append(main, div0);
@@ -1040,17 +1055,19 @@ function create_fragment(ctx) {
       append(div0, input2);
       append(div0, t12);
       append(div0, label1);
-      append(main, t14);
-      append(main, h1);
+      append(div0, t14);
+      append(div0, button1);
       append(main, t16);
+      append(main, h1);
+      append(main, t18);
       mount_component(counter, main, null);
-      append(main, t17);
+      append(main, t19);
       append(main, div1);
       if (if_block)
         if_block.m(div1, null);
-      append(main, t18);
+      append(main, t20);
       append(main, br);
-      append(main, t19);
+      append(main, t21);
       mount_component(navigate, main, null);
       current = true;
       if (!mounted) {
@@ -1062,7 +1079,7 @@ function create_fragment(ctx) {
             ctx[8]
           ),
           listen(
-            button,
+            button0,
             "click",
             /*toggleOptionsPanel*/
             ctx[9]
@@ -1071,7 +1088,7 @@ function create_fragment(ctx) {
             select,
             "change",
             /*select_change_handler*/
-            ctx[12]
+            ctx[13]
           ),
           listen(
             select,
@@ -1096,6 +1113,12 @@ function create_fragment(ctx) {
             "change",
             /*onChangeSearch*/
             ctx[11]
+          ),
+          listen(
+            button1,
+            "click",
+            /*shuffle*/
+            ctx[12]
           )
         ];
         mounted = true;
@@ -1207,7 +1230,7 @@ function create_fragment(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(button);
+        detach(button0);
       if (detaching)
         detach(t0);
       if (detaching)
@@ -1216,7 +1239,7 @@ function create_fragment(ctx) {
       destroy_component(counter);
       if (if_block)
         if_block.d();
-      ctx[16](null);
+      ctx[17](null);
       destroy_component(navigate);
       mounted = false;
       run_all(dispose);
@@ -1224,7 +1247,7 @@ function create_fragment(ctx) {
   };
 }
 function instance($$self, $$props, $$invalidate) {
-  let datasets = ["chinese", "japanese"];
+  let datasets = ["bopomofo", "chinese", "japanese"];
   let selected = "chinese";
   let data = [];
   let filteredData = [];
@@ -1264,6 +1287,8 @@ function instance($$self, $$props, $$invalidate) {
       data = mapper.processChineseDataset(d);
     } else if (selected === "japanese") {
       data = mapper.processJapaneseDataset(d);
+    } else if (selected === "bopomofo") {
+      data = mapper.processBopomofoDataset(d);
     }
     $$invalidate(2, currCardIndex = 0);
     $$invalidate(3, totalCards = data.length);
@@ -1285,6 +1310,17 @@ function instance($$self, $$props, $$invalidate) {
     }
     $$invalidate(2, currCardIndex = 0);
     $$invalidate(3, totalCards = filteredData.length);
+  };
+  const shuffle = () => {
+    const maxIndex = filteredData.length - 1;
+    for (let i = 0; i < filteredData.length - 2; i++) {
+      const newIdx = Math.floor(Math.random() * (maxIndex - i) + i);
+      const temp = filteredData[i];
+      $$invalidate(1, filteredData[i] = filteredData[newIdx], filteredData);
+      $$invalidate(1, filteredData[newIdx] = temp, filteredData);
+    }
+    const newCurrIdx = Math.floor(Math.random() * maxIndex);
+    $$invalidate(2, currCardIndex = newCurrIdx);
   };
   function select_change_handler() {
     selected = select_value(this);
@@ -1332,6 +1368,7 @@ function instance($$self, $$props, $$invalidate) {
     toggleOptionsPanel,
     onChange,
     onChangeSearch,
+    shuffle,
     select_change_handler,
     counter_currCardIndex_binding,
     counter_totalCards_binding,

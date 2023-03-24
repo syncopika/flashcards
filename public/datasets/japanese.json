@@ -102,5 +102,8 @@
     {"value": "面倒", "romaji": "mendou (めんどう)", "definition": "troublesome; inconvenient"},
     {"value": "減る", "romaji": "heru (へる)", "definition": "to be reduced or decreased; to become fewer"},
     {"value": "機会", "romaji": "kikai (きかい)", "definition": "opportunity; chance"},
-    {"value": "反省", "romaji": "hansei (はんせい)", "definition": "reflection; introspection; contemplation"}
+    {"value": "反省", "romaji": "hansei (はんせい)", "definition": "reflection; introspection; contemplation"},
+    {"value": "逆", "romaji": "gyaku (ぎゃく)", "definition": "opposite; reverse"},
+    {"value": "入力", "romaji": "nyuryoku (にゅうりょく)", "definition": "input"},
+    {"value": "対する", "romaji": "taisuru (たいする)", "definition": "to pertain to; face each other; be in response to; be against"}
 ]

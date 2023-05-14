@@ -105,5 +105,14 @@
     {"value": "反省", "romaji": "hansei (はんせい)", "definition": "reflection; introspection; contemplation"},
     {"value": "逆", "romaji": "gyaku (ぎゃく)", "definition": "opposite; reverse"},
     {"value": "入力", "romaji": "nyuryoku (にゅうりょく)", "definition": "input"},
-    {"value": "対する", "romaji": "taisuru (たいする)", "definition": "to pertain to; face each other; be in response to; be against"}
+    {"value": "対する", "romaji": "taisuru (たいする)", "definition": "to pertain to; face each other; be in response to; be against"},
+    {"value": "加減", "romaji": "kagen (かげん)", "definition": "adjustment, moderation; addition and subtraction; degree, amount (or seasoning, heating, etc.)"},
+    {"value": "借りる", "romaji": "kariru (かりる)", "definition": "to borrow"},
+    {"value": "相手", "romaji": "aite (あいて)", "definition": "other person; partner"},
+    {"value": "立派", "romaji": "rippa (りっぱ)", "definition": "splendid; magnificent; excellent"},
+    {"value": "戦術", "romaji": "senjutsu (せんじゅつ)", "definition": "military tactics"},
+    {"value": "殴る", "romaji": "naguru (なぐる)", "definition": "to hit"},
+    {"value": "外", "romaji": "soto (そと)", "definition": "outside"},
+    {"value": "反則", "romaji": "hansoku (はんそく)", "definition": "violation of the rules; of overwhelming (unfair) superiority"},
+    {"value": "騒ぐ", "romaji": "sawagu (さわぐ)", "definition": "to make noise; to make merry; to clamor"}
 ]

@@ -55,7 +55,18 @@
     
     .back {
         transform: rotateY(180deg); /* rotate the text content as well so it matches */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+    
+    /*
+        https://stackoverflow.com/questions/60734783/use-svelte-css-class-in-html
+    */
+    .back :global(.field) {
+        font-weight: bold;
+    }
+    
 </style>
 
 <div class="{front ? 'cardInner' : 'cardInnerFlipped'}" on:click={flip}>

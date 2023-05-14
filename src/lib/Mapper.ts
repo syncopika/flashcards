@@ -9,11 +9,12 @@ export class Mapper {
     // to be arranged like an array of {"value": "匂", "pinyin": "xiong1", "definition": "fragrance, smell;"}
     // we want to show the character on the front of a card and the pinyin and definition on the back of the card
     // TODO: create an interface for the expected incoming dataset format
+    // TODO: maybe pass back the fields and values to display and let whoever is receiving this data handle the html presentation
     processChineseDataset(jsonData: any[]): Record<string, string>[] {
         return jsonData.map(obj => {
             return {
                 front: obj.value,
-                back: `<p>pinyin: ${obj.pinyin}</p> <p>definition: ${obj.definition}</p>`,
+                back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
             };
         });
     }
@@ -23,7 +24,7 @@ export class Mapper {
          return jsonData.map(obj => {
             return {
                 front: obj.value,
-                back: `<p>romaji: ${obj.romaji}</p> <p>definition: ${obj.definition}</p>`,
+                back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
             };
         });
     }
@@ -33,7 +34,7 @@ export class Mapper {
          return jsonData.map(obj => {
             return {
                 front: obj.character,
-                back: `<p>pinyin: ${obj.pinyin}</p>`,
+                back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p>`,
             };
         });
     }

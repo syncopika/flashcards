@@ -13,7 +13,7 @@ export class Mapper {
     processChineseDataset(jsonData: any[]): Record<string, string>[] {
         return jsonData.map(obj => {
             return {
-                front: obj.value,
+                front: `<p>${obj.value}</p>`,
                 back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
             };
         });
@@ -23,7 +23,7 @@ export class Mapper {
     processJapaneseDataset(jsonData: any[]): Record<string, string>[] {
          return jsonData.map(obj => {
             return {
-                front: obj.value,
+                front: `<p>${obj.value}</p>`,
                 back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
             };
         });
@@ -33,7 +33,7 @@ export class Mapper {
     processBopomofoDataset(jsonData: any[]): Record<string, string>[] {
          return jsonData.map(obj => {
             return {
-                front: obj.character,
+                front: `<p>${obj.character}</p>`,
                 back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p>`,
             };
         });

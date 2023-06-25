@@ -17,13 +17,16 @@
   let currCardIndex: number = 0;
   let totalCards: number = data.length;
   
+  // for handling swipe events
+  let touchStartX;
+  
   // get references to these components that have functions we want to call
   let navComponent;
   let cardComponent;
   
   // https://stackoverflow.com/questions/58287729/how-can-i-export-a-function-from-a-svelte-component-that-changes-a-value-in-the
   // https://svelte.dev/tutorial/svelte-window
-  function handleKeydown(evt){
+  function handleKeydown(evt: Event){
     if(evt.code === 'ArrowLeft'){
         if(navComponent) navComponent.prev();
     }else if(evt.code === 'ArrowRight'){
@@ -106,9 +109,34 @@
       currCardIndex = newCurrIdx;
   }
   
+  const touchstart = (evt: Event) => {
+      touchStartX = evt.touches[0].screenX;
+  }
+  
+  const touchend = (evt: Event) => {
+      const end = evt.changedTouches[0].screenX;
+      if(touchStartX && Math.abs(end - touchStartX) > 10){
+        if(end < touchStartX){
+            // swipe left
+            if(currCardIndex - 1 < 0){
+                currCardIndex = totalCards - 1;
+            }else{
+                currCardIndex--;
+            }
+        }else{
+            // swipe right
+            if(currCardIndex + 1 > totalCards - 1){
+                currCardIndex = 0;
+            }else{
+                currCardIndex++;
+            }
+        }
+      }
+  }
+  
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window on:keydown={handleKeydown} on:touchstart={touchstart} on:touchend={touchend} />
 
 <button class="icon" on:click={toggleOptionsPanel}>
   <i class="fa fa-bars"></i>

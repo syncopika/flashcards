@@ -270,5 +270,20 @@
     {"value": "農田", "pinyin": "nong2 tian2", "definition": "farmland"},
     {"value": "從此", "pinyin": "cong2 ci3", "definition": "from now on; henceforth"},
     {"value": "耕作", "pinyin": "geng1 zuo4", "definition": "tillage"},
-    {"value": "混", "pinyin": "hun4", "definition": "turbid; to mix; to blend; to pass off as; to muddle along; to get along with somebody; thoughtlessly; casually"}
+    {"value": "混", "pinyin": "hun4", "definition": "turbid; to mix; to blend; to pass off as; to muddle along; to get along with somebody; thoughtlessly; casually"},
+    {"value": "撿", "pinyin": "jian3", "definition": "to pick up; to collect; to take; to get"},
+    {"value": "夢想", "pinyin": "meng4 xiang3", "definition": "to dream; to fantasize; to desire; dream; wish"},
+    {"value": "追逐", "pinyin": "zhui1 zhu2", "definition": "to pursue; to chase after; to seek"},
+    {"value": "丟", "pinyin": "diu1", "definition": "to lose; to misplace; to be missing; to toss; to discard; to dismiss; to put aside"},
+    {"value": "收穫", "pinyin": "shou1 huo4", "definition": "to harvest; to gather crops; to gain; to derive"},
+    {"value": "愚蠢", "pinyin": "yu2 chun3", "definition": "stupid; foolish; unwise"},
+    {"value": "勞", "pinyin": "lao2", "definition": "to toil; to do manual labor"},
+    {"value": "付出", "pinyin": "fu4 chu1", "definition": "to pay; to expend; to invest time or energy; to put in effort"},
+    {"value": "僥倖", "pinyin": "jiao3 xing4", "definition": "lucky; by fluke or chance"},
+    {"value": "流行", "pinyin": "liu2 xing2", "definition": "prevalent; widespread; popular; fashionable"},
+    {"value": "養", "pinyin": "yang3", "definition": "to raise; to rear; to support"},
+    {"value": "篤定", "pinyin": "du3 ding4", "definition": "to be certain; calm; serene"},
+    {"value": "屋子", "pinyin": "wu1 zi", "definition": "room"},
+    {"value": "註明", "pinyin": "zhu4 ming2", "definition": "to explain or mark it clearly"},
+    {"value": "虛心", "pinyin": "xu1 xin1", "definition": "modest; open-minded"}
 ]

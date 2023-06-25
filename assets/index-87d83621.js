@@ -509,8 +509,10 @@ function create_fragment$3(ctx) {
 }
 function instance$3($$self, $$props, $$invalidate) {
   let front = true;
-  const flip = () => {
-    $$invalidate(3, front = !front);
+  const flip = (evt) => {
+    if (!window.getSelection().toString()) {
+      $$invalidate(3, front = !front);
+    }
   };
   let { frontData = "front of card" } = $$props;
   let { backData = "back of card" } = $$props;
@@ -721,7 +723,7 @@ class Mapper {
   processChineseDataset(jsonData) {
     return jsonData.map((obj) => {
       return {
-        front: obj.value,
+        front: `<p>${obj.value}</p>`,
         back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`
       };
     });
@@ -730,7 +732,7 @@ class Mapper {
   processJapaneseDataset(jsonData) {
     return jsonData.map((obj) => {
       return {
-        front: obj.value,
+        front: `<p>${obj.value}</p>`,
         back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`
       };
     });
@@ -739,7 +741,7 @@ class Mapper {
   processBopomofoDataset(jsonData) {
     return jsonData.map((obj) => {
       return {
-        front: obj.character,
+        front: `<p>${obj.character}</p>`,
         back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p>`
       };
     });
@@ -748,14 +750,14 @@ class Mapper {
 const App_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[21] = list[i];
+  child_ctx[24] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[21] + ""
+    ctx[24] + ""
   );
   let t;
   return {
@@ -763,7 +765,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[21];
+      ctx[24];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -797,7 +799,7 @@ function create_if_block(ctx) {
     )
   };
   card = new Card({ props: card_props });
-  ctx[16](card);
+  ctx[18](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -835,7 +837,7 @@ function create_if_block(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[16](null);
+      ctx[18](null);
       destroy_component(card, detaching);
     }
   };
@@ -891,10 +893,10 @@ function create_fragment(ctx) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
   }
   function counter_currCardIndex_binding(value) {
-    ctx[14](value);
+    ctx[16](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[15](value);
+    ctx[17](value);
   }
   let counter_props = {};
   if (
@@ -919,10 +921,10 @@ function create_fragment(ctx) {
     ctx[3] > 0 && create_if_block(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[18](value);
+    ctx[20](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[19](value);
+    ctx[21](value);
   }
   let navigate_props = {};
   if (
@@ -940,7 +942,7 @@ function create_fragment(ctx) {
     ctx[3];
   }
   navigate = new Navigate({ props: navigate_props });
-  ctx[17](navigate);
+  ctx[19](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
@@ -1000,7 +1002,7 @@ function create_fragment(ctx) {
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[13].call(select)
+          ctx[15].call(select)
         ));
       attr(p1, "class", "svelte-ar9qk4");
       attr(p2, "class", "svelte-ar9qk4");
@@ -1080,6 +1082,18 @@ function create_fragment(ctx) {
             ctx[8]
           ),
           listen(
+            window,
+            "touchstart",
+            /*touchstart*/
+            ctx[13]
+          ),
+          listen(
+            window,
+            "touchend",
+            /*touchend*/
+            ctx[14]
+          ),
+          listen(
             button0,
             "click",
             /*toggleOptionsPanel*/
@@ -1089,7 +1103,7 @@ function create_fragment(ctx) {
             select,
             "change",
             /*select_change_handler*/
-            ctx[13]
+            ctx[15]
           ),
           listen(
             select,
@@ -1240,7 +1254,7 @@ function create_fragment(ctx) {
       destroy_component(counter);
       if (if_block)
         if_block.d();
-      ctx[17](null);
+      ctx[19](null);
       destroy_component(navigate);
       mounted = false;
       run_all(dispose);
@@ -1254,6 +1268,7 @@ function instance($$self, $$props, $$invalidate) {
   let filteredData = [];
   let currCardIndex = 0;
   let totalCards = data.length;
+  let touchStartX;
   let navComponent;
   let cardComponent;
   function handleKeydown(evt) {
@@ -1323,6 +1338,27 @@ function instance($$self, $$props, $$invalidate) {
     const newCurrIdx = Math.floor(Math.random() * maxIndex);
     $$invalidate(2, currCardIndex = newCurrIdx);
   };
+  const touchstart = (evt) => {
+    touchStartX = evt.touches[0].screenX;
+  };
+  const touchend = (evt) => {
+    const end = evt.changedTouches[0].screenX;
+    if (touchStartX && Math.abs(end - touchStartX) > 10) {
+      if (end < touchStartX) {
+        if (currCardIndex - 1 < 0) {
+          $$invalidate(2, currCardIndex = totalCards - 1);
+        } else {
+          $$invalidate(2, currCardIndex--, currCardIndex);
+        }
+      } else {
+        if (currCardIndex + 1 > totalCards - 1) {
+          $$invalidate(2, currCardIndex = 0);
+        } else {
+          $$invalidate(2, currCardIndex++, currCardIndex);
+        }
+      }
+    }
+  };
   function select_change_handler() {
     selected = select_value(this);
     $$invalidate(0, selected);
@@ -1370,6 +1406,8 @@ function instance($$self, $$props, $$invalidate) {
     onChange,
     onChangeSearch,
     shuffle,
+    touchstart,
+    touchend,
     select_change_handler,
     counter_currCardIndex_binding,
     counter_totalCards_binding,

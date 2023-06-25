@@ -1345,16 +1345,16 @@ function instance($$self, $$props, $$invalidate) {
     const end = evt.changedTouches[0].screenX;
     if (touchStartX && Math.abs(end - touchStartX) > 10) {
       if (end < touchStartX) {
-        if (currCardIndex - 1 < 0) {
-          $$invalidate(2, currCardIndex = totalCards - 1);
-        } else {
-          $$invalidate(2, currCardIndex--, currCardIndex);
-        }
-      } else {
         if (currCardIndex + 1 > totalCards - 1) {
           $$invalidate(2, currCardIndex = 0);
         } else {
           $$invalidate(2, currCardIndex++, currCardIndex);
+        }
+      } else {
+        if (currCardIndex - 1 < 0) {
+          $$invalidate(2, currCardIndex = totalCards - 1);
+        } else {
+          $$invalidate(2, currCardIndex--, currCardIndex);
         }
       }
     }

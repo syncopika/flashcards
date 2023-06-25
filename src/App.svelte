@@ -117,18 +117,18 @@
       const end = evt.changedTouches[0].screenX;
       if(touchStartX && Math.abs(end - touchStartX) > 10){
         if(end < touchStartX){
-            // swipe left
-            if(currCardIndex - 1 < 0){
-                currCardIndex = totalCards - 1;
-            }else{
-                currCardIndex--;
-            }
-        }else{
-            // swipe right
+            // swipe left, go forwards
             if(currCardIndex + 1 > totalCards - 1){
                 currCardIndex = 0;
             }else{
                 currCardIndex++;
+            }
+        }else{
+            // swipe right, go backwards
+            if(currCardIndex - 1 < 0){
+                currCardIndex = totalCards - 1;
+            }else{
+                currCardIndex--;
             }
         }
       }

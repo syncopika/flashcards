@@ -15,6 +15,7 @@ export class Mapper {
             return {
                 front: `<p>${obj.value}</p>`,
                 back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+				tags: obj.tags ? obj.tags.reduce((acc, currVal) => acc + `<span>${currVal}</span>`, "") : "",
             };
         });
     }
@@ -25,6 +26,7 @@ export class Mapper {
             return {
                 front: `<p>${obj.value}</p>`,
                 back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+				tags: obj.tags ? obj.tags.reduce((acc, currVal) => acc + `<span>${currVal}</span>`, "") : "",
             };
         });
     }

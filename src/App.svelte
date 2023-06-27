@@ -166,7 +166,12 @@
   
   <div class='cardContainer'>
     {#if totalCards > 0}
-        <Card bind:this={cardComponent} frontData={filteredData[currCardIndex].front} backData={filteredData[currCardIndex].back} />
+        <Card
+            bind:this={cardComponent}
+            frontData={filteredData[currCardIndex].front}
+            backData={filteredData[currCardIndex].back}
+            tags={filteredData[currCardIndex].tags}
+        />
     {/if}
   </div>
   

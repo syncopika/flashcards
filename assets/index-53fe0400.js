@@ -83,6 +83,9 @@ function destroy_each(iterations, detaching) {
 function element(name) {
   return document.createElement(name);
 }
+function svg_element(name) {
+  return document.createElementNS("http://www.w3.org/2000/svg", name);
+}
 function text(data) {
   return document.createTextNode(data);
 }
@@ -120,6 +123,44 @@ function select_option(select, value) {
 function select_value(select) {
   const selected_option = select.querySelector(":checked") || select.options[0];
   return selected_option && selected_option.__value;
+}
+class HtmlTag {
+  constructor(is_svg = false) {
+    this.is_svg = false;
+    this.is_svg = is_svg;
+    this.e = this.n = null;
+  }
+  c(html) {
+    this.h(html);
+  }
+  m(html, target, anchor = null) {
+    if (!this.e) {
+      if (this.is_svg)
+        this.e = svg_element(target.nodeName);
+      else
+        this.e = element(target.nodeName);
+      this.t = target;
+      this.c(html);
+    }
+    this.i(anchor);
+  }
+  h(html) {
+    this.e.innerHTML = html;
+    this.n = Array.from(this.e.childNodes);
+  }
+  i(anchor) {
+    for (let i = 0; i < this.n.length; i += 1) {
+      insert(this.t, this.n[i], anchor);
+    }
+  }
+  p(html) {
+    this.d();
+    this.h(html);
+    this.i(this.a);
+  }
+  d() {
+    this.n.forEach(detach);
+  }
 }
 let current_component;
 function set_current_component(component) {
@@ -366,7 +407,7 @@ class SvelteComponent {
   }
 }
 const Card_svelte_svelte_type_style_lang = "";
-function create_if_block_1(ctx) {
+function create_if_block_2(ctx) {
   let div;
   return {
     c() {
@@ -392,25 +433,95 @@ function create_if_block_1(ctx) {
 }
 function create_if_block$1(ctx) {
   let div;
+  let html_tag;
+  let t;
+  let if_block = (
+    /*tags*/
+    ctx[3] && create_if_block_1(ctx)
+  );
   return {
     c() {
       div = element("div");
+      html_tag = new HtmlTag(false);
+      t = space();
+      if (if_block)
+        if_block.c();
+      html_tag.a = t;
       attr(div, "class", "back svelte-3vogdr");
     },
     m(target, anchor) {
       insert(target, div, anchor);
-      div.innerHTML = /*backData*/
-      ctx[2];
+      html_tag.m(
+        /*backData*/
+        ctx[2],
+        div
+      );
+      append(div, t);
+      if (if_block)
+        if_block.m(div, null);
     },
     p(ctx2, dirty) {
       if (dirty & /*backData*/
       4)
-        div.innerHTML = /*backData*/
-        ctx2[2];
+        html_tag.p(
+          /*backData*/
+          ctx2[2]
+        );
+      if (
+        /*tags*/
+        ctx2[3]
+      ) {
+        if (if_block) {
+          if_block.p(ctx2, dirty);
+        } else {
+          if_block = create_if_block_1(ctx2);
+          if_block.c();
+          if_block.m(div, null);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
     },
     d(detaching) {
       if (detaching)
         detach(div);
+      if (if_block)
+        if_block.d();
+    }
+  };
+}
+function create_if_block_1(ctx) {
+  let p;
+  let t;
+  let html_tag;
+  return {
+    c() {
+      p = element("p");
+      t = text("tags: ");
+      html_tag = new HtmlTag(false);
+      html_tag.a = null;
+    },
+    m(target, anchor) {
+      insert(target, p, anchor);
+      append(p, t);
+      html_tag.m(
+        /*tags*/
+        ctx[3],
+        p
+      );
+    },
+    p(ctx2, dirty) {
+      if (dirty & /*tags*/
+      8)
+        html_tag.p(
+          /*tags*/
+          ctx2[3]
+        );
+    },
+    d(detaching) {
+      if (detaching)
+        detach(p);
     }
   };
 }
@@ -422,10 +533,10 @@ function create_fragment$3(ctx) {
   let dispose;
   let if_block0 = (
     /*front*/
-    ctx[3] && create_if_block_1(ctx)
+    ctx[4] && create_if_block_2(ctx)
   );
   let if_block1 = !/*front*/
-  ctx[3] && create_if_block$1(ctx);
+  ctx[4] && create_if_block$1(ctx);
   return {
     c() {
       div = element("div");
@@ -436,7 +547,7 @@ function create_fragment$3(ctx) {
         if_block1.c();
       attr(div, "class", div_class_value = null_to_empty(
         /*front*/
-        ctx[3] ? "cardInner" : "cardInnerFlipped"
+        ctx[4] ? "cardInner" : "cardInnerFlipped"
       ) + " svelte-3vogdr");
     },
     m(target, anchor) {
@@ -459,12 +570,12 @@ function create_fragment$3(ctx) {
     p(ctx2, [dirty]) {
       if (
         /*front*/
-        ctx2[3]
+        ctx2[4]
       ) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_1(ctx2);
+          if_block0 = create_if_block_2(ctx2);
           if_block0.c();
           if_block0.m(div, t);
         }
@@ -473,7 +584,7 @@ function create_fragment$3(ctx) {
         if_block0 = null;
       }
       if (!/*front*/
-      ctx2[3]) {
+      ctx2[4]) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
         } else {
@@ -486,9 +597,9 @@ function create_fragment$3(ctx) {
         if_block1 = null;
       }
       if (dirty & /*front*/
-      8 && div_class_value !== (div_class_value = null_to_empty(
+      16 && div_class_value !== (div_class_value = null_to_empty(
         /*front*/
-        ctx2[3] ? "cardInner" : "cardInnerFlipped"
+        ctx2[4] ? "cardInner" : "cardInnerFlipped"
       ) + " svelte-3vogdr")) {
         attr(div, "class", div_class_value);
       }
@@ -511,23 +622,31 @@ function instance$3($$self, $$props, $$invalidate) {
   let front = true;
   const flip = (evt) => {
     if (!window.getSelection().toString()) {
-      $$invalidate(3, front = !front);
+      $$invalidate(4, front = !front);
     }
   };
   let { frontData = "front of card" } = $$props;
   let { backData = "back of card" } = $$props;
+  let { tags } = $$props;
   $$self.$$set = ($$props2) => {
     if ("frontData" in $$props2)
       $$invalidate(1, frontData = $$props2.frontData);
     if ("backData" in $$props2)
       $$invalidate(2, backData = $$props2.backData);
+    if ("tags" in $$props2)
+      $$invalidate(3, tags = $$props2.tags);
   };
-  return [flip, frontData, backData, front];
+  return [flip, frontData, backData, tags, front];
 }
 class Card extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$3, safe_not_equal, { flip: 0, frontData: 1, backData: 2 });
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, {
+      flip: 0,
+      frontData: 1,
+      backData: 2,
+      tags: 3
+    });
   }
   get flip() {
     return this.$$.ctx[0];
@@ -716,15 +835,21 @@ class Mapper {
   // which is what Card.svelte expects
   // if there's a new json dataset, a new mapper method should be made to be able to process it
   // we expect chinese character datasets
-  // to be arranged like an array of {"value": "匂", "pinyin": "xiong1", "definition": "fragrance, smell;"}
+  // to be arranged like an array of {"value": "匂", "pinyin": "xiong1", "definition": "fragrance, smell;", "tags": []}
   // we want to show the character on the front of a card and the pinyin and definition on the back of the card
   // TODO: create an interface for the expected incoming dataset format
   // TODO: maybe pass back the fields and values to display and let whoever is receiving this data handle the html presentation
+  generateTagsHtml(tagList) {
+    const tags = tagList.map((currVal) => `<span class='tag'>${currVal}</span>`);
+    return tags.join(",");
+  }
   processChineseDataset(jsonData) {
     return jsonData.map((obj) => {
       return {
         front: `<p>${obj.value}</p>`,
-        back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`
+        back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+        tags: obj.tags ? this.generateTagsHtml(obj.tags) : ""
+        //obj.tags.reduce((acc, currVal) => acc + `<span class='tag'>${currVal}</span>`, "") : "",
       };
     });
   }
@@ -733,7 +858,8 @@ class Mapper {
     return jsonData.map((obj) => {
       return {
         front: `<p>${obj.value}</p>`,
-        back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`
+        back: `<p><span class='field'>romaji:</span> ${obj.romaji}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+        tags: obj.tags ? this.generateTagsHtml(obj.tags) : ""
       };
     });
   }
@@ -796,6 +922,13 @@ function create_if_block(ctx) {
         /*currCardIndex*/
         ctx[2]
       ].back
+    ),
+    tags: (
+      /*filteredData*/
+      ctx[1][
+        /*currCardIndex*/
+        ctx[2]
+      ].tags
     )
   };
   card = new Card({ props: card_props });
@@ -824,6 +957,13 @@ function create_if_block(ctx) {
           /*currCardIndex*/
           ctx2[2]
         ].back;
+      if (dirty & /*filteredData, currCardIndex*/
+      6)
+        card_changes.tags = /*filteredData*/
+        ctx2[1][
+          /*currCardIndex*/
+          ctx2[2]
+        ].tags;
       card.$set(card_changes);
     },
     i(local) {
@@ -865,19 +1005,23 @@ function create_fragment(ctx) {
   let t12;
   let label1;
   let t14;
+  let input3;
+  let t15;
+  let label2;
+  let t17;
   let button1;
   let div0_class_value;
-  let t16;
+  let t19;
   let h1;
-  let t18;
+  let t21;
   let counter;
   let updating_currCardIndex;
   let updating_totalCards;
-  let t19;
+  let t22;
   let div1;
-  let t20;
+  let t23;
   let br;
-  let t21;
+  let t24;
   let navigate;
   let updating_currCardIndex_1;
   let updating_totalCards_1;
@@ -978,20 +1122,25 @@ function create_fragment(ctx) {
       label1 = element("label");
       label1.textContent = "back";
       t14 = space();
+      input3 = element("input");
+      t15 = space();
+      label2 = element("label");
+      label2.textContent = "tag";
+      t17 = space();
       button1 = element("button");
       button1.textContent = "shuffle";
-      t16 = space();
+      t19 = space();
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t18 = space();
+      t21 = space();
       create_component(counter.$$.fragment);
-      t19 = space();
+      t22 = space();
       div1 = element("div");
       if (if_block)
         if_block.c();
-      t20 = space();
+      t23 = space();
       br = element("br");
-      t21 = space();
+      t24 = space();
       create_component(navigate.$$.fragment);
       attr(button0, "class", "icon svelte-ar9qk4");
       attr(p0, "class", "svelte-ar9qk4");
@@ -1023,6 +1172,13 @@ function create_fragment(ctx) {
       attr(input2, "class", "svelte-ar9qk4");
       attr(label1, "for", "search-back-choice");
       attr(label1, "class", "svelte-ar9qk4");
+      attr(input3, "type", "radio");
+      attr(input3, "id", "search-tag-choice");
+      attr(input3, "name", "search-side-choice");
+      input3.value = "tags";
+      attr(input3, "class", "svelte-ar9qk4");
+      attr(label2, "for", "search-tag-choice");
+      attr(label2, "class", "svelte-ar9qk4");
       attr(button1, "class", "svelte-ar9qk4");
       attr(div0, "class", div0_class_value = "options-panel " + /*showOptionsPanel*/
       (ctx[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
@@ -1059,18 +1215,22 @@ function create_fragment(ctx) {
       append(div0, t12);
       append(div0, label1);
       append(div0, t14);
+      append(div0, input3);
+      append(div0, t15);
+      append(div0, label2);
+      append(div0, t17);
       append(div0, button1);
-      append(main, t16);
-      append(main, h1);
-      append(main, t18);
-      mount_component(counter, main, null);
       append(main, t19);
+      append(main, h1);
+      append(main, t21);
+      mount_component(counter, main, null);
+      append(main, t22);
       append(main, div1);
       if (if_block)
         if_block.m(div1, null);
-      append(main, t20);
+      append(main, t23);
       append(main, br);
-      append(main, t21);
+      append(main, t24);
       mount_component(navigate, main, null);
       current = true;
       if (!mounted) {
@@ -1125,6 +1285,12 @@ function create_fragment(ctx) {
           ),
           listen(
             input2,
+            "change",
+            /*onChangeSearch*/
+            ctx[11]
+          ),
+          listen(
+            input3,
             "change",
             /*onChangeSearch*/
             ctx[11]
@@ -1279,6 +1445,7 @@ function instance($$self, $$props, $$invalidate) {
       if (navComponent)
         navComponent.next();
     } else if (evt.code === "Space") {
+      evt.preventDefault();
       if (cardComponent)
         cardComponent.flip();
     }
@@ -1318,7 +1485,10 @@ function instance($$self, $$props, $$invalidate) {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');
         if (selectedRadioBtn) {
           const selectedSide = selectedRadioBtn.value;
-          $$invalidate(1, filteredData = data.filter((x) => x[selectedSide].includes(inputVal)));
+          $$invalidate(1, filteredData = data.filter((x) => {
+            var _a;
+            return (_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal);
+          }));
         }
       } else {
         $$invalidate(1, filteredData = data);

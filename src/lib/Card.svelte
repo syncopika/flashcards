@@ -10,6 +10,7 @@
   
   export let frontData: string = "front of card";
   export let backData: string = "back of card";
+  export let tags: string;
 </script>
 
 <style>
@@ -77,6 +78,11 @@
         <div class='front'>{@html frontData}</div>
     {/if}
     {#if !front}
-        <div class='back'>{@html backData}</div>
+        <div class='back'>
+            {@html backData}
+            {#if tags}
+                <p>tags: {@html tags}</p>
+            {/if}
+        </div>
     {/if}
 </div>

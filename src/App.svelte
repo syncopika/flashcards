@@ -32,6 +32,7 @@
     }else if(evt.code === 'ArrowRight'){
         if(navComponent) navComponent.next();
     }else if(evt.code === 'Space'){
+        evt.preventDefault(); // prevent any button presses with spacebar
         if(cardComponent) cardComponent.flip();
     }
   }
@@ -79,9 +80,9 @@
             // then filter data
             const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');
             if(selectedRadioBtn){
-                // TODO: create type here (e.g. instead of string, either 'front' or 'back')?
+                // TODO: create type here (e.g. instead of string, either 'front' or 'back' or 'tag')?
                 const selectedSide: string = selectedRadioBtn.value;
-                filteredData = data.filter(x => (x[selectedSide]).includes(inputVal));
+                filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
             }
           }else{
             filteredData = data;
@@ -153,10 +154,16 @@
     <p> | </p>
     <p> search: </p>
     <input class="searchInput" type="text" name="search" on:input={onChangeSearch}>
+    
     <input type="radio" id="search-front-choice" name="search-side-choice" value="front" on:change={onChangeSearch}>
     <label for="search-front-choice">front</label>
+    
     <input type="radio" id="search-back-choice" name="search-side-choice" value="back" on:change={onChangeSearch}>
     <label for="search-back-choice">back</label>
+    
+    <input type="radio" id="search-tag-choice" name="search-side-choice" value="tags" on:change={onChangeSearch}>
+    <label for="search-tag-choice">tag</label>
+    
     <button on:click={shuffle}>shuffle</button>
   </div>
 

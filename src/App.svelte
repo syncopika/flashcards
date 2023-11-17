@@ -28,24 +28,24 @@
   // https://svelte.dev/tutorial/svelte-window
   function handleKeydown(evt: Event){
     if(evt.code === 'ArrowLeft'){
-        if(navComponent) navComponent.prev();
+      if(navComponent) navComponent.prev();
     }else if(evt.code === 'ArrowRight'){
-        if(navComponent) navComponent.next();
+      if(navComponent) navComponent.next();
     }else if(evt.code === 'Space'){
-        evt.preventDefault(); // prevent any button presses with spacebar
-        if(cardComponent) cardComponent.flip();
+      evt.preventDefault(); // prevent any button presses with spacebar
+      if(cardComponent) cardComponent.flip();
     }
   }
   
   // fetch data
   onMount(async () => {
-      const mapper = new Mapper();
-      const res = await fetch('datasets/chinese.json');
-      const d = await res.json();
-      
-      data = mapper.processChineseDataset(d);
-      filteredData = data;
-      totalCards = data.length;
+    const mapper = new Mapper();
+    const res = await fetch('datasets/chinese.json');
+    const d = await res.json();
+    
+    data = mapper.processChineseDataset(d);
+    filteredData = data;
+    totalCards = data.length;
   });
   
   let showOptionsPanel: boolean = false;
@@ -55,38 +55,38 @@
   }
   
   const onChange = async () => {
-      const mapper = new Mapper();
-      const res = await fetch(`datasets/${selected}.json`);
-      const d = await res.json();
-      
-      if(selected === "chinese"){
-        data = mapper.processChineseDataset(d);
-      }else if(selected === "japanese"){
-        data = mapper.processJapaneseDataset(d);
-      }else if(selected === "bopomofo"){
-        data = mapper.processBopomofoDataset(d);
-      }
-      
-      currCardIndex = 0;
-      totalCards = data.length;
-      filteredData = data;
+    const mapper = new Mapper();
+    const res = await fetch(`datasets/${selected}.json`);
+    const d = await res.json();
+    
+    if(selected === "chinese"){
+      data = mapper.processChineseDataset(d);
+    }else if(selected === "japanese"){
+      data = mapper.processJapaneseDataset(d);
+    }else if(selected === "bopomofo"){
+      data = mapper.processBopomofoDataset(d);
+    }
+    
+    currCardIndex = 0;
+    totalCards = data.length;
+    filteredData = data;
   }
   
   const onChangeSearch = async () => {
       const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
       if(searchInput){
-          const inputVal = searchInput.value;
-          if(inputVal !== ""){
-            // then filter data
-            const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');
-            if(selectedRadioBtn){
-                // TODO: create type here (e.g. instead of string, either 'front' or 'back' or 'tag')?
-                const selectedSide: string = selectedRadioBtn.value;
-                filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
-            }
-          }else{
-            filteredData = data;
+        const inputVal = searchInput.value;
+        if(inputVal !== ""){
+          // then filter data
+          const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');
+          if(selectedRadioBtn){
+            // TODO: create type here (e.g. instead of string, either 'front' or 'back' or 'tag')?
+            const selectedSide: string = selectedRadioBtn.value;
+            filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
           }
+        }else{
+          filteredData = data;
+        }
       }
       
       currCardIndex = 0;
@@ -94,45 +94,45 @@
   }
   
   const shuffle = () => {
-      // TODO: make some animation to go along with this?
-      
-      // shuffle the cards - https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-      const maxIndex = filteredData.length - 1;
-      for(let i = 0; i < filteredData.length - 2; i++){
-        const newIdx = Math.floor(Math.random() * (maxIndex - i) + i);
-        const temp = filteredData[i];
-        filteredData[i] = filteredData[newIdx];
-        filteredData[newIdx] = temp;
-      }
-      
-      // update current card @ current index after shuffle
-      const newCurrIdx = Math.floor(Math.random() * maxIndex);
-      currCardIndex = newCurrIdx;
+    // TODO: make some animation to go along with this?
+    
+    // shuffle the cards - https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+    const maxIndex = filteredData.length - 1;
+    for(let i = 0; i < filteredData.length - 2; i++){
+      const newIdx = Math.floor(Math.random() * (maxIndex - i) + i);
+      const temp = filteredData[i];
+      filteredData[i] = filteredData[newIdx];
+      filteredData[newIdx] = temp;
+    }
+    
+    // update current card @ current index after shuffle
+    const newCurrIdx = Math.floor(Math.random() * maxIndex);
+    currCardIndex = newCurrIdx;
   }
   
   const touchstart = (evt: Event) => {
-      touchStartX = evt.touches[0].screenX;
+    touchStartX = evt.touches[0].screenX;
   }
   
   const touchend = (evt: Event) => {
-      const end = evt.changedTouches[0].screenX;
-      if(touchStartX && Math.abs(end - touchStartX) > 10){
-        if(end < touchStartX){
-            // swipe left, go forwards
-            if(currCardIndex + 1 > totalCards - 1){
-                currCardIndex = 0;
-            }else{
-                currCardIndex++;
-            }
+    const end = evt.changedTouches[0].screenX;
+    if(touchStartX && Math.abs(end - touchStartX) > 10){
+      if(end < touchStartX){
+        // swipe left, go forwards
+        if(currCardIndex + 1 > totalCards - 1){
+            currCardIndex = 0;
         }else{
-            // swipe right, go backwards
-            if(currCardIndex - 1 < 0){
-                currCardIndex = totalCards - 1;
-            }else{
-                currCardIndex--;
-            }
+            currCardIndex++;
+        }
+      }else{
+        // swipe right, go backwards
+        if(currCardIndex - 1 < 0){
+          currCardIndex = totalCards - 1;
+        }else{
+          currCardIndex--;
         }
       }
+    }
   }
   
 </script>
@@ -143,88 +143,115 @@
   <i class="fa fa-bars"></i>
 </button>
 
-<main>
-  <div class="options-panel {showOptionsPanel ? 'options-panel-on' : 'options-panel-off'}">
-    <p>dataset: </p>
-    <select bind:value={selected} on:change={onChange}>
-        {#each datasets as ds}
-            <option value={ds}>{ds}</option>
-        {/each}
-    </select>
-    <p> | </p>
-    <p> search: </p>
-    <input class="searchInput" type="text" name="search" on:input={onChangeSearch}>
-    
-    <input type="radio" id="search-front-choice" name="search-side-choice" value="front" on:change={onChangeSearch}>
-    <label for="search-front-choice">front</label>
-    
-    <input type="radio" id="search-back-choice" name="search-side-choice" value="back" on:change={onChangeSearch}>
-    <label for="search-back-choice">back</label>
-    
-    <input type="radio" id="search-tag-choice" name="search-side-choice" value="tags" on:change={onChangeSearch}>
-    <label for="search-tag-choice">tag</label>
-    
-    <button on:click={shuffle}>shuffle</button>
-  </div>
+<header class="options-panel {showOptionsPanel ? 'options-panel-on' : 'options-panel-off'}">
+  <p>dataset: </p>
+  <select bind:value={selected} on:change={onChange}>
+    {#each datasets as ds}
+      <option value={ds}>{ds}</option>
+    {/each}
+  </select>
+  <p> | </p>
+  <p> search: </p>
+  <input 
+    class="searchInput" 
+    type="text" 
+    name="search" 
+    on:input={onChangeSearch}>
+  
+  <input 
+    type="radio" 
+    id="search-front-choice" 
+    name="search-side-choice" 
+    value="front" 
+    on:change={onChangeSearch}
+  >
+  <label for="search-front-choice">front</label>
+  
+  <input 
+    type="radio" 
+    id="search-back-choice" 
+    name="search-side-choice" 
+    value="back" 
+    on:change={onChangeSearch}
+  >
+  <label for="search-back-choice">back</label>
+  
+  <input 
+    type="radio" 
+    id="search-tag-choice" 
+    name="search-side-choice" 
+    value="tags" 
+    on:change={onChangeSearch}
+  >
+  <label for="search-tag-choice">tag</label>
+  
+  <button on:click={shuffle}>shuffle</button>
+  
+  <button>quiz mode</button>
+</header>
 
+<main>
   <h1>flashcards</h1>
 
   <Counter bind:currCardIndex bind:totalCards />
   
   <div class='cardContainer'>
     {#if totalCards > 0}
-        <Card
-            bind:this={cardComponent}
-            frontData={filteredData[currCardIndex].front}
-            backData={filteredData[currCardIndex].back}
-            tags={filteredData[currCardIndex].tags}
-        />
+      <Card
+        bind:this={cardComponent}
+        frontData={filteredData[currCardIndex].front}
+        backData={filteredData[currCardIndex].back}
+        tags={filteredData[currCardIndex].tags}
+      />
     {/if}
   </div>
   
   <br />
   
   <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
-  
 </main>
 
 <style>
-    .cardContainer {
-        height: 200px;
-        width: 280px;
-        margin: 0 auto;
-        margin-bottom: 5%;
-        perspective: 1000px;
-    }
-    
-    .options-panel {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        box-shadow: 0px 1px 1px #ccc;
-    }
-    
-    .options-panel>* {
-        display: inline-block;
-    }
-    
-    .options-panel-on {
-        top: 0;
-        transition: 0.5s;
-    }
-    
-    .options-panel-off {
-        height: 0px;
-        top: -100px;
-        transition: 0.5s;
-    }
-    
-    .icon {
-        position: relative;
-        z-index: 10;
-    }
-    
-    #search-front-choice, #search-back-choice {
-        display: inline-block;
-    }
+  header {
+    text-align: center;
+  }
+  
+  .cardContainer {
+    height: 200px;
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    perspective: 1000px;
+  }
+  
+  .options-panel {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    box-shadow: 0px 1px 1px #ccc;
+  }
+  
+  .options-panel>* {
+    display: inline-block;
+  }
+  
+  .options-panel-on {
+    top: 0;
+    transition: 0.5s;
+  }
+  
+  .options-panel-off {
+    height: 0px;
+    top: -100px;
+    transition: 0.5s;
+  }
+  
+  .icon {
+    position: relative;
+    z-index: 10;
+  }
+  
+  #search-front-choice, #search-back-choice {
+    display: inline-block;
+  }
 </style>

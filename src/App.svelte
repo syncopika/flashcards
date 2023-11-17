@@ -12,6 +12,7 @@
   ];
   
   let selected: string = "chinese";
+  let currMode: 'flashcard' | 'quiz' = 'flashcard';
   let data: Record<string, string>[] = [];
   let filteredData: Record<string, string>[] = [];
   let currCardIndex: number = 0;
@@ -110,6 +111,16 @@
     currCardIndex = newCurrIdx;
   }
   
+  const changeMode = (evt: Event) => {
+    if(currMode === 'flashcard'){
+      currMode = 'quiz';
+      evt.target.textContent = 'flashcard mode';
+    }else{
+      currMode = 'flashcard';
+      evt.target.textContent = 'quiz mode';
+    }
+  }
+  
   const touchstart = (evt: Event) => {
     touchStartX = evt.touches[0].screenX;
   }
@@ -187,28 +198,36 @@
   
   <button on:click={shuffle}>shuffle</button>
   
-  <button>quiz mode</button>
+  {#if selected === "chinese"}
+    <button id="changeModeButton" on:click={changeMode}>quiz mode</button>
+  {/if}
 </header>
 
 <main>
   <h1>flashcards</h1>
 
-  <Counter bind:currCardIndex bind:totalCards />
-  
-  <div class='cardContainer'>
-    {#if totalCards > 0}
-      <Card
-        bind:this={cardComponent}
-        frontData={filteredData[currCardIndex].front}
-        backData={filteredData[currCardIndex].back}
-        tags={filteredData[currCardIndex].tags}
-      />
-    {/if}
-  </div>
+  {#if currMode === 'flashcard'}
+    <Counter bind:currCardIndex bind:totalCards />
+    
+    <div class='cardContainer'>
+      {#if totalCards > 0}
+        <Card
+          bind:this={cardComponent}
+          frontData={filteredData[currCardIndex].front}
+          backData={filteredData[currCardIndex].back}
+          tags={filteredData[currCardIndex].tags}
+        />
+      {/if}
+    </div>
+    
+    <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
+  {:else if currMode === 'quiz'}
+    <div>
+      <p> TODO: quiz mode </p>
+    </div>
+  {/if}
   
   <br />
-  
-  <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
 </main>
 
 <style>

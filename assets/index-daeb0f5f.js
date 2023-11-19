@@ -407,12 +407,12 @@ class SvelteComponent {
   }
 }
 const Card_svelte_svelte_type_style_lang = "";
-function create_if_block_2(ctx) {
+function create_if_block_2$1(ctx) {
   let div;
   return {
     c() {
       div = element("div");
-      attr(div, "class", "front svelte-3vogdr");
+      attr(div, "class", "front svelte-tkacgb");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -437,7 +437,7 @@ function create_if_block$1(ctx) {
   let t;
   let if_block = (
     /*tags*/
-    ctx[3] && create_if_block_1(ctx)
+    ctx[3] && create_if_block_1$1(ctx)
   );
   return {
     c() {
@@ -447,7 +447,7 @@ function create_if_block$1(ctx) {
       if (if_block)
         if_block.c();
       html_tag.a = t;
-      attr(div, "class", "back svelte-3vogdr");
+      attr(div, "class", "back svelte-tkacgb");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -474,7 +474,7 @@ function create_if_block$1(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block_1(ctx2);
+          if_block = create_if_block_1$1(ctx2);
           if_block.c();
           if_block.m(div, null);
         }
@@ -491,7 +491,7 @@ function create_if_block$1(ctx) {
     }
   };
 }
-function create_if_block_1(ctx) {
+function create_if_block_1$1(ctx) {
   let p;
   let t;
   let html_tag;
@@ -533,7 +533,7 @@ function create_fragment$3(ctx) {
   let dispose;
   let if_block0 = (
     /*front*/
-    ctx[4] && create_if_block_2(ctx)
+    ctx[4] && create_if_block_2$1(ctx)
   );
   let if_block1 = !/*front*/
   ctx[4] && create_if_block$1(ctx);
@@ -548,7 +548,7 @@ function create_fragment$3(ctx) {
       attr(div, "class", div_class_value = null_to_empty(
         /*front*/
         ctx[4] ? "cardInner" : "cardInnerFlipped"
-      ) + " svelte-3vogdr");
+      ) + " svelte-tkacgb");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -575,7 +575,7 @@ function create_fragment$3(ctx) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_2(ctx2);
+          if_block0 = create_if_block_2$1(ctx2);
           if_block0.c();
           if_block0.m(div, t);
         }
@@ -600,7 +600,7 @@ function create_fragment$3(ctx) {
       16 && div_class_value !== (div_class_value = null_to_empty(
         /*front*/
         ctx2[4] ? "cardInner" : "cardInnerFlipped"
-      ) + " svelte-3vogdr")) {
+      ) + " svelte-tkacgb")) {
         attr(div, "class", div_class_value);
       }
     },
@@ -680,10 +680,10 @@ function create_fragment$2(ctx) {
         /*totalCards*/
         ctx[1]
       );
-      attr(p0, "class", "svelte-1s3hj9f");
-      attr(p1, "class", "svelte-1s3hj9f");
-      attr(p2, "class", "svelte-1s3hj9f");
-      attr(div, "class", "counter svelte-1s3hj9f");
+      attr(p0, "class", "svelte-1stcjer");
+      attr(p1, "class", "svelte-1stcjer");
+      attr(p2, "class", "svelte-1stcjer");
+      attr(div, "class", "counter svelte-1stcjer");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -749,9 +749,9 @@ function create_fragment$1(ctx) {
       t1 = space();
       button1 = element("button");
       button1.textContent = "next";
-      attr(button0, "class", "svelte-1d2e7k");
-      attr(button1, "class", "svelte-1d2e7k");
-      attr(div, "class", "navigate svelte-1d2e7k");
+      attr(button0, "class", "svelte-6mz84w");
+      attr(button1, "class", "svelte-6mz84w");
+      attr(div, "class", "navigate svelte-6mz84w");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -848,6 +848,8 @@ class Mapper {
       return {
         front: `<p>${obj.value}</p>`,
         back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+        value: obj.value,
+        pinyin: obj.pinyin,
         tags: obj.tags ? this.generateTagsHtml(obj.tags) : ""
         //obj.tags.reduce((acc, currVal) => acc + `<span class='tag'>${currVal}</span>`, "") : "",
       };
@@ -874,16 +876,28 @@ class Mapper {
   }
 }
 const App_svelte_svelte_type_style_lang = "";
+function get_if_ctx(ctx) {
+  const child_ctx = ctx.slice();
+  const constants_0 = (
+    /*getPossibleQuizAnswers*/
+    child_ctx[15](
+      /*currCardIndex*/
+      child_ctx[3]
+    )
+  );
+  child_ctx[28] = constants_0;
+  return child_ctx;
+}
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[24] = list[i];
+  child_ctx[29] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[24] + ""
+    ctx[29] + ""
   );
   let t;
   return {
@@ -891,7 +905,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[24];
+      ctx[29];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -905,34 +919,376 @@ function create_each_block(ctx) {
     }
   };
 }
+function create_if_block_3(ctx) {
+  let button;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      button = element("button");
+      button.textContent = "quiz mode";
+      attr(button, "id", "changeModeButton");
+      attr(button, "class", "svelte-16rhqij");
+    },
+    m(target, anchor) {
+      insert(target, button, anchor);
+      if (!mounted) {
+        dispose = listen(
+          button,
+          "click",
+          /*changeMode*/
+          ctx[14]
+        );
+        mounted = true;
+      }
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(button);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block_2(ctx) {
+  let div;
+  let h2;
+  let t0;
+  let t1_value = (
+    /*filteredData*/
+    ctx[2][
+      /*currCardIndex*/
+      ctx[3]
+    ].value + ""
+  );
+  let t1;
+  let t2;
+  let t3;
+  let button0;
+  let t4_value = (
+    /*possibleAnswers*/
+    ctx[28][0].pinyin + ""
+  );
+  let t4;
+  let t5;
+  let button1;
+  let t6_value = (
+    /*possibleAnswers*/
+    ctx[28][1].pinyin + ""
+  );
+  let t6;
+  let t7;
+  let button2;
+  let t8_value = (
+    /*possibleAnswers*/
+    ctx[28][2].pinyin + ""
+  );
+  let t8;
+  let t9;
+  let button3;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      h2 = element("h2");
+      t0 = text("what is the pinyin for ");
+      t1 = text(t1_value);
+      t2 = text("?");
+      t3 = space();
+      button0 = element("button");
+      t4 = text(t4_value);
+      t5 = space();
+      button1 = element("button");
+      t6 = text(t6_value);
+      t7 = space();
+      button2 = element("button");
+      t8 = text(t8_value);
+      t9 = space();
+      button3 = element("button");
+      button3.textContent = "next";
+      attr(button0, "class", "quiz-answer-choice svelte-16rhqij");
+      attr(button1, "class", "quiz-answer-choice svelte-16rhqij");
+      attr(button2, "class", "quiz-answer-choice svelte-16rhqij");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, h2);
+      append(h2, t0);
+      append(h2, t1);
+      append(h2, t2);
+      append(div, t3);
+      append(div, button0);
+      append(button0, t4);
+      append(div, t5);
+      append(div, button1);
+      append(button1, t6);
+      append(div, t7);
+      append(div, button2);
+      append(button2, t8);
+      append(div, t9);
+      append(div, button3);
+      if (!mounted) {
+        dispose = [
+          listen(
+            button0,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[16]
+          ),
+          listen(
+            button1,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[16]
+          ),
+          listen(
+            button2,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[16]
+          ),
+          listen(
+            button3,
+            "click",
+            /*shuffle*/
+            ctx[13]
+          )
+        ];
+        mounted = true;
+      }
+    },
+    p(ctx2, dirty) {
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12 && t1_value !== (t1_value = /*filteredData*/
+      ctx2[2][
+        /*currCardIndex*/
+        ctx2[3]
+      ].value + ""))
+        set_data(t1, t1_value);
+      if (dirty[0] & /*currCardIndex*/
+      8 && t4_value !== (t4_value = /*possibleAnswers*/
+      ctx2[28][0].pinyin + ""))
+        set_data(t4, t4_value);
+      if (dirty[0] & /*currCardIndex*/
+      8 && t6_value !== (t6_value = /*possibleAnswers*/
+      ctx2[28][1].pinyin + ""))
+        set_data(t6, t6_value);
+      if (dirty[0] & /*currCardIndex*/
+      8 && t8_value !== (t8_value = /*possibleAnswers*/
+      ctx2[28][2].pinyin + ""))
+        set_data(t8, t8_value);
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div);
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
 function create_if_block(ctx) {
+  let counter;
+  let updating_currCardIndex;
+  let updating_totalCards;
+  let t0;
+  let div;
+  let t1;
+  let navigate;
+  let updating_currCardIndex_1;
+  let updating_totalCards_1;
+  let current;
+  function counter_currCardIndex_binding(value) {
+    ctx[20](value);
+  }
+  function counter_totalCards_binding(value) {
+    ctx[21](value);
+  }
+  let counter_props = {};
+  if (
+    /*currCardIndex*/
+    ctx[3] !== void 0
+  ) {
+    counter_props.currCardIndex = /*currCardIndex*/
+    ctx[3];
+  }
+  if (
+    /*totalCards*/
+    ctx[4] !== void 0
+  ) {
+    counter_props.totalCards = /*totalCards*/
+    ctx[4];
+  }
+  counter = new Counter({ props: counter_props });
+  binding_callbacks.push(() => bind(counter, "currCardIndex", counter_currCardIndex_binding));
+  binding_callbacks.push(() => bind(counter, "totalCards", counter_totalCards_binding));
+  let if_block = (
+    /*totalCards*/
+    ctx[4] > 0 && create_if_block_1(ctx)
+  );
+  function navigate_currCardIndex_binding(value) {
+    ctx[24](value);
+  }
+  function navigate_totalCards_binding(value) {
+    ctx[25](value);
+  }
+  let navigate_props = {};
+  if (
+    /*currCardIndex*/
+    ctx[3] !== void 0
+  ) {
+    navigate_props.currCardIndex = /*currCardIndex*/
+    ctx[3];
+  }
+  if (
+    /*totalCards*/
+    ctx[4] !== void 0
+  ) {
+    navigate_props.totalCards = /*totalCards*/
+    ctx[4];
+  }
+  navigate = new Navigate({ props: navigate_props });
+  ctx[23](navigate);
+  binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
+  binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
+  return {
+    c() {
+      create_component(counter.$$.fragment);
+      t0 = space();
+      div = element("div");
+      if (if_block)
+        if_block.c();
+      t1 = space();
+      create_component(navigate.$$.fragment);
+      attr(div, "class", "card-container svelte-16rhqij");
+    },
+    m(target, anchor) {
+      mount_component(counter, target, anchor);
+      insert(target, t0, anchor);
+      insert(target, div, anchor);
+      if (if_block)
+        if_block.m(div, null);
+      insert(target, t1, anchor);
+      mount_component(navigate, target, anchor);
+      current = true;
+    },
+    p(ctx2, dirty) {
+      const counter_changes = {};
+      if (!updating_currCardIndex && dirty[0] & /*currCardIndex*/
+      8) {
+        updating_currCardIndex = true;
+        counter_changes.currCardIndex = /*currCardIndex*/
+        ctx2[3];
+        add_flush_callback(() => updating_currCardIndex = false);
+      }
+      if (!updating_totalCards && dirty[0] & /*totalCards*/
+      16) {
+        updating_totalCards = true;
+        counter_changes.totalCards = /*totalCards*/
+        ctx2[4];
+        add_flush_callback(() => updating_totalCards = false);
+      }
+      counter.$set(counter_changes);
+      if (
+        /*totalCards*/
+        ctx2[4] > 0
+      ) {
+        if (if_block) {
+          if_block.p(ctx2, dirty);
+          if (dirty[0] & /*totalCards*/
+          16) {
+            transition_in(if_block, 1);
+          }
+        } else {
+          if_block = create_if_block_1(ctx2);
+          if_block.c();
+          transition_in(if_block, 1);
+          if_block.m(div, null);
+        }
+      } else if (if_block) {
+        group_outros();
+        transition_out(if_block, 1, 1, () => {
+          if_block = null;
+        });
+        check_outros();
+      }
+      const navigate_changes = {};
+      if (!updating_currCardIndex_1 && dirty[0] & /*currCardIndex*/
+      8) {
+        updating_currCardIndex_1 = true;
+        navigate_changes.currCardIndex = /*currCardIndex*/
+        ctx2[3];
+        add_flush_callback(() => updating_currCardIndex_1 = false);
+      }
+      if (!updating_totalCards_1 && dirty[0] & /*totalCards*/
+      16) {
+        updating_totalCards_1 = true;
+        navigate_changes.totalCards = /*totalCards*/
+        ctx2[4];
+        add_flush_callback(() => updating_totalCards_1 = false);
+      }
+      navigate.$set(navigate_changes);
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(counter.$$.fragment, local);
+      transition_in(if_block);
+      transition_in(navigate.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(counter.$$.fragment, local);
+      transition_out(if_block);
+      transition_out(navigate.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      destroy_component(counter, detaching);
+      if (detaching)
+        detach(t0);
+      if (detaching)
+        detach(div);
+      if (if_block)
+        if_block.d();
+      if (detaching)
+        detach(t1);
+      ctx[23](null);
+      destroy_component(navigate, detaching);
+    }
+  };
+}
+function create_if_block_1(ctx) {
   let card;
   let current;
   let card_props = {
     frontData: (
       /*filteredData*/
-      ctx[1][
+      ctx[2][
         /*currCardIndex*/
-        ctx[2]
+        ctx[3]
       ].front
     ),
     backData: (
       /*filteredData*/
-      ctx[1][
+      ctx[2][
         /*currCardIndex*/
-        ctx[2]
+        ctx[3]
       ].back
     ),
     tags: (
       /*filteredData*/
-      ctx[1][
+      ctx[2][
         /*currCardIndex*/
-        ctx[2]
+        ctx[3]
       ].tags
     )
   };
   card = new Card({ props: card_props });
-  ctx[18](card);
+  ctx[22](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -943,26 +1299,26 @@ function create_if_block(ctx) {
     },
     p(ctx2, dirty) {
       const card_changes = {};
-      if (dirty & /*filteredData, currCardIndex*/
-      6)
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12)
         card_changes.frontData = /*filteredData*/
-        ctx2[1][
+        ctx2[2][
           /*currCardIndex*/
-          ctx2[2]
+          ctx2[3]
         ].front;
-      if (dirty & /*filteredData, currCardIndex*/
-      6)
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12)
         card_changes.backData = /*filteredData*/
-        ctx2[1][
+        ctx2[2][
           /*currCardIndex*/
-          ctx2[2]
+          ctx2[3]
         ].back;
-      if (dirty & /*filteredData, currCardIndex*/
-      6)
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12)
         card_changes.tags = /*filteredData*/
-        ctx2[1][
+        ctx2[2][
           /*currCardIndex*/
-          ctx2[2]
+          ctx2[3]
         ].tags;
       card.$set(card_changes);
     },
@@ -977,7 +1333,7 @@ function create_if_block(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[18](null);
+      ctx[22](null);
       destroy_component(card, detaching);
     }
   };
@@ -985,8 +1341,7 @@ function create_if_block(ctx) {
 function create_fragment(ctx) {
   let button0;
   let t0;
-  let main;
-  let div0;
+  let header;
   let p0;
   let t2;
   let select;
@@ -1010,92 +1365,60 @@ function create_fragment(ctx) {
   let label2;
   let t17;
   let button1;
-  let div0_class_value;
   let t19;
+  let header_class_value;
+  let t20;
+  let main;
   let h1;
-  let t21;
-  let counter;
-  let updating_currCardIndex;
-  let updating_totalCards;
   let t22;
-  let div1;
+  let current_block_type_index;
+  let if_block1;
   let t23;
   let br;
-  let t24;
-  let navigate;
-  let updating_currCardIndex_1;
-  let updating_totalCards_1;
   let current;
   let mounted;
   let dispose;
   let each_value = (
     /*datasets*/
-    ctx[7]
+    ctx[8]
   );
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
   }
-  function counter_currCardIndex_binding(value) {
-    ctx[16](value);
-  }
-  function counter_totalCards_binding(value) {
-    ctx[17](value);
-  }
-  let counter_props = {};
-  if (
-    /*currCardIndex*/
-    ctx[2] !== void 0
-  ) {
-    counter_props.currCardIndex = /*currCardIndex*/
-    ctx[2];
-  }
-  if (
-    /*totalCards*/
-    ctx[3] !== void 0
-  ) {
-    counter_props.totalCards = /*totalCards*/
-    ctx[3];
-  }
-  counter = new Counter({ props: counter_props });
-  binding_callbacks.push(() => bind(counter, "currCardIndex", counter_currCardIndex_binding));
-  binding_callbacks.push(() => bind(counter, "totalCards", counter_totalCards_binding));
-  let if_block = (
-    /*totalCards*/
-    ctx[3] > 0 && create_if_block(ctx)
+  let if_block0 = (
+    /*selected*/
+    ctx[0] === "chinese" && create_if_block_3(ctx)
   );
-  function navigate_currCardIndex_binding(value) {
-    ctx[20](value);
+  const if_block_creators = [create_if_block, create_if_block_2];
+  const if_blocks = [];
+  function select_block_type(ctx2, dirty) {
+    if (
+      /*currMode*/
+      ctx2[1] === "flashcard"
+    )
+      return 0;
+    if (
+      /*currMode*/
+      ctx2[1] === "quiz"
+    )
+      return 1;
+    return -1;
   }
-  function navigate_totalCards_binding(value) {
-    ctx[21](value);
+  function select_block_ctx(ctx2, index) {
+    if (index === 1)
+      return get_if_ctx(ctx2);
+    return ctx2;
   }
-  let navigate_props = {};
-  if (
-    /*currCardIndex*/
-    ctx[2] !== void 0
-  ) {
-    navigate_props.currCardIndex = /*currCardIndex*/
-    ctx[2];
+  if (~(current_block_type_index = select_block_type(ctx))) {
+    if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx, current_block_type_index));
   }
-  if (
-    /*totalCards*/
-    ctx[3] !== void 0
-  ) {
-    navigate_props.totalCards = /*totalCards*/
-    ctx[3];
-  }
-  navigate = new Navigate({ props: navigate_props });
-  ctx[19](navigate);
-  binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
-  binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
     c() {
       button0 = element("button");
       button0.innerHTML = `<i class="fa fa-bars"></i>`;
       t0 = space();
-      main = element("main");
-      div0 = element("div");
+      header = element("header");
       p0 = element("p");
       p0.textContent = "dataset:";
       t2 = space();
@@ -1130,68 +1453,65 @@ function create_fragment(ctx) {
       button1 = element("button");
       button1.textContent = "shuffle";
       t19 = space();
+      if (if_block0)
+        if_block0.c();
+      t20 = space();
+      main = element("main");
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t21 = space();
-      create_component(counter.$$.fragment);
       t22 = space();
-      div1 = element("div");
-      if (if_block)
-        if_block.c();
+      if (if_block1)
+        if_block1.c();
       t23 = space();
       br = element("br");
-      t24 = space();
-      create_component(navigate.$$.fragment);
-      attr(button0, "class", "icon svelte-ar9qk4");
-      attr(p0, "class", "svelte-ar9qk4");
-      attr(select, "class", "svelte-ar9qk4");
+      attr(button0, "class", "icon svelte-16rhqij");
+      attr(p0, "class", "svelte-16rhqij");
+      attr(select, "class", "svelte-16rhqij");
       if (
         /*selected*/
         ctx[0] === void 0
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[15].call(select)
+          ctx[19].call(select)
         ));
-      attr(p1, "class", "svelte-ar9qk4");
-      attr(p2, "class", "svelte-ar9qk4");
-      attr(input0, "class", "searchInput svelte-ar9qk4");
+      attr(p1, "class", "svelte-16rhqij");
+      attr(p2, "class", "svelte-16rhqij");
+      attr(input0, "class", "searchInput svelte-16rhqij");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-ar9qk4");
+      attr(input1, "class", "svelte-16rhqij");
       attr(label0, "for", "search-front-choice");
-      attr(label0, "class", "svelte-ar9qk4");
+      attr(label0, "class", "svelte-16rhqij");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-ar9qk4");
+      attr(input2, "class", "svelte-16rhqij");
       attr(label1, "for", "search-back-choice");
-      attr(label1, "class", "svelte-ar9qk4");
+      attr(label1, "class", "svelte-16rhqij");
       attr(input3, "type", "radio");
       attr(input3, "id", "search-tag-choice");
       attr(input3, "name", "search-side-choice");
       input3.value = "tags";
-      attr(input3, "class", "svelte-ar9qk4");
+      attr(input3, "class", "svelte-16rhqij");
       attr(label2, "for", "search-tag-choice");
-      attr(label2, "class", "svelte-ar9qk4");
-      attr(button1, "class", "svelte-ar9qk4");
-      attr(div0, "class", div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4");
-      attr(div1, "class", "cardContainer svelte-ar9qk4");
+      attr(label2, "class", "svelte-16rhqij");
+      attr(button1, "class", "svelte-16rhqij");
+      attr(header, "class", header_class_value = "options-panel " + /*showOptionsPanel*/
+      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-16rhqij");
     },
     m(target, anchor) {
       insert(target, button0, anchor);
       insert(target, t0, anchor);
-      insert(target, main, anchor);
-      append(main, div0);
-      append(div0, p0);
-      append(div0, t2);
-      append(div0, select);
+      insert(target, header, anchor);
+      append(header, p0);
+      append(header, t2);
+      append(header, select);
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].m(select, null);
       }
@@ -1200,38 +1520,38 @@ function create_fragment(ctx) {
         /*selected*/
         ctx[0]
       );
-      append(div0, t3);
-      append(div0, p1);
-      append(div0, t5);
-      append(div0, p2);
-      append(div0, t7);
-      append(div0, input0);
-      append(div0, t8);
-      append(div0, input1);
-      append(div0, t9);
-      append(div0, label0);
-      append(div0, t11);
-      append(div0, input2);
-      append(div0, t12);
-      append(div0, label1);
-      append(div0, t14);
-      append(div0, input3);
-      append(div0, t15);
-      append(div0, label2);
-      append(div0, t17);
-      append(div0, button1);
-      append(main, t19);
+      append(header, t3);
+      append(header, p1);
+      append(header, t5);
+      append(header, p2);
+      append(header, t7);
+      append(header, input0);
+      append(header, t8);
+      append(header, input1);
+      append(header, t9);
+      append(header, label0);
+      append(header, t11);
+      append(header, input2);
+      append(header, t12);
+      append(header, label1);
+      append(header, t14);
+      append(header, input3);
+      append(header, t15);
+      append(header, label2);
+      append(header, t17);
+      append(header, button1);
+      append(header, t19);
+      if (if_block0)
+        if_block0.m(header, null);
+      insert(target, t20, anchor);
+      insert(target, main, anchor);
       append(main, h1);
-      append(main, t21);
-      mount_component(counter, main, null);
       append(main, t22);
-      append(main, div1);
-      if (if_block)
-        if_block.m(div1, null);
+      if (~current_block_type_index) {
+        if_blocks[current_block_type_index].m(main, null);
+      }
       append(main, t23);
       append(main, br);
-      append(main, t24);
-      mount_component(navigate, main, null);
       current = true;
       if (!mounted) {
         dispose = [
@@ -1239,77 +1559,77 @@ function create_fragment(ctx) {
             window,
             "keydown",
             /*handleKeydown*/
-            ctx[8]
+            ctx[9]
           ),
           listen(
             window,
             "touchstart",
             /*touchstart*/
-            ctx[13]
+            ctx[17]
           ),
           listen(
             window,
             "touchend",
             /*touchend*/
-            ctx[14]
+            ctx[18]
           ),
           listen(
             button0,
             "click",
             /*toggleOptionsPanel*/
-            ctx[9]
+            ctx[10]
           ),
           listen(
             select,
             "change",
             /*select_change_handler*/
-            ctx[15]
+            ctx[19]
           ),
           listen(
             select,
             "change",
             /*onChange*/
-            ctx[10]
+            ctx[11]
           ),
           listen(
             input0,
             "input",
             /*onChangeSearch*/
-            ctx[11]
+            ctx[12]
           ),
           listen(
             input1,
             "change",
             /*onChangeSearch*/
-            ctx[11]
+            ctx[12]
           ),
           listen(
             input2,
             "change",
             /*onChangeSearch*/
-            ctx[11]
+            ctx[12]
           ),
           listen(
             input3,
             "change",
             /*onChangeSearch*/
-            ctx[11]
+            ctx[12]
           ),
           listen(
             button1,
             "click",
             /*shuffle*/
-            ctx[12]
+            ctx[13]
           )
         ];
         mounted = true;
       }
     },
-    p(ctx2, [dirty]) {
-      if (dirty & /*datasets*/
-      128) {
+    p(ctx2, dirty) {
+      if (dirty[0] & /*datasets*/
+      256) {
         each_value = /*datasets*/
-        ctx2[7];
+        ctx2[8];
         let i;
         for (i = 0; i < each_value.length; i += 1) {
           const child_ctx = get_each_context(ctx2, each_value, i);
@@ -1326,87 +1646,71 @@ function create_fragment(ctx) {
         }
         each_blocks.length = each_value.length;
       }
-      if (dirty & /*selected, datasets*/
-      129) {
+      if (dirty[0] & /*selected, datasets*/
+      257) {
         select_option(
           select,
           /*selected*/
           ctx2[0]
         );
       }
-      if (!current || dirty & /*showOptionsPanel*/
-      64 && div0_class_value !== (div0_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[6] ? "options-panel-on" : "options-panel-off") + " svelte-ar9qk4")) {
-        attr(div0, "class", div0_class_value);
-      }
-      const counter_changes = {};
-      if (!updating_currCardIndex && dirty & /*currCardIndex*/
-      4) {
-        updating_currCardIndex = true;
-        counter_changes.currCardIndex = /*currCardIndex*/
-        ctx2[2];
-        add_flush_callback(() => updating_currCardIndex = false);
-      }
-      if (!updating_totalCards && dirty & /*totalCards*/
-      8) {
-        updating_totalCards = true;
-        counter_changes.totalCards = /*totalCards*/
-        ctx2[3];
-        add_flush_callback(() => updating_totalCards = false);
-      }
-      counter.$set(counter_changes);
       if (
-        /*totalCards*/
-        ctx2[3] > 0
+        /*selected*/
+        ctx2[0] === "chinese"
       ) {
-        if (if_block) {
-          if_block.p(ctx2, dirty);
-          if (dirty & /*totalCards*/
-          8) {
-            transition_in(if_block, 1);
-          }
+        if (if_block0) {
+          if_block0.p(ctx2, dirty);
         } else {
-          if_block = create_if_block(ctx2);
-          if_block.c();
-          transition_in(if_block, 1);
-          if_block.m(div1, null);
+          if_block0 = create_if_block_3(ctx2);
+          if_block0.c();
+          if_block0.m(header, null);
         }
-      } else if (if_block) {
-        group_outros();
-        transition_out(if_block, 1, 1, () => {
-          if_block = null;
-        });
-        check_outros();
+      } else if (if_block0) {
+        if_block0.d(1);
+        if_block0 = null;
       }
-      const navigate_changes = {};
-      if (!updating_currCardIndex_1 && dirty & /*currCardIndex*/
-      4) {
-        updating_currCardIndex_1 = true;
-        navigate_changes.currCardIndex = /*currCardIndex*/
-        ctx2[2];
-        add_flush_callback(() => updating_currCardIndex_1 = false);
+      if (!current || dirty[0] & /*showOptionsPanel*/
+      128 && header_class_value !== (header_class_value = "options-panel " + /*showOptionsPanel*/
+      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-16rhqij")) {
+        attr(header, "class", header_class_value);
       }
-      if (!updating_totalCards_1 && dirty & /*totalCards*/
-      8) {
-        updating_totalCards_1 = true;
-        navigate_changes.totalCards = /*totalCards*/
-        ctx2[3];
-        add_flush_callback(() => updating_totalCards_1 = false);
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2);
+      if (current_block_type_index === previous_block_index) {
+        if (~current_block_type_index) {
+          if_blocks[current_block_type_index].p(select_block_ctx(ctx2, current_block_type_index), dirty);
+        }
+      } else {
+        if (if_block1) {
+          group_outros();
+          transition_out(if_blocks[previous_block_index], 1, 1, () => {
+            if_blocks[previous_block_index] = null;
+          });
+          check_outros();
+        }
+        if (~current_block_type_index) {
+          if_block1 = if_blocks[current_block_type_index];
+          if (!if_block1) {
+            if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx2, current_block_type_index));
+            if_block1.c();
+          } else {
+            if_block1.p(select_block_ctx(ctx2, current_block_type_index), dirty);
+          }
+          transition_in(if_block1, 1);
+          if_block1.m(main, t23);
+        } else {
+          if_block1 = null;
+        }
       }
-      navigate.$set(navigate_changes);
     },
     i(local) {
       if (current)
         return;
-      transition_in(counter.$$.fragment, local);
-      transition_in(if_block);
-      transition_in(navigate.$$.fragment, local);
+      transition_in(if_block1);
       current = true;
     },
     o(local) {
-      transition_out(counter.$$.fragment, local);
-      transition_out(if_block);
-      transition_out(navigate.$$.fragment, local);
+      transition_out(if_block1);
       current = false;
     },
     d(detaching) {
@@ -1415,13 +1719,17 @@ function create_fragment(ctx) {
       if (detaching)
         detach(t0);
       if (detaching)
-        detach(main);
+        detach(header);
       destroy_each(each_blocks, detaching);
-      destroy_component(counter);
-      if (if_block)
-        if_block.d();
-      ctx[19](null);
-      destroy_component(navigate);
+      if (if_block0)
+        if_block0.d();
+      if (detaching)
+        detach(t20);
+      if (detaching)
+        detach(main);
+      if (~current_block_type_index) {
+        if_blocks[current_block_type_index].d();
+      }
       mounted = false;
       run_all(dispose);
     }
@@ -1430,6 +1738,7 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
   let datasets = ["bopomofo", "chinese", "japanese"];
   let selected = "chinese";
+  let currMode = "flashcard";
   let data = [];
   let filteredData = [];
   let currCardIndex = 0;
@@ -1455,12 +1764,12 @@ function instance($$self, $$props, $$invalidate) {
     const res = await fetch("datasets/chinese.json");
     const d = await res.json();
     data = mapper.processChineseDataset(d);
-    $$invalidate(1, filteredData = data);
-    $$invalidate(3, totalCards = data.length);
+    $$invalidate(2, filteredData = data);
+    $$invalidate(4, totalCards = data.length);
   });
   let showOptionsPanel = false;
   const toggleOptionsPanel = () => {
-    $$invalidate(6, showOptionsPanel = !showOptionsPanel);
+    $$invalidate(7, showOptionsPanel = !showOptionsPanel);
   };
   const onChange = async () => {
     const mapper = new Mapper();
@@ -1473,9 +1782,9 @@ function instance($$self, $$props, $$invalidate) {
     } else if (selected === "bopomofo") {
       data = mapper.processBopomofoDataset(d);
     }
-    $$invalidate(2, currCardIndex = 0);
-    $$invalidate(3, totalCards = data.length);
-    $$invalidate(1, filteredData = data);
+    $$invalidate(3, currCardIndex = 0);
+    $$invalidate(4, totalCards = data.length);
+    $$invalidate(2, filteredData = data);
   };
   const onChangeSearch = async () => {
     const searchInput = document.querySelector(".searchInput");
@@ -1485,28 +1794,72 @@ function instance($$self, $$props, $$invalidate) {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');
         if (selectedRadioBtn) {
           const selectedSide = selectedRadioBtn.value;
-          $$invalidate(1, filteredData = data.filter((x) => {
+          $$invalidate(2, filteredData = data.filter((x) => {
             var _a;
             return (_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal);
           }));
         }
       } else {
-        $$invalidate(1, filteredData = data);
+        $$invalidate(2, filteredData = data);
       }
     }
-    $$invalidate(2, currCardIndex = 0);
-    $$invalidate(3, totalCards = filteredData.length);
+    $$invalidate(3, currCardIndex = 0);
+    $$invalidate(4, totalCards = filteredData.length);
   };
   const shuffle = () => {
     const maxIndex = filteredData.length - 1;
     for (let i = 0; i < filteredData.length - 2; i++) {
       const newIdx = Math.floor(Math.random() * (maxIndex - i) + i);
       const temp = filteredData[i];
-      $$invalidate(1, filteredData[i] = filteredData[newIdx], filteredData);
-      $$invalidate(1, filteredData[newIdx] = temp, filteredData);
+      $$invalidate(2, filteredData[i] = filteredData[newIdx], filteredData);
+      $$invalidate(2, filteredData[newIdx] = temp, filteredData);
     }
     const newCurrIdx = Math.floor(Math.random() * maxIndex);
-    $$invalidate(2, currCardIndex = newCurrIdx);
+    $$invalidate(3, currCardIndex = newCurrIdx);
+  };
+  const changeMode = (evt) => {
+    if (currMode === "flashcard") {
+      $$invalidate(1, currMode = "quiz");
+      evt.target.textContent = "flashcard mode";
+      shuffle();
+    } else {
+      $$invalidate(1, currMode = "flashcard");
+      evt.target.textContent = "quiz mode";
+    }
+  };
+  const getPossibleQuizAnswers = (correctAnswerIndex) => {
+    const possibleAnswers = [
+      filteredData[correctAnswerIndex],
+      filteredData[Math.floor(Math.random() * totalCards)],
+      filteredData[Math.floor(Math.random() * totalCards)]
+    ];
+    let counter = possibleAnswers.length;
+    while (counter > 0) {
+      const idx = Math.floor(Math.random() * counter);
+      counter--;
+      const tmp = possibleAnswers[counter];
+      possibleAnswers[counter] = possibleAnswers[idx];
+      possibleAnswers[idx] = tmp;
+    }
+    return possibleAnswers;
+  };
+  const checkQuizAnswer = (evt) => {
+    const choice = evt.target.textContent.trim();
+    const actualAnswer = filteredData[currCardIndex].pinyin.trim();
+    if (choice === actualAnswer) {
+      evt.target.style.border = "1px solid #32cd32";
+      evt.target.style.backgroundColor = "#32cd32";
+    } else {
+      evt.target.style.border = "1px solid #aa4a44";
+      evt.target.style.backgroundColor = "#aa4a44";
+    }
+    setTimeout(
+      () => {
+        evt.target.style.border = "1px solid #000";
+        evt.target.style.backgroundColor = "#fff";
+      },
+      2e3
+    );
   };
   const touchstart = (evt) => {
     touchStartX = evt.touches[0].screenX;
@@ -1516,15 +1869,15 @@ function instance($$self, $$props, $$invalidate) {
     if (touchStartX && Math.abs(end - touchStartX) > 10) {
       if (end < touchStartX) {
         if (currCardIndex + 1 > totalCards - 1) {
-          $$invalidate(2, currCardIndex = 0);
+          $$invalidate(3, currCardIndex = 0);
         } else {
-          $$invalidate(2, currCardIndex++, currCardIndex);
+          $$invalidate(3, currCardIndex++, currCardIndex);
         }
       } else {
         if (currCardIndex - 1 < 0) {
-          $$invalidate(2, currCardIndex = totalCards - 1);
+          $$invalidate(3, currCardIndex = totalCards - 1);
         } else {
-          $$invalidate(2, currCardIndex--, currCardIndex);
+          $$invalidate(3, currCardIndex--, currCardIndex);
         }
       }
     }
@@ -1532,38 +1885,39 @@ function instance($$self, $$props, $$invalidate) {
   function select_change_handler() {
     selected = select_value(this);
     $$invalidate(0, selected);
-    $$invalidate(7, datasets);
+    $$invalidate(8, datasets);
   }
   function counter_currCardIndex_binding(value) {
     currCardIndex = value;
-    $$invalidate(2, currCardIndex);
+    $$invalidate(3, currCardIndex);
   }
   function counter_totalCards_binding(value) {
     totalCards = value;
-    $$invalidate(3, totalCards);
+    $$invalidate(4, totalCards);
   }
   function card_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       cardComponent = $$value;
-      $$invalidate(5, cardComponent);
+      $$invalidate(6, cardComponent);
     });
   }
   function navigate_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       navComponent = $$value;
-      $$invalidate(4, navComponent);
+      $$invalidate(5, navComponent);
     });
   }
   function navigate_currCardIndex_binding(value) {
     currCardIndex = value;
-    $$invalidate(2, currCardIndex);
+    $$invalidate(3, currCardIndex);
   }
   function navigate_totalCards_binding(value) {
     totalCards = value;
-    $$invalidate(3, totalCards);
+    $$invalidate(4, totalCards);
   }
   return [
     selected,
+    currMode,
     filteredData,
     currCardIndex,
     totalCards,
@@ -1576,6 +1930,9 @@ function instance($$self, $$props, $$invalidate) {
     onChange,
     onChangeSearch,
     shuffle,
+    changeMode,
+    getPossibleQuizAnswers,
+    checkQuizAnswer,
     touchstart,
     touchend,
     select_change_handler,
@@ -1590,7 +1947,7 @@ function instance($$self, $$props, $$invalidate) {
 class App extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment, safe_not_equal, {});
+    init(this, options, instance, create_fragment, safe_not_equal, {}, null, [-1, -1]);
   }
 }
 new App({

@@ -6,9 +6,9 @@ export let totalCards: number;
 </script>
 
 <style>
-  .counter p {
-    display: inline-block;
-  }
+.counter p {
+  display: inline-block;
+}
 </style>
 
 <div class='counter'>

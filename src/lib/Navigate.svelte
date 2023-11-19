@@ -22,9 +22,9 @@ export const next = () => {
 </script>
 
 <style>
-  .navigate button {
-    display: inline-block;
-  }
+.navigate button {
+  display: inline-block;
+}
 </style>
 
 <div class='navigate'>

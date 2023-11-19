@@ -148,7 +148,7 @@
   }
   
   const checkQuizAnswer = (evt: Event) => {
-    const choice = evt.target.textContent.split(':')[1].trim();
+    const choice = evt.target.textContent.trim();
     const actualAnswer = filteredData[currCardIndex].pinyin.trim();
     
     if(choice === actualAnswer){
@@ -269,9 +269,9 @@
     {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
       <h2>what is the pinyin for {filteredData[currCardIndex].value}?</h2>
-      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>a: {possibleAnswers[0].pinyin}</p>
-      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>b: {possibleAnswers[1].pinyin}</p>
-      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>c: {possibleAnswers[2].pinyin}</p>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[0].pinyin}</button>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[1].pinyin}</button>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[2].pinyin}</button>
       <button on:click={shuffle}> next </button>
     </div>
   {/if}
@@ -320,8 +320,8 @@
   }
   
   .quiz-answer-choice {
-    max-width: 40%;
-    padding: 0.5em;
+    display: block;
+    padding: 0.8em;
     margin: 0 auto;
     margin-bottom: 2rem;
     margin-top: 2rem;

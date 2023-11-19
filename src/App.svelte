@@ -152,13 +152,16 @@
     const actualAnswer = filteredData[currCardIndex].pinyin.trim();
     
     if(choice === actualAnswer){
-      evt.target.style.border = "1px solid #00ff00";
+      evt.target.style.border = "1px solid #32cd32";
+      evt.target.style.backgroundColor = "#32cd32";
     }else{
-      evt.target.style.border = "1px solid #ff0000";
+      evt.target.style.border = "1px solid #aa4a44";
+      evt.target.style.backgroundColor = "#aa4a44";
     }
     
     setTimeout(() => {
       evt.target.style.border = "1px solid #000";
+      evt.target.style.backgroundColor = "#fff";
     }, 2000);
   }
   
@@ -327,7 +330,7 @@
   }
   
   .quiz-answer-choice:hover {
-    background-color: #eee;
+    cursor: pointer;
   }
   
   #search-front-choice, #search-back-choice {

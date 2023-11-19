@@ -158,7 +158,7 @@
     }
     
     setTimeout(() => {
-      evt.target.style.border = "none";
+      evt.target.style.border = "1px solid #000";
     }, 2000);
   }
   
@@ -250,7 +250,7 @@
   {#if currMode === 'flashcard'}
     <Counter bind:currCardIndex bind:totalCards />
     
-    <div class='cardContainer'>
+    <div class='card-container'>
       {#if totalCards > 0}
         <Card
           bind:this={cardComponent}
@@ -266,9 +266,9 @@
     {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
       <h2>what is the pinyin for {filteredData[currCardIndex].value}?</h2>
-      <p on:click={checkQuizAnswer}>a: {possibleAnswers[0].pinyin}</p>
-      <p on:click={checkQuizAnswer}>b: {possibleAnswers[1].pinyin}</p>
-      <p on:click={checkQuizAnswer}>c: {possibleAnswers[2].pinyin}</p>
+      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>a: {possibleAnswers[0].pinyin}</p>
+      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>b: {possibleAnswers[1].pinyin}</p>
+      <p class="quiz-answer-choice" on:click={checkQuizAnswer}>c: {possibleAnswers[2].pinyin}</p>
       <button on:click={shuffle}> next </button>
     </div>
   {/if}
@@ -281,7 +281,7 @@
     text-align: center;
   }
   
-  .cardContainer {
+  .card-container {
     height: 200px;
     width: 280px;
     margin: 0 auto;
@@ -314,6 +314,20 @@
   .icon {
     position: relative;
     z-index: 10;
+  }
+  
+  .quiz-answer-choice {
+    max-width: 40%;
+    padding: 0.5em;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    border: 1px solid #000;
+    border-radius: 20px;
+  }
+  
+  .quiz-answer-choice:hover {
+    background-color: #eee;
   }
   
   #search-front-choice, #search-back-choice {

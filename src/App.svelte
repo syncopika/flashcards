@@ -115,10 +115,51 @@
     if(currMode === 'flashcard'){
       currMode = 'quiz';
       evt.target.textContent = 'flashcard mode';
+      
+      shuffle();
     }else{
       currMode = 'flashcard';
       evt.target.textContent = 'quiz mode';
     }
+  }
+  
+  const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string, string>> => {
+    // we want to add in a couple of random answers to the set of
+    // possible answers (which of course should include the correct answer)
+    
+    const possibleAnswers = [
+      filteredData[correctAnswerIndex],
+      filteredData[Math.floor(Math.random() * totalCards)],
+      filteredData[Math.floor(Math.random() * totalCards)],
+    ];
+    
+    // shuffle the array
+    // https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
+    let counter = possibleAnswers.length;
+    while(counter > 0){
+      const idx = Math.floor(Math.random() * counter);
+      counter--;
+      const tmp = possibleAnswers[counter];
+      possibleAnswers[counter] = possibleAnswers[idx];
+      possibleAnswers[idx] = tmp;
+    }
+    
+    return possibleAnswers;
+  }
+  
+  const checkQuizAnswer = (evt: Event) => {
+    const choice = evt.target.textContent.split(':')[1].trim();
+    const actualAnswer = filteredData[currCardIndex].pinyin.trim();
+    
+    if(choice === actualAnswer){
+      evt.target.style.border = "1px solid #00ff00";
+    }else{
+      evt.target.style.border = "1px solid #ff0000";
+    }
+    
+    setTimeout(() => {
+      evt.target.style.border = "none";
+    }, 2000);
   }
   
   const touchstart = (evt: Event) => {
@@ -222,8 +263,13 @@
     
     <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
   {:else if currMode === 'quiz'}
+    {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
-      <p> TODO: quiz mode </p>
+      <h2>what is the pinyin for {filteredData[currCardIndex].value}?</h2>
+      <p on:click={checkQuizAnswer}>a: {possibleAnswers[0].pinyin}</p>
+      <p on:click={checkQuizAnswer}>b: {possibleAnswers[1].pinyin}</p>
+      <p on:click={checkQuizAnswer}>c: {possibleAnswers[2].pinyin}</p>
+      <button on:click={shuffle}> next </button>
     </div>
   {/if}
   

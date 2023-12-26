@@ -283,6 +283,10 @@ header {
   text-align: center;
 }
 
+button {
+  margin: 4px;
+}
+
 .card-container {
   height: 200px;
   width: 280px;
@@ -296,6 +300,13 @@ header {
   width: 100%;
   left: 0;
   box-shadow: 0px 1px 1px #ccc;
+  background: #fff;
+}
+
+@media (max-width: 1000px) {
+  .options-panel {
+    padding-top: 7%;
+  }
 }
 
 .options-panel>* {
@@ -309,13 +320,14 @@ header {
 
 .options-panel-off {
   height: 0px;
-  top: -100px;
+  top: calc(0vh - 200px);
   transition: 0.5s;
 }
 
 .icon {
   position: relative;
   z-index: 10;
+  margin: 0;
 }
 
 .quiz-answer-choice {

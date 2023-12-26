@@ -928,7 +928,7 @@ function create_if_block_3(ctx) {
       button = element("button");
       button.textContent = "quiz mode";
       attr(button, "id", "changeModeButton");
-      attr(button, "class", "svelte-16rhqij");
+      attr(button, "class", "svelte-mj5ase");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -1008,9 +1008,10 @@ function create_if_block_2(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
-      attr(button0, "class", "quiz-answer-choice svelte-16rhqij");
-      attr(button1, "class", "quiz-answer-choice svelte-16rhqij");
-      attr(button2, "class", "quiz-answer-choice svelte-16rhqij");
+      attr(button0, "class", "quiz-answer-choice svelte-mj5ase");
+      attr(button1, "class", "quiz-answer-choice svelte-mj5ase");
+      attr(button2, "class", "quiz-answer-choice svelte-mj5ase");
+      attr(button3, "class", "svelte-mj5ase");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1163,7 +1164,7 @@ function create_if_block(ctx) {
         if_block.c();
       t1 = space();
       create_component(navigate.$$.fragment);
-      attr(div, "class", "card-container svelte-16rhqij");
+      attr(div, "class", "card-container svelte-mj5ase");
     },
     m(target, anchor) {
       mount_component(counter, target, anchor);
@@ -1464,9 +1465,9 @@ function create_fragment(ctx) {
         if_block1.c();
       t23 = space();
       br = element("br");
-      attr(button0, "class", "icon svelte-16rhqij");
-      attr(p0, "class", "svelte-16rhqij");
-      attr(select, "class", "svelte-16rhqij");
+      attr(button0, "class", "icon svelte-mj5ase");
+      attr(p0, "class", "svelte-mj5ase");
+      attr(select, "class", "svelte-mj5ase");
       if (
         /*selected*/
         ctx[0] === void 0
@@ -1475,35 +1476,35 @@ function create_fragment(ctx) {
           /*select_change_handler*/
           ctx[19].call(select)
         ));
-      attr(p1, "class", "svelte-16rhqij");
-      attr(p2, "class", "svelte-16rhqij");
-      attr(input0, "class", "searchInput svelte-16rhqij");
+      attr(p1, "class", "svelte-mj5ase");
+      attr(p2, "class", "svelte-mj5ase");
+      attr(input0, "class", "searchInput svelte-mj5ase");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-16rhqij");
+      attr(input1, "class", "svelte-mj5ase");
       attr(label0, "for", "search-front-choice");
-      attr(label0, "class", "svelte-16rhqij");
+      attr(label0, "class", "svelte-mj5ase");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-16rhqij");
+      attr(input2, "class", "svelte-mj5ase");
       attr(label1, "for", "search-back-choice");
-      attr(label1, "class", "svelte-16rhqij");
+      attr(label1, "class", "svelte-mj5ase");
       attr(input3, "type", "radio");
       attr(input3, "id", "search-tag-choice");
       attr(input3, "name", "search-side-choice");
       input3.value = "tags";
-      attr(input3, "class", "svelte-16rhqij");
+      attr(input3, "class", "svelte-mj5ase");
       attr(label2, "for", "search-tag-choice");
-      attr(label2, "class", "svelte-16rhqij");
-      attr(button1, "class", "svelte-16rhqij");
+      attr(label2, "class", "svelte-mj5ase");
+      attr(button1, "class", "svelte-mj5ase");
       attr(header, "class", header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-16rhqij");
+      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-mj5ase");
     },
     m(target, anchor) {
       insert(target, button0, anchor);
@@ -1671,7 +1672,7 @@ function create_fragment(ctx) {
       }
       if (!current || dirty[0] & /*showOptionsPanel*/
       128 && header_class_value !== (header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-16rhqij")) {
+      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-mj5ase")) {
         attr(header, "class", header_class_value);
       }
       let previous_block_index = current_block_type_index;

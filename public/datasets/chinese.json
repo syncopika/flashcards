@@ -671,5 +671,14 @@
     {"value": "掃除", "pinyin": "sao3 chu2", "definition": "to clear away; to sweep away; to wipe out"},
     {"value": "路人", "pinyin": "lu4 ren2", "definition": "passersby"},
     {"value": "發出", "pinyin": "fa1 chu1", "definition": "to issue; to send out; to produce"},
-    {"value": "吸引", "pinyin": "xi1 yin3", "definition": "to attract; to entice; to appeal to"}
+    {"value": "吸引", "pinyin": "xi1 yin3", "definition": "to attract; to entice; to appeal to"},
+    {"value": "爆破", "pinyin": "bao4 po4", "definition": "to blow up; to demolish"},
+    {"value": "異類", "pinyin": "yi4 lei4", "definition": "exotic; foreign; special; unique"},
+    {"value": "看成", "pinyin": "kan4 cheng2", "definition": "to treat as; to regard as; to take for"},
+    {"value": "此起彼伏", "pinyin": "ci3 qi3 bi3 fu2", "definition": "(of sounds) rising and falling; continuous; unceasing", "tags": ["idiom"]},
+    {"value": "不但", "pinyin": "bu4 dan4", "definition": "not only"},
+    {"value": "檢視", "pinyin": "jian3 shi4", "definition": "to examine; to inspect; to see"},
+    {"value": "受歡迎", "pinyin": "shou4 huan1 ying2", "definition": "popular; well-received"},
+    {"value": "城堡", "pinyin": "cheng2 bao3", "definition": "castle"},
+    {"value": "貌似", "pinyin": "mao4 si4", "definition": "to appear to be; to seem as if"}
 ]

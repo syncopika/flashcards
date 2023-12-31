@@ -33,8 +33,10 @@ function handleKeydown(evt: Event){
   }else if(evt.code === 'ArrowRight'){
     if(navComponent) navComponent.next();
   }else if(evt.code === 'Space'){
-    evt.preventDefault(); // prevent any button presses with spacebar
-    if(cardComponent) cardComponent.flip();
+    if(evt.target.name !== 'search'){
+      evt.preventDefault(); // prevent any button presses with spacebar
+      if(cardComponent) cardComponent.flip();
+    }
   }
 }
 
@@ -83,7 +85,22 @@ const onChangeSearch = async () => {
       if(selectedRadioBtn){
         // TODO: create type here (e.g. instead of string, either 'front' or 'back' or 'tag')?
         const selectedSide: string = selectedRadioBtn.value;
-        filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
+        
+        if(selectedSide === 'back' && inputVal.split(' ').length > 1){
+          // if user wants to look up a compound and knows the pinyin but not the tones
+          // but also handle case where user might be trying to lookup by definition
+          // and their input contains multiple words
+          
+          // TODO: maybe need to refine search params for definition, pinyin, and character 
+          // instead of card side?
+          filteredData = data.filter(x => {
+            const val = inputVal.split(' ').join('');
+            const regex = x.pinyin.match(/[a-z]+/g).join('');
+            return val === regex || x[selectedSide]?.includes(inputVal);
+          });
+        }else{
+          filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
+        }
       }
     }else{
       filteredData = data;

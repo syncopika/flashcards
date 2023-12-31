@@ -1755,9 +1755,11 @@ function instance($$self, $$props, $$invalidate) {
       if (navComponent)
         navComponent.next();
     } else if (evt.code === "Space") {
-      evt.preventDefault();
-      if (cardComponent)
-        cardComponent.flip();
+      if (evt.target.name !== "search") {
+        evt.preventDefault();
+        if (cardComponent)
+          cardComponent.flip();
+      }
     }
   }
   onMount(async () => {
@@ -1795,10 +1797,19 @@ function instance($$self, $$props, $$invalidate) {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');
         if (selectedRadioBtn) {
           const selectedSide = selectedRadioBtn.value;
-          $$invalidate(2, filteredData = data.filter((x) => {
-            var _a;
-            return (_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal);
-          }));
+          if (selectedSide === "back" && inputVal.split(" ").length > 1) {
+            $$invalidate(2, filteredData = data.filter((x) => {
+              var _a;
+              const val = inputVal.split(" ").join("");
+              const regex = x.pinyin.match(/[a-z]+/g).join("");
+              return val === regex || ((_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal));
+            }));
+          } else {
+            $$invalidate(2, filteredData = data.filter((x) => {
+              var _a;
+              return (_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal);
+            }));
+          }
         }
       } else {
         $$invalidate(2, filteredData = data);

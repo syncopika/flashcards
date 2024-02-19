@@ -46,4 +46,16 @@ export class Mapper {
          };
       });
     }
+    
+    // example data: {"value": "多謝", "jyutping": "do1 ze6", "definition": "thank you"}
+    processCantoneseDataset(jsonData: any[]): Record<string, string>[] {
+       return jsonData.map(obj => {
+         return {
+           front: `<p>${obj.value}</p>`,
+           back: `<p><span class='field'>jyutping:</span> ${obj.jyutping}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+           value: obj.value,
+           jyutping: obj.jyutping,
+         };
+      });
+    }
 }

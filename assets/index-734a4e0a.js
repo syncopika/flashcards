@@ -874,6 +874,17 @@ class Mapper {
       };
     });
   }
+  // example data: {"value": "多謝", "jyutping": "do1 ze6", "definition": "thank you"}
+  processCantoneseDataset(jsonData) {
+    return jsonData.map((obj) => {
+      return {
+        front: `<p>${obj.value}</p>`,
+        back: `<p><span class='field'>jyutping:</span> ${obj.jyutping}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
+        value: obj.value,
+        jyutping: obj.jyutping
+      };
+    });
+  }
 }
 const App_svelte_svelte_type_style_lang = "";
 function get_if_ctx(ctx) {
@@ -1737,7 +1748,7 @@ function create_fragment(ctx) {
   };
 }
 function instance($$self, $$props, $$invalidate) {
-  let datasets = ["bopomofo", "chinese", "japanese"];
+  let datasets = ["bopomofo", "chinese", "japanese", "cantonese"];
   let selected = "chinese";
   let currMode = "flashcard";
   let data = [];
@@ -1784,6 +1795,8 @@ function instance($$self, $$props, $$invalidate) {
       data = mapper.processJapaneseDataset(d);
     } else if (selected === "bopomofo") {
       data = mapper.processBopomofoDataset(d);
+    } else if (selected === "cantonese") {
+      data = mapper.processCantoneseDataset(d);
     }
     $$invalidate(3, currCardIndex = 0);
     $$invalidate(4, totalCards = data.length);

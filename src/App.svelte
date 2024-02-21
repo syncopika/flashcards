@@ -8,7 +8,8 @@ import { onMount } from 'svelte';
 let datasets: string[] = [
   "bopomofo",
   "chinese",
-  "japanese"
+  "japanese",
+  "cantonese",
 ];
 
 let selected: string = "chinese";
@@ -68,6 +69,8 @@ const onChange = async () => {
     data = mapper.processJapaneseDataset(d);
   }else if(selected === "bopomofo"){
     data = mapper.processBopomofoDataset(d);
+  } else if(selected === "cantonese"){
+    data = mapper.processCantoneseDataset(d);
   }
   
   currCardIndex = 0;

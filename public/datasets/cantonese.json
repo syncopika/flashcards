@@ -30,5 +30,9 @@
     {"value": "你識唔識講英文", "jyutping": "nei5 sik1 m4 sik1 gong2 jing1 man2", "definition": "do you speak English?"},
     {"value": "你", "jyutping": "nei dei", "definition": "you all"},
     {"value": "再見", "jyutping": "zoi3 gin3", "definition": "goodbye"},
-    {"value": "下次見", "jyutping": "haak6 ci3 gin3", "definition": "goodbye"}
+    {"value": "下次見", "jyutping": "haak6 ci3 gin3", "definition": "goodbye"},
+    {"value": "百", "jyutping": "baak3", "definition": "hundred"},
+    {"value": "廿", "jyutping": "jaa6", "definition": "twenty"},
+    {"value": "依個", "jyutping": "ji1 go3", "definition": "this"},
+    {"value": "幾錢呀", "jyutping": "gei2 cin2 aa6", "definition": "how much"}
 ]

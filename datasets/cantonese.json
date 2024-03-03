@@ -34,5 +34,20 @@
     {"value": "百", "jyutping": "baak3", "definition": "hundred"},
     {"value": "廿", "jyutping": "jaa6", "definition": "twenty"},
     {"value": "依個", "jyutping": "ji1 go3", "definition": "this"},
-    {"value": "幾錢呀", "jyutping": "gei2 cin2 aa6", "definition": "how much"}
+    {"value": "幾錢呀", "jyutping": "gei2 cin2 aa6", "definition": "how much"},
+    {"value": "鞋", "jyutping": "haai4", "definition": "shoes"},
+    {"value": "去", "jyutping": "heoi3", "definition": "to go"},
+    {"value": "聽日", "jyutping": "ting1 jat6", "definition": "tomorrow"},
+    {"value": "邊度", "jyutping": "bin1 dou6", "definition": "where"},
+    {"value": "美國人", "jyutping": "mei5 gwok3 jan4", "definition": "American"},
+    {"value": "屋企", "jyutping": "uk1 kei2", "definition": "home"},
+    {"value": "地下", "jyutping": "dei6 haa5", "definition": "floor"},
+    {"value": "蕩失路", "jyutping": "dong6 sat1 lou6", "definition": "to be lost"},
+    {"value": "我係", "jyutping": "ngo5 hai6", "definition": "I am"},
+    {"value": "衫", "jyutping": "saam1", "definition": "shirt"},
+    {"value": "條", "jyutping": "tiu4", "definition": "measure word for pants/lower clothing and thin/long objects"},
+    {"value": "粒", "jyutping": "lap1", "definition": "measure word for small round objects"},
+    {"value": "架", "jyutping": "gaa3", "definition": "measure word for vehicles, machines"},
+    {"value": "支", "jyutping": "zi1", "definition": "measuer word for slender, inflexible objects"},
+    {"value": "張", "jyutping": "zoeng1", "definition": "measuer word for flat objects (e.g. paper)"}
 ]

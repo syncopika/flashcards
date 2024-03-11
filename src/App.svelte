@@ -3,6 +3,7 @@ import Card from './lib/Card.svelte';
 import Counter from './lib/Counter.svelte';
 import Navigate from './lib/Navigate.svelte';
 import { Mapper } from './lib/Mapper';
+import { DrawingCanvas } from './lib/DrawingCanvas';
 import { onMount } from 'svelte';
 
 let datasets: string[] = [
@@ -18,6 +19,8 @@ let data: Record<string, string>[] = [];
 let filteredData: Record<string, string>[] = [];
 let currCardIndex: number = 0;
 let totalCards: number = data.length;
+
+const drawingCanvas: DrawingCanvas = new DrawingCanvas();
 
 // for handling swipe events
 let touchStartX;
@@ -56,7 +59,7 @@ let showOptionsPanel: boolean = false;
 
 const toggleOptionsPanel = () => {
   showOptionsPanel = !showOptionsPanel;
-}
+};
 
 const onChange = async () => {
   const mapper = new Mapper();
@@ -76,7 +79,7 @@ const onChange = async () => {
   currCardIndex = 0;
   totalCards = data.length;
   filteredData = data;
-}
+};
 
 const onChangeSearch = async () => {
   const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
@@ -112,7 +115,7 @@ const onChangeSearch = async () => {
   
   currCardIndex = 0;
   totalCards = filteredData.length;
-}
+};
 
 const shuffle = () => {
   // TODO: make some animation to go along with this?
@@ -129,7 +132,7 @@ const shuffle = () => {
   // update current card @ current index after shuffle
   const newCurrIdx = Math.floor(Math.random() * maxIndex);
   currCardIndex = newCurrIdx;
-}
+};
 
 const changeMode = (evt: Event) => {
   if(currMode === 'flashcard'){
@@ -141,7 +144,7 @@ const changeMode = (evt: Event) => {
     currMode = 'flashcard';
     evt.target.textContent = 'quiz mode';
   }
-}
+};
 
 const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string, string>> => {
   // we want to add in a couple of random answers to the set of
@@ -165,7 +168,7 @@ const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string
   }
   
   return possibleAnswers;
-}
+};
 
 const checkQuizAnswer = (evt: Event) => {
   const choice = evt.target.textContent.trim();
@@ -183,11 +186,11 @@ const checkQuizAnswer = (evt: Event) => {
     evt.target.style.border = "1px solid #000";
     evt.target.style.backgroundColor = "#fff";
   }, 2000);
-}
+};
 
 const touchstart = (evt: Event) => {
   touchStartX = evt.touches[0].screenX;
-}
+};
 
 const touchend = (evt: Event) => {
   const end = evt.changedTouches[0].screenX;
@@ -208,7 +211,58 @@ const touchend = (evt: Event) => {
       }
     }
   }
-}
+};
+
+const openDrawingCanvas = () => {
+  const overlay = document.createElement('div');
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.zIndex = 100;
+  overlay.style.position = 'absolute';
+  overlay.style.left = 0;
+  overlay.style.top = 0;
+  overlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
+  overlay.style.textAlign = 'center';
+  
+  const header = document.createElement('h1');
+  header.textContent = 'draw a character';
+  
+  const canvas = drawingCanvas.getCanvas();
+  
+  const submitBtn = document.createElement('button');
+  submitBtn.textContent = 'submit';
+  submitBtn.addEventListener('click', () => {
+    // TODO: evaluate drawing here and write result to search input
+    overlay.parentNode.removeChild(overlay);
+  });
+  
+  const cancelBtn = document.createElement('button');
+  cancelBtn.style.marginLeft = '6px';
+  cancelBtn.textContent = 'cancel';
+  cancelBtn.addEventListener('click', () => {
+    overlay.parentNode.removeChild(overlay);
+  });
+  
+  // https://github.com/gugray/hanzi_lookup
+  const worker = new Worker('hanzi_lookup_worker.js');
+  worker.onmessage = (e) => {
+    console.log(e);
+    /*
+    if (!e.data.what) return;
+    if (e.data.what == "loaded") initApp(); // create canvas here
+    else if (e.data.what == "lookup") showResults(e.data.matches);
+    */
+  }
+  worker.postMessage({wasm_uri: 'hanzi_lookup_bg.wasm'});
+  
+  overlay.appendChild(header);
+  overlay.appendChild(canvas);
+  overlay.appendChild(document.createElement('br'));
+  overlay.appendChild(submitBtn);
+  overlay.appendChild(cancelBtn);
+  document.body.appendChild(overlay);
+};
+
 </script>
 
 <svelte:window on:keydown={handleKeydown} on:touchstart={touchstart} on:touchend={touchend} />
@@ -230,7 +284,11 @@ const touchend = (evt: Event) => {
     class="searchInput" 
     type="text" 
     name="search" 
-    on:input={onChangeSearch}>
+    on:input={onChangeSearch}
+  >
+  {#if selected === "chinese"}
+  <button class="pencil-button" on:click={openDrawingCanvas}></button>
+  {/if}
   
   <input 
     type="radio" 
@@ -305,6 +363,12 @@ header {
 
 button {
   margin: 4px;
+}
+
+.pencil-button {
+  height: 3em;
+  width: 3em;
+  background: url("pencil-edit.svg") center no-repeat;
 }
 
 .card-container {

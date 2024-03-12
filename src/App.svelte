@@ -240,6 +240,7 @@ const openDrawingCanvas = () => {
   cancelBtn.style.marginLeft = '6px';
   cancelBtn.textContent = 'cancel';
   cancelBtn.addEventListener('click', () => {
+    drawingCanvas.drawClearCanvas();
     overlay.parentNode.removeChild(overlay);
   });
   

@@ -3,6 +3,7 @@
 export class DrawingCanvas {
 
   canvas: HTMLCanvasElement;
+  worker: Worker; // web worker to communicate with
   clicking: boolean;
   lastTouchX: number;
   lastTouchY: number;
@@ -12,9 +13,9 @@ export class DrawingCanvas {
   rawStrokes: number[][]; // an array of arrays
   currStroke: number[] | undefined;
 
-  constructor(){
+  constructor(worker: Worker){
     this.init();
-    
+    this.worker = worker;
     this.clicking = false;
     this.lastTouchX = -1;
     this.lastTouchY = -1;
@@ -24,8 +25,8 @@ export class DrawingCanvas {
   
   init(){
     const canvasElement = document.createElement('canvas');
-    canvasElement.width = 512;
-    canvasElement.height = 512;
+    canvasElement.width = 256;
+    canvasElement.height = 256;
     canvasElement.style.backgroundColor = '#fff';
     canvasElement.style.margin = '0 auto';
     canvasElement.style.border = '1px solid #000';
@@ -66,7 +67,7 @@ export class DrawingCanvas {
     ctx.clearRect(0, 0, width, height);
     ctx.setLineDash([1, 1]);
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = "grey";
+    ctx.strokeStyle = "#000";
     ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(width, 0);
@@ -99,7 +100,7 @@ export class DrawingCanvas {
     this.currStroke.push(this.lastPoint);
     
     const ctx = this.canvas.getContext('2d');
-    ctx.strokeStyle = 'grey';
+    ctx.strokeStyle = '#000';
     ctx.setLineDash([]);
     ctx.lineWidth = this.strokeWidth;
     ctx.beginPath();
@@ -136,8 +137,11 @@ export class DrawingCanvas {
     this.currStroke.push([x,y]);
     this.rawStrokes.push(this.currStroke);
     this.currStroke = [];
-    
-    // if stroke finished, call strokeFinished() -> some callback function
+  }
+  
+  // get the hand-drawn input strokes and try to find a character match
+  lookup(){
+    this.worker.postMessage({strokes: this.rawStrokes, limit: 8});
   }
 
   getCanvas(){

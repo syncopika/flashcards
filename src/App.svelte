@@ -6,6 +6,11 @@ import { Mapper } from './lib/Mapper';
 import { DrawingCanvas } from './lib/DrawingCanvas';
 import { onMount } from 'svelte';
 
+interface HanziLookupResult {
+  hanzi: string;
+  score: number;
+}
+
 let datasets: string[] = [
   "bopomofo",
   "chinese",
@@ -20,7 +25,19 @@ let filteredData: Record<string, string>[] = [];
 let currCardIndex: number = 0;
 let totalCards: number = data.length;
 
-const drawingCanvas: DrawingCanvas = new DrawingCanvas();
+// set up web worker for chinese character recognition
+// https://github.com/gugray/hanzi_lookup
+const worker = new Worker('hanzi_lookup_worker.js');
+worker.onmessage = (e) => {
+  if (!e.data.what) return;
+  if (e.data.what == "lookup"){
+    //console.log(e.data.matches);
+    openResults(e.data.matches);
+  }
+}
+worker.postMessage({wasm_uri: 'hanzi_lookup_bg.wasm'});
+
+const drawingCanvas: DrawingCanvas = new DrawingCanvas(worker);
 
 // for handling swipe events
 let touchStartX;
@@ -232,8 +249,15 @@ const openDrawingCanvas = () => {
   const submitBtn = document.createElement('button');
   submitBtn.textContent = 'submit';
   submitBtn.addEventListener('click', () => {
-    // TODO: evaluate drawing here and write result to search input
+    drawingCanvas.lookup();
     overlay.parentNode.removeChild(overlay);
+  });
+  
+  const clearBtn = document.createElement('button');
+  clearBtn.style.marginLeft = '6px';
+  clearBtn.textContent = 'clear';
+  clearBtn.addEventListener('click', () => {
+    drawingCanvas.drawClearCanvas();
   });
   
   const cancelBtn = document.createElement('button');
@@ -244,22 +268,73 @@ const openDrawingCanvas = () => {
     overlay.parentNode.removeChild(overlay);
   });
   
-  // https://github.com/gugray/hanzi_lookup
-  const worker = new Worker('hanzi_lookup_worker.js');
-  worker.onmessage = (e) => {
-    console.log(e);
-    /*
-    if (!e.data.what) return;
-    if (e.data.what == "loaded") initApp(); // create canvas here
-    else if (e.data.what == "lookup") showResults(e.data.matches);
-    */
-  }
-  worker.postMessage({wasm_uri: 'hanzi_lookup_bg.wasm'});
-  
   overlay.appendChild(header);
   overlay.appendChild(canvas);
   overlay.appendChild(document.createElement('br'));
   overlay.appendChild(submitBtn);
+  overlay.appendChild(clearBtn);
+  overlay.appendChild(cancelBtn);
+  document.body.appendChild(overlay);
+};
+
+// display any matched characters from web worker job
+const openResults = (results: HanziLookupResult[]) => {
+  const overlay = document.createElement('div');
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.zIndex = 100;
+  overlay.style.position = 'absolute';
+  overlay.style.left = 0;
+  overlay.style.top = 0;
+  overlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
+  overlay.style.textAlign = 'center';
+  
+  const header = document.createElement('h1');
+  header.textContent = 'match results';
+  
+  const display = document.createElement('div');
+  display.style.display = 'flex';
+  display.style.alignItems = 'center';
+  display.style.justifyContent = 'center';
+  display.style.gap = '1em';
+  display.style.margin = '0 auto';
+  display.style.width = '90%';
+  
+  results.forEach(r => {
+    const resultElement = document.createElement('div');
+    resultElement.style.padding = '5px';
+    
+    const hanzi = document.createElement('h1');
+    hanzi.textContent = r.hanzi;
+    hanzi.style.fontWeight = 'bold';
+    
+    const matchScore = document.createElement('p');
+    matchScore.textContent = `match score: ${r.score}`;
+    
+    resultElement.appendChild(hanzi);
+    resultElement.appendChild(matchScore);
+    
+    resultElement.classList.add('match-result');
+    resultElement.addEventListener('click', () => {
+      // TODO: add to search input
+      console.log(r.hanzi);
+    });
+    resultElement.style.border = '1px solid #000';
+    resultElement.style.backgroundColor = '#fff';
+    
+    display.appendChild(resultElement);
+  });
+  
+  const cancelBtn = document.createElement('button');
+  cancelBtn.style.marginLeft = '6px';
+  cancelBtn.textContent = 'cancel';
+  cancelBtn.addEventListener('click', () => {
+    overlay.parentNode.removeChild(overlay);
+  });
+  
+  overlay.appendChild(header);
+  overlay.appendChild(display);
+  overlay.appendChild(document.createElement('br'));
   overlay.appendChild(cancelBtn);
   document.body.appendChild(overlay);
 };
@@ -427,6 +502,11 @@ button {
 
 .quiz-answer-choice:hover {
   cursor: pointer;
+}
+
+.match-result:hover {
+  cursor: pointer;
+  background-color: #ccc;
 }
 
 #search-front-choice, #search-back-choice {

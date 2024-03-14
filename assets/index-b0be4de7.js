@@ -1,3 +1,9 @@
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -620,7 +626,7 @@ function create_fragment$3(ctx) {
 }
 function instance$3($$self, $$props, $$invalidate) {
   let front = true;
-  const flip = (evt) => {
+  const flip = () => {
     if (!window.getSelection().toString()) {
       $$invalidate(4, front = !front);
     }
@@ -886,6 +892,158 @@ class Mapper {
     });
   }
 }
+class DrawingCanvas {
+  constructor(worker) {
+    __publicField(this, "canvas");
+    __publicField(this, "worker");
+    // web worker to communicate with
+    __publicField(this, "clicking");
+    __publicField(this, "lastTouchX");
+    __publicField(this, "lastTouchY");
+    __publicField(this, "timestamp");
+    __publicField(this, "strokeWidth");
+    __publicField(this, "lastPoint");
+    __publicField(this, "rawStrokes");
+    // array of strokes, where a stroke is an array of coordinates, and each coordinate is an array containing an x and y value
+    __publicField(this, "currStroke");
+    this.init();
+    this.worker = worker;
+    this.clicking = false;
+    this.lastTouchX = -1;
+    this.lastTouchY = -1;
+    this.strokeWidth = 5;
+    this.rawStrokes = [];
+    this.currStroke = [];
+  }
+  init() {
+    const canvasElement = document.createElement("canvas");
+    canvasElement.width = 256;
+    canvasElement.height = 256;
+    canvasElement.style.backgroundColor = "#fff";
+    canvasElement.style.margin = "0 auto";
+    canvasElement.style.border = "1px solid #000";
+    canvasElement.addEventListener("pointermove", (e) => {
+      if (!this.clicking)
+        return;
+      const x = e.pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.pageY - canvasElement.getBoundingClientRect().top;
+      this.dragClick(x, y);
+    });
+    canvasElement.addEventListener("pointerdown", (e) => {
+      const x = e.pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.pageY - canvasElement.getBoundingClientRect().top;
+      this.startClick(x, y);
+    });
+    canvasElement.addEventListener("pointerup", (e) => {
+      const x = e.pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.pageY - canvasElement.getBoundingClientRect().top;
+      this.endClick(x, y);
+    });
+    canvasElement.addEventListener("touchmove", (e) => {
+      if (!this.clicking)
+        return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
+      this.lastTouchX = x;
+      this.lastTouchY = y;
+      this.dragClick(x, y);
+    });
+    canvasElement.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
+      this.startClick(x, y);
+    });
+    canvasElement.addEventListener("touchend", (e) => {
+      e.preventDefault();
+      this.endClick(this.lastTouchX, this.lastTouchY);
+      this.lastTouchX = -1;
+      this.lastTouchY = -1;
+    });
+    this.canvas = canvasElement;
+    this.drawClearCanvas();
+  }
+  // clears canvas and draws gridlines
+  drawClearCanvas() {
+    const ctx = this.canvas.getContext("2d");
+    const width = this.canvas.width;
+    const height = this.canvas.height;
+    ctx.clearRect(0, 0, width, height);
+    ctx.setLineDash([1, 1]);
+    ctx.lineWidth = 0.5;
+    ctx.strokeStyle = "#000";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width, 0);
+    ctx.lineTo(width, height);
+    ctx.lineTo(0, height);
+    ctx.lineTo(0, 0);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width, height);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(width, 0);
+    ctx.lineTo(0, height);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(width / 2, 0);
+    ctx.lineTo(width / 2, height);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(width, height / 2);
+    ctx.stroke();
+  }
+  startClick(x, y) {
+    this.clicking = true;
+    this.currStroke = [];
+    this.lastPoint = [x, y];
+    this.currStroke.push(this.lastPoint);
+    const ctx = this.canvas.getContext("2d");
+    ctx.strokeStyle = "#000";
+    ctx.setLineDash([]);
+    ctx.lineWidth = this.strokeWidth;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    this.timestamp = new Date();
+  }
+  dragClick(x, y) {
+    if (this.timestamp && new Date().getTime() - this.timestamp.getTime() < 50) {
+      return;
+    }
+    this.timestamp = new Date();
+    const point = [x, y];
+    if (this.lastPoint && point[0] === this.lastPoint[0] && point[1] === this.lastPoint[1]) {
+      return;
+    }
+    this.currStroke.push(point);
+    this.lastPoint = point;
+    const ctx = this.canvas.getContext("2d");
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+  endClick(x, y) {
+    this.clicking = false;
+    if (x === -1)
+      return;
+    const ctx = this.canvas.getContext("2d");
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    this.currStroke.push([x, y]);
+    this.rawStrokes.push(this.currStroke);
+    this.currStroke = [];
+  }
+  // get the hand-drawn input strokes and try to find a character match
+  lookup() {
+    this.worker.postMessage({ strokes: this.rawStrokes, limit: 8 });
+  }
+  getCanvas() {
+    return this.canvas;
+  }
+}
 const App_svelte_svelte_type_style_lang = "";
 function get_if_ctx(ctx) {
   const child_ctx = ctx.slice();
@@ -896,19 +1054,19 @@ function get_if_ctx(ctx) {
       child_ctx[3]
     )
   );
-  child_ctx[28] = constants_0;
+  child_ctx[32] = constants_0;
   return child_ctx;
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[29] = list[i];
+  child_ctx[33] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[29] + ""
+    ctx[33] + ""
   );
   let t;
   return {
@@ -916,7 +1074,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[29];
+      ctx[33];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -930,6 +1088,36 @@ function create_each_block(ctx) {
     }
   };
 }
+function create_if_block_4(ctx) {
+  let button;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      button = element("button");
+      attr(button, "class", "pencil-button svelte-irb86v");
+    },
+    m(target, anchor) {
+      insert(target, button, anchor);
+      if (!mounted) {
+        dispose = listen(
+          button,
+          "click",
+          /*openDrawingCanvas*/
+          ctx[19]
+        );
+        mounted = true;
+      }
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(button);
+      mounted = false;
+      dispose();
+    }
+  };
+}
 function create_if_block_3(ctx) {
   let button;
   let mounted;
@@ -939,7 +1127,7 @@ function create_if_block_3(ctx) {
       button = element("button");
       button.textContent = "quiz mode";
       attr(button, "id", "changeModeButton");
-      attr(button, "class", "svelte-mj5ase");
+      attr(button, "class", "svelte-irb86v");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -979,21 +1167,21 @@ function create_if_block_2(ctx) {
   let button0;
   let t4_value = (
     /*possibleAnswers*/
-    ctx[28][0].pinyin + ""
+    ctx[32][0].pinyin + ""
   );
   let t4;
   let t5;
   let button1;
   let t6_value = (
     /*possibleAnswers*/
-    ctx[28][1].pinyin + ""
+    ctx[32][1].pinyin + ""
   );
   let t6;
   let t7;
   let button2;
   let t8_value = (
     /*possibleAnswers*/
-    ctx[28][2].pinyin + ""
+    ctx[32][2].pinyin + ""
   );
   let t8;
   let t9;
@@ -1019,10 +1207,10 @@ function create_if_block_2(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
-      attr(button0, "class", "quiz-answer-choice svelte-mj5ase");
-      attr(button1, "class", "quiz-answer-choice svelte-mj5ase");
-      attr(button2, "class", "quiz-answer-choice svelte-mj5ase");
-      attr(button3, "class", "svelte-mj5ase");
+      attr(button0, "class", "quiz-answer-choice svelte-irb86v");
+      attr(button1, "class", "quiz-answer-choice svelte-irb86v");
+      attr(button2, "class", "quiz-answer-choice svelte-irb86v");
+      attr(button3, "class", "svelte-irb86v");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1081,15 +1269,15 @@ function create_if_block_2(ctx) {
         set_data(t1, t1_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t4_value !== (t4_value = /*possibleAnswers*/
-      ctx2[28][0].pinyin + ""))
+      ctx2[32][0].pinyin + ""))
         set_data(t4, t4_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t6_value !== (t6_value = /*possibleAnswers*/
-      ctx2[28][1].pinyin + ""))
+      ctx2[32][1].pinyin + ""))
         set_data(t6, t6_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t8_value !== (t8_value = /*possibleAnswers*/
-      ctx2[28][2].pinyin + ""))
+      ctx2[32][2].pinyin + ""))
         set_data(t8, t8_value);
     },
     i: noop,
@@ -1114,10 +1302,10 @@ function create_if_block(ctx) {
   let updating_totalCards_1;
   let current;
   function counter_currCardIndex_binding(value) {
-    ctx[20](value);
+    ctx[21](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[21](value);
+    ctx[22](value);
   }
   let counter_props = {};
   if (
@@ -1142,10 +1330,10 @@ function create_if_block(ctx) {
     ctx[4] > 0 && create_if_block_1(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[24](value);
+    ctx[25](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[25](value);
+    ctx[26](value);
   }
   let navigate_props = {};
   if (
@@ -1163,7 +1351,7 @@ function create_if_block(ctx) {
     ctx[4];
   }
   navigate = new Navigate({ props: navigate_props });
-  ctx[23](navigate);
+  ctx[24](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
@@ -1175,7 +1363,7 @@ function create_if_block(ctx) {
         if_block.c();
       t1 = space();
       create_component(navigate.$$.fragment);
-      attr(div, "class", "card-container svelte-mj5ase");
+      attr(div, "class", "card-container svelte-irb86v");
     },
     m(target, anchor) {
       mount_component(counter, target, anchor);
@@ -1268,7 +1456,7 @@ function create_if_block(ctx) {
         if_block.d();
       if (detaching)
         detach(t1);
-      ctx[23](null);
+      ctx[24](null);
       destroy_component(navigate, detaching);
     }
   };
@@ -1300,7 +1488,7 @@ function create_if_block_1(ctx) {
     )
   };
   card = new Card({ props: card_props });
-  ctx[22](card);
+  ctx[23](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -1345,7 +1533,7 @@ function create_if_block_1(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[22](null);
+      ctx[23](null);
       destroy_component(card, detaching);
     }
   };
@@ -1364,28 +1552,30 @@ function create_fragment(ctx) {
   let t7;
   let input0;
   let t8;
-  let input1;
   let t9;
+  let div;
+  let input1;
+  let t10;
   let label0;
-  let t11;
-  let input2;
   let t12;
+  let input2;
+  let t13;
   let label1;
-  let t14;
-  let input3;
   let t15;
+  let input3;
+  let t16;
   let label2;
-  let t17;
+  let t18;
   let button1;
-  let t19;
-  let header_class_value;
   let t20;
+  let header_class_value;
+  let t21;
   let main;
   let h1;
-  let t22;
-  let current_block_type_index;
-  let if_block1;
   let t23;
+  let current_block_type_index;
+  let if_block2;
+  let t24;
   let br;
   let current;
   let mounted;
@@ -1399,6 +1589,10 @@ function create_fragment(ctx) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
   }
   let if_block0 = (
+    /*selected*/
+    ctx[0] === "chinese" && create_if_block_4(ctx)
+  );
+  let if_block1 = (
     /*selected*/
     ctx[0] === "chinese" && create_if_block_3(ctx)
   );
@@ -1423,7 +1617,7 @@ function create_fragment(ctx) {
     return ctx2;
   }
   if (~(current_block_type_index = select_block_type(ctx))) {
-    if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx, current_block_type_index));
+    if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx, current_block_type_index));
   }
   return {
     c() {
@@ -1447,75 +1641,76 @@ function create_fragment(ctx) {
       t7 = space();
       input0 = element("input");
       t8 = space();
-      input1 = element("input");
-      t9 = space();
-      label0 = element("label");
-      label0.textContent = "front";
-      t11 = space();
-      input2 = element("input");
-      t12 = space();
-      label1 = element("label");
-      label1.textContent = "back";
-      t14 = space();
-      input3 = element("input");
-      t15 = space();
-      label2 = element("label");
-      label2.textContent = "tag";
-      t17 = space();
-      button1 = element("button");
-      button1.textContent = "shuffle";
-      t19 = space();
       if (if_block0)
         if_block0.c();
+      t9 = space();
+      div = element("div");
+      input1 = element("input");
+      t10 = space();
+      label0 = element("label");
+      label0.textContent = "front";
+      t12 = space();
+      input2 = element("input");
+      t13 = space();
+      label1 = element("label");
+      label1.textContent = "back";
+      t15 = space();
+      input3 = element("input");
+      t16 = space();
+      label2 = element("label");
+      label2.textContent = "tag";
+      t18 = space();
+      button1 = element("button");
+      button1.textContent = "shuffle";
       t20 = space();
+      if (if_block1)
+        if_block1.c();
+      t21 = space();
       main = element("main");
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t22 = space();
-      if (if_block1)
-        if_block1.c();
       t23 = space();
+      if (if_block2)
+        if_block2.c();
+      t24 = space();
       br = element("br");
-      attr(button0, "class", "icon svelte-mj5ase");
-      attr(p0, "class", "svelte-mj5ase");
-      attr(select, "class", "svelte-mj5ase");
+      attr(button0, "class", "icon svelte-irb86v");
+      attr(p0, "class", "svelte-irb86v");
+      attr(select, "class", "svelte-irb86v");
       if (
         /*selected*/
         ctx[0] === void 0
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[19].call(select)
+          ctx[20].call(select)
         ));
-      attr(p1, "class", "svelte-mj5ase");
-      attr(p2, "class", "svelte-mj5ase");
-      attr(input0, "class", "searchInput svelte-mj5ase");
+      attr(p1, "class", "svelte-irb86v");
+      attr(p2, "class", "svelte-irb86v");
+      attr(input0, "class", "searchInput svelte-irb86v");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-mj5ase");
+      attr(input1, "class", "svelte-irb86v");
       attr(label0, "for", "search-front-choice");
-      attr(label0, "class", "svelte-mj5ase");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-mj5ase");
+      attr(input2, "class", "svelte-irb86v");
       attr(label1, "for", "search-back-choice");
-      attr(label1, "class", "svelte-mj5ase");
       attr(input3, "type", "radio");
       attr(input3, "id", "search-tag-choice");
       attr(input3, "name", "search-side-choice");
       input3.value = "tags";
-      attr(input3, "class", "svelte-mj5ase");
       attr(label2, "for", "search-tag-choice");
-      attr(label2, "class", "svelte-mj5ase");
-      attr(button1, "class", "svelte-mj5ase");
+      attr(div, "class", "svelte-irb86v");
+      attr(button1, "class", "svelte-irb86v");
       attr(header, "class", header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-mj5ase");
+      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-irb86v");
     },
     m(target, anchor) {
       insert(target, button0, anchor);
@@ -1539,30 +1734,34 @@ function create_fragment(ctx) {
       append(header, t7);
       append(header, input0);
       append(header, t8);
-      append(header, input1);
-      append(header, t9);
-      append(header, label0);
-      append(header, t11);
-      append(header, input2);
-      append(header, t12);
-      append(header, label1);
-      append(header, t14);
-      append(header, input3);
-      append(header, t15);
-      append(header, label2);
-      append(header, t17);
-      append(header, button1);
-      append(header, t19);
       if (if_block0)
         if_block0.m(header, null);
-      insert(target, t20, anchor);
+      append(header, t9);
+      append(header, div);
+      append(div, input1);
+      append(div, t10);
+      append(div, label0);
+      append(div, t12);
+      append(div, input2);
+      append(div, t13);
+      append(div, label1);
+      append(div, t15);
+      append(div, input3);
+      append(div, t16);
+      append(div, label2);
+      append(header, t18);
+      append(header, button1);
+      append(header, t20);
+      if (if_block1)
+        if_block1.m(header, null);
+      insert(target, t21, anchor);
       insert(target, main, anchor);
       append(main, h1);
-      append(main, t22);
+      append(main, t23);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].m(main, null);
       }
-      append(main, t23);
+      append(main, t24);
       append(main, br);
       current = true;
       if (!mounted) {
@@ -1595,7 +1794,7 @@ function create_fragment(ctx) {
             select,
             "change",
             /*select_change_handler*/
-            ctx[19]
+            ctx[20]
           ),
           listen(
             select,
@@ -1673,17 +1872,32 @@ function create_fragment(ctx) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_3(ctx2);
+          if_block0 = create_if_block_4(ctx2);
           if_block0.c();
-          if_block0.m(header, null);
+          if_block0.m(header, t9);
         }
       } else if (if_block0) {
         if_block0.d(1);
         if_block0 = null;
       }
+      if (
+        /*selected*/
+        ctx2[0] === "chinese"
+      ) {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+        } else {
+          if_block1 = create_if_block_3(ctx2);
+          if_block1.c();
+          if_block1.m(header, null);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
+      }
       if (!current || dirty[0] & /*showOptionsPanel*/
       128 && header_class_value !== (header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-mj5ase")) {
+      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-irb86v")) {
         attr(header, "class", header_class_value);
       }
       let previous_block_index = current_block_type_index;
@@ -1693,7 +1907,7 @@ function create_fragment(ctx) {
           if_blocks[current_block_type_index].p(select_block_ctx(ctx2, current_block_type_index), dirty);
         }
       } else {
-        if (if_block1) {
+        if (if_block2) {
           group_outros();
           transition_out(if_blocks[previous_block_index], 1, 1, () => {
             if_blocks[previous_block_index] = null;
@@ -1701,28 +1915,28 @@ function create_fragment(ctx) {
           check_outros();
         }
         if (~current_block_type_index) {
-          if_block1 = if_blocks[current_block_type_index];
-          if (!if_block1) {
-            if_block1 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx2, current_block_type_index));
-            if_block1.c();
+          if_block2 = if_blocks[current_block_type_index];
+          if (!if_block2) {
+            if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](select_block_ctx(ctx2, current_block_type_index));
+            if_block2.c();
           } else {
-            if_block1.p(select_block_ctx(ctx2, current_block_type_index), dirty);
+            if_block2.p(select_block_ctx(ctx2, current_block_type_index), dirty);
           }
-          transition_in(if_block1, 1);
-          if_block1.m(main, t23);
+          transition_in(if_block2, 1);
+          if_block2.m(main, t24);
         } else {
-          if_block1 = null;
+          if_block2 = null;
         }
       }
     },
     i(local) {
       if (current)
         return;
-      transition_in(if_block1);
+      transition_in(if_block2);
       current = true;
     },
     o(local) {
-      transition_out(if_block1);
+      transition_out(if_block2);
       current = false;
     },
     d(detaching) {
@@ -1735,8 +1949,10 @@ function create_fragment(ctx) {
       destroy_each(each_blocks, detaching);
       if (if_block0)
         if_block0.d();
+      if (if_block1)
+        if_block1.d();
       if (detaching)
-        detach(t20);
+        detach(t21);
       if (detaching)
         detach(main);
       if (~current_block_type_index) {
@@ -1755,10 +1971,21 @@ function instance($$self, $$props, $$invalidate) {
   let filteredData = [];
   let currCardIndex = 0;
   let totalCards = data.length;
+  const worker = new Worker("hanzi_lookup_worker.js");
+  worker.onmessage = (e) => {
+    if (!e.data.what)
+      return;
+    if (e.data.what == "lookup") {
+      openResults(e.data.matches);
+    }
+  };
+  worker.postMessage({ wasm_uri: "hanzi_lookup_bg.wasm" });
+  const drawingCanvas = new DrawingCanvas(worker);
   let touchStartX;
   let navComponent;
   let cardComponent;
   function handleKeydown(evt) {
+    const target = evt.target;
     if (evt.code === "ArrowLeft") {
       if (navComponent)
         navComponent.prev();
@@ -1766,7 +1993,7 @@ function instance($$self, $$props, $$invalidate) {
       if (navComponent)
         navComponent.next();
     } else if (evt.code === "Space") {
-      if (evt.target.name !== "search") {
+      if (target.name !== "search") {
         evt.preventDefault();
         if (cardComponent)
           cardComponent.flip();
@@ -1843,13 +2070,14 @@ function instance($$self, $$props, $$invalidate) {
     $$invalidate(3, currCardIndex = newCurrIdx);
   };
   const changeMode = (evt) => {
+    const target = evt.target;
     if (currMode === "flashcard") {
       $$invalidate(1, currMode = "quiz");
-      evt.target.textContent = "flashcard mode";
+      target.textContent = "flashcard mode";
       shuffle();
     } else {
       $$invalidate(1, currMode = "flashcard");
-      evt.target.textContent = "quiz mode";
+      target.textContent = "quiz mode";
     }
   };
   const getPossibleQuizAnswers = (correctAnswerIndex) => {
@@ -1869,19 +2097,20 @@ function instance($$self, $$props, $$invalidate) {
     return possibleAnswers;
   };
   const checkQuizAnswer = (evt) => {
-    const choice = evt.target.textContent.trim();
+    const target = evt.target;
+    const choice = target.textContent.trim();
     const actualAnswer = filteredData[currCardIndex].pinyin.trim();
     if (choice === actualAnswer) {
-      evt.target.style.border = "1px solid #32cd32";
-      evt.target.style.backgroundColor = "#32cd32";
+      target.style.border = "1px solid #32cd32";
+      target.style.backgroundColor = "#32cd32";
     } else {
-      evt.target.style.border = "1px solid #aa4a44";
-      evt.target.style.backgroundColor = "#aa4a44";
+      target.style.border = "1px solid #aa4a44";
+      target.style.backgroundColor = "#aa4a44";
     }
     setTimeout(
       () => {
-        evt.target.style.border = "1px solid #000";
-        evt.target.style.backgroundColor = "#fff";
+        target.style.border = "1px solid #000";
+        target.style.backgroundColor = "#fff";
       },
       2e3
     );
@@ -1906,6 +2135,97 @@ function instance($$self, $$props, $$invalidate) {
         }
       }
     }
+  };
+  const openDrawingCanvas = () => {
+    const overlay = document.createElement("div");
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.zIndex = "100";
+    overlay.style.position = "absolute";
+    overlay.style.left = "0";
+    overlay.style.top = "0";
+    overlay.style.backgroundColor = "rgba(128, 128, 128, 0.8)";
+    overlay.style.textAlign = "center";
+    const header = document.createElement("h1");
+    header.textContent = "draw a character";
+    const canvas = drawingCanvas.getCanvas();
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "submit";
+    submitBtn.addEventListener("click", () => {
+      drawingCanvas.lookup();
+      overlay.parentNode.removeChild(overlay);
+    });
+    const clearBtn = document.createElement("button");
+    clearBtn.style.marginLeft = "6px";
+    clearBtn.textContent = "clear";
+    clearBtn.addEventListener("click", () => {
+      drawingCanvas.drawClearCanvas();
+    });
+    const cancelBtn = document.createElement("button");
+    cancelBtn.style.marginLeft = "6px";
+    cancelBtn.textContent = "cancel";
+    cancelBtn.addEventListener("click", () => {
+      drawingCanvas.drawClearCanvas();
+      overlay.parentNode.removeChild(overlay);
+    });
+    overlay.appendChild(header);
+    overlay.appendChild(canvas);
+    overlay.appendChild(document.createElement("br"));
+    overlay.appendChild(submitBtn);
+    overlay.appendChild(clearBtn);
+    overlay.appendChild(cancelBtn);
+    document.body.appendChild(overlay);
+  };
+  const openResults = (results) => {
+    const overlay = document.createElement("div");
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.zIndex = "100";
+    overlay.style.position = "absolute";
+    overlay.style.left = "0";
+    overlay.style.top = "0";
+    overlay.style.backgroundColor = "rgba(128, 128, 128, 0.8)";
+    overlay.style.textAlign = "center";
+    const header = document.createElement("h1");
+    header.textContent = "match results";
+    const display = document.createElement("div");
+    display.style.display = "flex";
+    display.style.flexWrap = "wrap";
+    display.style.alignItems = "center";
+    display.style.justifyContent = "center";
+    display.style.gap = "1em";
+    display.style.margin = "0 auto";
+    display.style.width = "auto";
+    results.forEach((r) => {
+      const resultElement = document.createElement("div");
+      resultElement.style.padding = "5px";
+      const hanzi = document.createElement("h1");
+      hanzi.textContent = r.hanzi;
+      hanzi.style.fontWeight = "bold";
+      const matchScore = document.createElement("p");
+      matchScore.textContent = `match score: ${r.score}`;
+      resultElement.appendChild(hanzi);
+      resultElement.appendChild(matchScore);
+      resultElement.classList.add("match-result");
+      resultElement.addEventListener("click", () => {
+        const searchInput = document.querySelector(".searchInput");
+        if (searchInput)
+          searchInput.value = r.hanzi;
+      });
+      resultElement.style.backgroundColor = "#fff";
+      display.appendChild(resultElement);
+    });
+    const cancelBtn = document.createElement("button");
+    cancelBtn.style.marginLeft = "6px";
+    cancelBtn.textContent = "cancel";
+    cancelBtn.addEventListener("click", () => {
+      overlay.parentNode.removeChild(overlay);
+    });
+    overlay.appendChild(header);
+    overlay.appendChild(display);
+    overlay.appendChild(document.createElement("br"));
+    overlay.appendChild(cancelBtn);
+    document.body.appendChild(overlay);
   };
   function select_change_handler() {
     selected = select_value(this);
@@ -1960,6 +2280,7 @@ function instance($$self, $$props, $$invalidate) {
     checkQuizAnswer,
     touchstart,
     touchend,
+    openDrawingCanvas,
     select_change_handler,
     counter_currCardIndex_binding,
     counter_totalCards_binding,

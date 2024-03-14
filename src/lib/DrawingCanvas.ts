@@ -1,4 +1,5 @@
 // https://github.com/gugray/hanzi_lookup
+// https://github.com/gugray/hanzi_lookup/blob/master/web_demo/drawingBoard.js
 
 export class DrawingCanvas {
 
@@ -10,8 +11,8 @@ export class DrawingCanvas {
   timestamp: Date | undefined;
   strokeWidth: number;
   lastPoint: number[] | undefined;
-  rawStrokes: number[][]; // an array of arrays
-  currStroke: number[] | undefined;
+  rawStrokes: number[][][]; // array of strokes, where a stroke is an array of coordinates, and each coordinate is an array containing an x and y value
+  currStroke: number[][];
 
   constructor(worker: Worker){
     this.init();
@@ -21,6 +22,7 @@ export class DrawingCanvas {
     this.lastTouchY = -1;
     this.strokeWidth = 5;
     this.rawStrokes = [];
+    this.currStroke = [];
   }
   
   init(){
@@ -30,10 +32,6 @@ export class DrawingCanvas {
     canvasElement.style.backgroundColor = '#fff';
     canvasElement.style.margin = '0 auto';
     canvasElement.style.border = '1px solid #000';
-    
-    // https://github.com/gugray/hanzi_lookup/blob/master/web_demo/drawingBoard.js
-    // TODO: set up canvas to keep track of strokes
-    const context = canvasElement.getContext('2d');
     
     canvasElement.addEventListener('pointermove', e => {
       if(!this.clicking) return;
@@ -110,7 +108,7 @@ export class DrawingCanvas {
   }
   
   dragClick(x: number, y: number){
-    if(this.timestamp && new Date().getTime() - this.timestamp < 50){
+    if(this.timestamp && (new Date().getTime() - this.timestamp.getTime()) < 50){
       return;
     }
     this.timestamp = new Date();

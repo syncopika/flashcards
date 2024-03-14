@@ -40,21 +40,22 @@ worker.postMessage({wasm_uri: 'hanzi_lookup_bg.wasm'});
 const drawingCanvas: DrawingCanvas = new DrawingCanvas(worker);
 
 // for handling swipe events
-let touchStartX;
+let touchStartX: number | undefined;
 
 // get references to these components that have functions we want to call
-let navComponent;
-let cardComponent;
+let navComponent: Navigate | undefined;
+let cardComponent: Card | undefined;
 
 // https://stackoverflow.com/questions/58287729/how-can-i-export-a-function-from-a-svelte-component-that-changes-a-value-in-the
 // https://svelte.dev/tutorial/svelte-window
-function handleKeydown(evt: Event){
+function handleKeydown(evt: KeyboardEvent){
+  const target = evt.target as HTMLInputElement;
   if(evt.code === 'ArrowLeft'){
     if(navComponent) navComponent.prev();
   }else if(evt.code === 'ArrowRight'){
     if(navComponent) navComponent.next();
   }else if(evt.code === 'Space'){
-    if(evt.target.name !== 'search'){
+    if(target.name !== 'search'){
       evt.preventDefault(); // prevent any button presses with spacebar
       if(cardComponent) cardComponent.flip();
     }
@@ -152,14 +153,14 @@ const shuffle = () => {
 };
 
 const changeMode = (evt: Event) => {
+  const target = evt.target as HTMLElement;
   if(currMode === 'flashcard'){
     currMode = 'quiz';
-    evt.target.textContent = 'flashcard mode';
-    
+    target.textContent = 'flashcard mode';
     shuffle();
   }else{
     currMode = 'flashcard';
-    evt.target.textContent = 'quiz mode';
+    target.textContent = 'quiz mode';
   }
 };
 
@@ -188,28 +189,29 @@ const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string
 };
 
 const checkQuizAnswer = (evt: Event) => {
-  const choice = evt.target.textContent.trim();
+  const target = evt.target as HTMLElement;
+  const choice = target.textContent.trim();
   const actualAnswer = filteredData[currCardIndex].pinyin.trim();
   
   if(choice === actualAnswer){
-    evt.target.style.border = "1px solid #32cd32";
-    evt.target.style.backgroundColor = "#32cd32";
+    target.style.border = "1px solid #32cd32";
+    target.style.backgroundColor = "#32cd32";
   }else{
-    evt.target.style.border = "1px solid #aa4a44";
-    evt.target.style.backgroundColor = "#aa4a44";
+    target.style.border = "1px solid #aa4a44";
+    target.style.backgroundColor = "#aa4a44";
   }
   
   setTimeout(() => {
-    evt.target.style.border = "1px solid #000";
-    evt.target.style.backgroundColor = "#fff";
+    target.style.border = "1px solid #000";
+    target.style.backgroundColor = "#fff";
   }, 2000);
 };
 
-const touchstart = (evt: Event) => {
+const touchstart = (evt: TouchEvent) => {
   touchStartX = evt.touches[0].screenX;
 };
 
-const touchend = (evt: Event) => {
+const touchend = (evt: TouchEvent) => {
   const end = evt.changedTouches[0].screenX;
   if(touchStartX && Math.abs(end - touchStartX) > 10){
     if(end < touchStartX){
@@ -234,10 +236,10 @@ const openDrawingCanvas = () => {
   const overlay = document.createElement('div');
   overlay.style.width = '100%';
   overlay.style.height = '100%';
-  overlay.style.zIndex = 100;
+  overlay.style.zIndex = '100';
   overlay.style.position = 'absolute';
-  overlay.style.left = 0;
-  overlay.style.top = 0;
+  overlay.style.left = '0';
+  overlay.style.top = '0';
   overlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
   overlay.style.textAlign = 'center';
   
@@ -282,10 +284,10 @@ const openResults = (results: HanziLookupResult[]) => {
   const overlay = document.createElement('div');
   overlay.style.width = '100%';
   overlay.style.height = '100%';
-  overlay.style.zIndex = 100;
+  overlay.style.zIndex = '100';
   overlay.style.position = 'absolute';
-  overlay.style.left = 0;
-  overlay.style.top = 0;
+  overlay.style.left = '0';
+  overlay.style.top = '0';
   overlay.style.backgroundColor = 'rgba(128, 128, 128, 0.8)';
   overlay.style.textAlign = 'center';
   
@@ -316,8 +318,9 @@ const openResults = (results: HanziLookupResult[]) => {
     
     resultElement.classList.add('match-result');
     resultElement.addEventListener('click', () => {
-      // TODO: add to search input
-      console.log(r.hanzi);
+      // add to search input
+      const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+      if(searchInput) searchInput.value = r.hanzi;
     });
     resultElement.style.border = '1px solid #000';
     resultElement.style.backgroundColor = '#fff';
@@ -502,11 +505,6 @@ button {
 
 .quiz-answer-choice:hover {
   cursor: pointer;
-}
-
-.match-result:hover {
-  cursor: pointer;
-  background-color: #ccc;
 }
 
 #search-front-choice, #search-back-choice {

@@ -296,11 +296,12 @@ const openResults = (results: HanziLookupResult[]) => {
   
   const display = document.createElement('div');
   display.style.display = 'flex';
+  display.style.flexWrap = 'wrap';
   display.style.alignItems = 'center';
   display.style.justifyContent = 'center';
   display.style.gap = '1em';
   display.style.margin = '0 auto';
-  display.style.width = '90%';
+  display.style.width = 'auto';
   
   results.forEach(r => {
     const resultElement = document.createElement('div');
@@ -322,7 +323,6 @@ const openResults = (results: HanziLookupResult[]) => {
       const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
       if(searchInput) searchInput.value = r.hanzi;
     });
-    resultElement.style.border = '1px solid #000';
     resultElement.style.backgroundColor = '#fff';
     
     display.appendChild(resultElement);
@@ -369,32 +369,34 @@ const openResults = (results: HanziLookupResult[]) => {
   <button class="pencil-button" on:click={openDrawingCanvas}></button>
   {/if}
   
-  <input 
-    type="radio" 
-    id="search-front-choice" 
-    name="search-side-choice" 
-    value="front" 
-    on:change={onChangeSearch}
-  >
-  <label for="search-front-choice">front</label>
-  
-  <input 
-    type="radio" 
-    id="search-back-choice" 
-    name="search-side-choice" 
-    value="back" 
-    on:change={onChangeSearch}
-  >
-  <label for="search-back-choice">back</label>
-  
-  <input 
-    type="radio" 
-    id="search-tag-choice" 
-    name="search-side-choice" 
-    value="tags" 
-    on:change={onChangeSearch}
-  >
-  <label for="search-tag-choice">tag</label>
+  <div>
+    <input 
+      type="radio" 
+      id="search-front-choice" 
+      name="search-side-choice" 
+      value="front" 
+      on:change={onChangeSearch}
+    >
+    <label for="search-front-choice">front</label>
+    
+    <input 
+      type="radio" 
+      id="search-back-choice" 
+      name="search-side-choice" 
+      value="back" 
+      on:change={onChangeSearch}
+    >
+    <label for="search-back-choice">back</label>
+    
+    <input 
+      type="radio" 
+      id="search-tag-choice" 
+      name="search-side-choice" 
+      value="tags" 
+      on:change={onChangeSearch}
+    >
+    <label for="search-tag-choice">tag</label>
+  </div>
   
   <button on:click={shuffle}>shuffle</button>
   
@@ -501,6 +503,11 @@ button {
   margin-top: 2rem;
   border: 1px solid #000;
   border-radius: 20px;
+}
+
+:global(.match-result):hover {
+  cursor: pointer;
+  outline: 1px solid #000;
 }
 
 .quiz-answer-choice:hover {

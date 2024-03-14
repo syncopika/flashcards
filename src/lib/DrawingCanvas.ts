@@ -33,23 +33,51 @@ export class DrawingCanvas {
     canvasElement.style.margin = '0 auto';
     canvasElement.style.border = '1px solid #000';
     
-    canvasElement.addEventListener('pointermove', e => {
+    canvasElement.addEventListener('pointermove', (e: PointerEvent) => {
       if(!this.clicking) return;
       const x = e.pageX - canvasElement.getBoundingClientRect().left;
       const y = e.pageY - canvasElement.getBoundingClientRect().top;
       this.dragClick(x, y);
     });
     
-    canvasElement.addEventListener('pointerdown', e => {
+    canvasElement.addEventListener('pointerdown', (e: PointerEvent) => {
       const x = e.pageX - canvasElement.getBoundingClientRect().left;
       const y = e.pageY - canvasElement.getBoundingClientRect().top;
       this.startClick(x, y);
     });
     
-    canvasElement.addEventListener('pointerup', e => {
+    canvasElement.addEventListener('pointerup', (e: PointerEvent) => {
       const x = e.pageX - canvasElement.getBoundingClientRect().left;
       const y = e.pageY - canvasElement.getBoundingClientRect().top;
       this.endClick(x, y);
+    });
+    
+    
+    // TODO: trying to match a character drawn by touch events (when testing
+    // with the device toolbar in dev tools) seems to cause the hanzi lookup WASM
+    // code to throw an unreachable error :/. so this feature on mobile is unusable atm.
+    canvasElement.addEventListener('touchmove', (e: TouchEvent) => {
+      if(!this.clicking) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
+      this.lastTouchX = x;
+      this.lastTouchY = y;
+      this.dragClick(x, y);
+    });
+    
+    canvasElement.addEventListener('touchstart', (e: TouchEvent) => {
+      e.preventDefault();
+      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
+      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
+      this.startClick(x, y);
+    });
+    
+    canvasElement.addEventListener('touchend', (e: TouchEvent) => {
+      e.preventDefault();
+      this.endClick(this.lastTouchX, this.lastTouchY);
+      this.lastTouchX = -1;
+      this.lastTouchY = -1;
     });
     
     this.canvas = canvasElement;

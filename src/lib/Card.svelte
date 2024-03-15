@@ -1,7 +1,7 @@
 <script lang="ts">
 let front: boolean = true; // if front of card is shown currently
 
-export const flip = (evt: Event) => {
+export const flip = () => {
   if(!window.getSelection().toString()){
     // if user has not selected on any text, flip the card
     front = !front;

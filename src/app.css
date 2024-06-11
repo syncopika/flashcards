@@ -76,6 +76,10 @@ input, select {
   font-family: inherit;
 }
 
+.searchInput {
+  width: 140px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

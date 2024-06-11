@@ -101,7 +101,7 @@ const onChange = async () => {
 
 const onChangeSearch = async () => {
   const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
-  if(searchInput){
+  if(searchInput && currMode === 'flashcard'){
     const inputVal = searchInput.value;
     if(inputVal !== ""){
       // then filter data

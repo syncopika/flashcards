@@ -52,10 +52,7 @@ export class DrawingCanvas {
       this.endClick(x, y);
     });
     
-    
-    // TODO: trying to match a character drawn by touch events (when testing
-    // with the device toolbar in dev tools) seems to cause the hanzi lookup WASM
-    // code to throw an unreachable error :/. so this feature on mobile is unusable atm.
+    // handle drawing via on touch
     canvasElement.addEventListener('touchmove', (e: TouchEvent) => {
       if(!this.clicking) return;
       e.preventDefault();
@@ -64,20 +61,6 @@ export class DrawingCanvas {
       this.lastTouchX = x;
       this.lastTouchY = y;
       this.dragClick(x, y);
-    });
-    
-    canvasElement.addEventListener('touchstart', (e: TouchEvent) => {
-      e.preventDefault();
-      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
-      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
-      this.startClick(x, y);
-    });
-    
-    canvasElement.addEventListener('touchend', (e: TouchEvent) => {
-      e.preventDefault();
-      this.endClick(this.lastTouchX, this.lastTouchY);
-      this.lastTouchX = -1;
-      this.lastTouchY = -1;
     });
     
     this.canvas = canvasElement;
@@ -90,6 +73,8 @@ export class DrawingCanvas {
     const ctx = this.canvas.getContext('2d');
     const width = this.canvas.width;
     const height = this.canvas.height;
+    this.rawStrokes = [];
+    this.currStroke = [];
     ctx.clearRect(0, 0, width, height);
     ctx.setLineDash([1, 1]);
     ctx.lineWidth = 0.5;

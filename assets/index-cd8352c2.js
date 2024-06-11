@@ -949,18 +949,6 @@ class DrawingCanvas {
       this.lastTouchY = y;
       this.dragClick(x, y);
     });
-    canvasElement.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      const x = e.touches[0].pageX - canvasElement.getBoundingClientRect().left;
-      const y = e.touches[0].pageY - canvasElement.getBoundingClientRect().top;
-      this.startClick(x, y);
-    });
-    canvasElement.addEventListener("touchend", (e) => {
-      e.preventDefault();
-      this.endClick(this.lastTouchX, this.lastTouchY);
-      this.lastTouchX = -1;
-      this.lastTouchY = -1;
-    });
     this.canvas = canvasElement;
     this.drawClearCanvas();
   }
@@ -969,6 +957,8 @@ class DrawingCanvas {
     const ctx = this.canvas.getContext("2d");
     const width = this.canvas.width;
     const height = this.canvas.height;
+    this.rawStrokes = [];
+    this.currStroke = [];
     ctx.clearRect(0, 0, width, height);
     ctx.setLineDash([1, 1]);
     ctx.lineWidth = 0.5;
@@ -2031,7 +2021,7 @@ function instance($$self, $$props, $$invalidate) {
   };
   const onChangeSearch = async () => {
     const searchInput = document.querySelector(".searchInput");
-    if (searchInput) {
+    if (searchInput && currMode === "flashcard") {
       const inputVal = searchInput.value;
       if (inputVal !== "") {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');

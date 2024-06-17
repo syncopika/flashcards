@@ -12,13 +12,13 @@ interface HanziLookupResult {
 }
 
 let datasets: string[] = [
-  "bopomofo",
-  "chinese",
-  "japanese",
-  "cantonese",
+  'bopomofo',
+  'chinese',
+  'japanese',
+  'cantonese',
 ];
 
-let selected: string = "chinese";
+let selected: string = 'chinese';
 let currMode: 'flashcard' | 'quiz' = 'flashcard';
 let data: Record<string, string>[] = [];
 let filteredData: Record<string, string>[] = [];
@@ -134,6 +134,18 @@ const onChangeSearch = async () => {
   currCardIndex = 0;
   totalCards = filteredData.length;
 };
+
+const onChangeSearchDebounce = () => {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      onChangeSearch();
+    }, 200);
+  }
+};
+
+const searchDebounce = onChangeSearchDebounce();
 
 const shuffle = () => {
   // TODO: make some animation to go along with this?
@@ -363,36 +375,36 @@ const openResults = (results: HanziLookupResult[]) => {
     class="searchInput" 
     type="text" 
     name="search" 
-    on:input={onChangeSearch}
+    on:input={searchDebounce}
   >
   {#if selected === "chinese"}
   <button class="pencil-button" on:click={openDrawingCanvas}></button>
   {/if}
   
   <div>
-    <input 
-      type="radio" 
-      id="search-front-choice" 
-      name="search-side-choice" 
-      value="front" 
+    <input
+      type="radio"
+      id="search-front-choice"
+      name="search-side-choice"
+      value="front"
       on:change={onChangeSearch}
     >
     <label for="search-front-choice">front</label>
     
-    <input 
-      type="radio" 
-      id="search-back-choice" 
-      name="search-side-choice" 
-      value="back" 
+    <input
+      type="radio"
+      id="search-back-choice"
+      name="search-side-choice"
+      value="back"
       on:change={onChangeSearch}
     >
     <label for="search-back-choice">back</label>
     
-    <input 
-      type="radio" 
-      id="search-tag-choice" 
-      name="search-side-choice" 
-      value="tags" 
+    <input
+      type="radio"
+      id="search-tag-choice"
+      name="search-side-choice"
+      value="tags"
       on:change={onChangeSearch}
     >
     <label for="search-tag-choice">tag</label>

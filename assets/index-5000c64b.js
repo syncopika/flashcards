@@ -1039,24 +1039,24 @@ function get_if_ctx(ctx) {
   const child_ctx = ctx.slice();
   const constants_0 = (
     /*getPossibleQuizAnswers*/
-    child_ctx[15](
+    child_ctx[16](
       /*currCardIndex*/
       child_ctx[3]
     )
   );
-  child_ctx[32] = constants_0;
+  child_ctx[34] = constants_0;
   return child_ctx;
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[33] = list[i];
+  child_ctx[35] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[33] + ""
+    ctx[35] + ""
   );
   let t;
   return {
@@ -1064,7 +1064,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[33];
+      ctx[35];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -1094,7 +1094,7 @@ function create_if_block_4(ctx) {
           button,
           "click",
           /*openDrawingCanvas*/
-          ctx[19]
+          ctx[20]
         );
         mounted = true;
       }
@@ -1126,7 +1126,7 @@ function create_if_block_3(ctx) {
           button,
           "click",
           /*changeMode*/
-          ctx[14]
+          ctx[15]
         );
         mounted = true;
       }
@@ -1157,21 +1157,21 @@ function create_if_block_2(ctx) {
   let button0;
   let t4_value = (
     /*possibleAnswers*/
-    ctx[32][0].pinyin + ""
+    ctx[34][0].pinyin + ""
   );
   let t4;
   let t5;
   let button1;
   let t6_value = (
     /*possibleAnswers*/
-    ctx[32][1].pinyin + ""
+    ctx[34][1].pinyin + ""
   );
   let t6;
   let t7;
   let button2;
   let t8_value = (
     /*possibleAnswers*/
-    ctx[32][2].pinyin + ""
+    ctx[34][2].pinyin + ""
   );
   let t8;
   let t9;
@@ -1225,25 +1225,25 @@ function create_if_block_2(ctx) {
             button0,
             "click",
             /*checkQuizAnswer*/
-            ctx[16]
+            ctx[17]
           ),
           listen(
             button1,
             "click",
             /*checkQuizAnswer*/
-            ctx[16]
+            ctx[17]
           ),
           listen(
             button2,
             "click",
             /*checkQuizAnswer*/
-            ctx[16]
+            ctx[17]
           ),
           listen(
             button3,
             "click",
             /*shuffle*/
-            ctx[13]
+            ctx[14]
           )
         ];
         mounted = true;
@@ -1259,15 +1259,15 @@ function create_if_block_2(ctx) {
         set_data(t1, t1_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t4_value !== (t4_value = /*possibleAnswers*/
-      ctx2[32][0].pinyin + ""))
+      ctx2[34][0].pinyin + ""))
         set_data(t4, t4_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t6_value !== (t6_value = /*possibleAnswers*/
-      ctx2[32][1].pinyin + ""))
+      ctx2[34][1].pinyin + ""))
         set_data(t6, t6_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t8_value !== (t8_value = /*possibleAnswers*/
-      ctx2[32][2].pinyin + ""))
+      ctx2[34][2].pinyin + ""))
         set_data(t8, t8_value);
     },
     i: noop,
@@ -1292,10 +1292,10 @@ function create_if_block(ctx) {
   let updating_totalCards_1;
   let current;
   function counter_currCardIndex_binding(value) {
-    ctx[21](value);
+    ctx[22](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[22](value);
+    ctx[23](value);
   }
   let counter_props = {};
   if (
@@ -1320,10 +1320,10 @@ function create_if_block(ctx) {
     ctx[4] > 0 && create_if_block_1(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[25](value);
+    ctx[26](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[26](value);
+    ctx[27](value);
   }
   let navigate_props = {};
   if (
@@ -1341,7 +1341,7 @@ function create_if_block(ctx) {
     ctx[4];
   }
   navigate = new Navigate({ props: navigate_props });
-  ctx[24](navigate);
+  ctx[25](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
@@ -1446,7 +1446,7 @@ function create_if_block(ctx) {
         if_block.d();
       if (detaching)
         detach(t1);
-      ctx[24](null);
+      ctx[25](null);
       destroy_component(navigate, detaching);
     }
   };
@@ -1478,7 +1478,7 @@ function create_if_block_1(ctx) {
     )
   };
   card = new Card({ props: card_props });
-  ctx[23](card);
+  ctx[24](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -1523,7 +1523,7 @@ function create_if_block_1(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[23](null);
+      ctx[24](null);
       destroy_component(card, detaching);
     }
   };
@@ -1673,7 +1673,7 @@ function create_fragment(ctx) {
       )
         add_render_callback(() => (
           /*select_change_handler*/
-          ctx[20].call(select)
+          ctx[21].call(select)
         ));
       attr(p1, "class", "svelte-irb86v");
       attr(p2, "class", "svelte-irb86v");
@@ -1766,13 +1766,13 @@ function create_fragment(ctx) {
             window,
             "touchstart",
             /*touchstart*/
-            ctx[17]
+            ctx[18]
           ),
           listen(
             window,
             "touchend",
             /*touchend*/
-            ctx[18]
+            ctx[19]
           ),
           listen(
             button0,
@@ -1784,7 +1784,7 @@ function create_fragment(ctx) {
             select,
             "change",
             /*select_change_handler*/
-            ctx[20]
+            ctx[21]
           ),
           listen(
             select,
@@ -1795,8 +1795,8 @@ function create_fragment(ctx) {
           listen(
             input0,
             "input",
-            /*onChangeSearch*/
-            ctx[12]
+            /*searchDebounce*/
+            ctx[13]
           ),
           listen(
             input1,
@@ -1820,7 +1820,7 @@ function create_fragment(ctx) {
             button1,
             "click",
             /*shuffle*/
-            ctx[13]
+            ctx[14]
           )
         ];
         mounted = true;
@@ -2048,6 +2048,19 @@ function instance($$self, $$props, $$invalidate) {
     $$invalidate(3, currCardIndex = 0);
     $$invalidate(4, totalCards = filteredData.length);
   };
+  const onChangeSearchDebounce = () => {
+    let timer;
+    return () => {
+      clearTimeout(timer);
+      timer = setTimeout(
+        () => {
+          onChangeSearch();
+        },
+        200
+      );
+    };
+  };
+  const searchDebounce = onChangeSearchDebounce();
   const shuffle = () => {
     const maxIndex = filteredData.length - 1;
     for (let i = 0; i < filteredData.length - 2; i++) {
@@ -2264,6 +2277,7 @@ function instance($$self, $$props, $$invalidate) {
     toggleOptionsPanel,
     onChange,
     onChangeSearch,
+    searchDebounce,
     shuffle,
     changeMode,
     getPossibleQuizAnswers,

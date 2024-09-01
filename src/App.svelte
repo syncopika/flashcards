@@ -480,9 +480,15 @@ button {
   background: #fff;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 500px) {
   .options-panel {
     padding-top: 7%;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 501px) {
+  .options-panel {
+    padding-top: 5%;
   }
 }
 

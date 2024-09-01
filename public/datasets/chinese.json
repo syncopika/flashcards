@@ -1260,5 +1260,9 @@
     {"value": "議論", "pinyin": "yi4 lun4", "definition": "to comment; to discuss; to debate"},
     {"value": "批評", "pinyin": "pi1 ping2", "definition": "to criticize; to critique; to blame; to reproach"},
     {"value": "胡亂", "pinyin": "hu2 luan4", "definition": "at random; casually; carelessly"},
-    {"value": "說三道四", "pinyin": "shuo1 san1 dao4 si4", "definition": "to gossip; to make irresponsible remarks", "tags": ["idiom"]}
+    {"value": "說三道四", "pinyin": "shuo1 san1 dao4 si4", "definition": "to gossip; to make irresponsible remarks", "tags": ["idiom"]},
+    {"value": "專心", "pinyin": "zhuan1 xin1", "definition": "to concentrate; to be attentive; to be dedicated"},
+    {"value": "僑居", "pinyin": "qiao2 ju1", "definition": "to live abroad"},
+    {"value": "籍", "pinyin": "ji2", "definition": "record; register; list; hometown; census"},
+    {"value": "伙伴", "pinyin": "huo3 ban4", "definition": "companion; mate; comrade; partner"}
 ]

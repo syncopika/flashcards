@@ -209,8 +209,8 @@ const checkQuizAnswer = (evt: Event) => {
     target.style.border = "1px solid #32cd32";
     target.style.backgroundColor = "#32cd32";
   }else{
-    target.style.border = "1px solid #aa4a44";
-    target.style.backgroundColor = "#aa4a44";
+    target.style.border = "1px solid #cd3232";
+    target.style.backgroundColor = "#cd3232";
   }
   
   setTimeout(() => {
@@ -364,7 +364,7 @@ const openResults = (results: HanziLookupResult[]) => {
 
 <header class="options-panel {showOptionsPanel ? 'options-panel-on' : 'options-panel-off'}">
   <p>dataset: </p>
-  <select bind:value={selected} on:change={onChange}>
+  <select bind:value={selected} on:change={onChange} disabled={currMode === 'quiz'}>
     {#each datasets as ds}
       <option value={ds}>{ds}</option>
     {/each}
@@ -520,7 +520,7 @@ button {
   margin-bottom: 2rem;
   margin-top: 2rem;
   border: 1px solid #000;
-  border-radius: 20px;
+  border-radius: 8px;
 }
 
 :global(.match-result):hover {

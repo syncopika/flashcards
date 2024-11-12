@@ -114,5 +114,8 @@
     {"value": "殴る", "romaji": "naguru (なぐる)", "definition": "to hit"},
     {"value": "外", "romaji": "soto (そと)", "definition": "outside"},
     {"value": "反則", "romaji": "hansoku (はんそく)", "definition": "violation of the rules; of overwhelming (unfair) superiority"},
-    {"value": "騒ぐ", "romaji": "sawagu (さわぐ)", "definition": "to make noise; to make merry; to clamor"}
+    {"value": "騒ぐ", "romaji": "sawagu (さわぐ)", "definition": "to make noise; to make merry; to clamor"},
+    {"value": "報酬", "romaji": "hoshu (ほうしゅう)", "definition": "renumeration, reward"},
+    {"value": "日付", "romaji": "hizuke (ひづけ)", "definition": "date (point of time at which an event takes place)"},
+    {"value": "達成", "romaji": "tassei (たっせい)", "definition": "achievement"}
 ]

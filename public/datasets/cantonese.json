@@ -49,5 +49,9 @@
     {"value": "粒", "jyutping": "lap1", "definition": "measure word for small round objects"},
     {"value": "架", "jyutping": "gaa3", "definition": "measure word for vehicles, machines"},
     {"value": "支", "jyutping": "zi1", "definition": "measuer word for slender, inflexible objects"},
-    {"value": "張", "jyutping": "zoeng1", "definition": "measuer word for flat objects (e.g. paper)"}
+    {"value": "張", "jyutping": "zoeng1", "definition": "measuer word for flat objects (e.g. paper)"},
+    {"value": "打機", "jyutping": "daa2 gei1", "definition": "to play video games"},
+    {"value": "邊個", "jyutping": "bin1 go3", "definition": "who"},
+    {"value": "烘底", "jyutping": "hong3 dai2", "definition": "toasted"},
+    {"value": "點解", "jyutping": "dim2 gaai2", "definition": "why"}
 ]

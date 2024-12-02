@@ -117,5 +117,16 @@
     {"value": "騒ぐ", "romaji": "sawagu (さわぐ)", "definition": "to make noise; to make merry; to clamor"},
     {"value": "報酬", "romaji": "hoshu (ほうしゅう)", "definition": "renumeration, reward"},
     {"value": "日付", "romaji": "hizuke (ひづけ)", "definition": "date (point of time at which an event takes place)"},
-    {"value": "達成", "romaji": "tassei (たっせい)", "definition": "achievement"}
+    {"value": "達成", "romaji": "tassei (たっせい)", "definition": "achievement"},
+    {"value": "王都", "romaji": "outo (おうと)", "definition": "royal capital"},
+    {"value": "田舎", "romaji": "inaka (いなか)", "definition": "countryside"},
+    {"value": "可哀想", "romaji": "kawaisou (かわいそう)", "definition": "pitiable; pitiful"},
+    {"value": "礼儀", "romaji": "reigi (れいぎ)", "definition": "manners"},
+    {"value": "間違う", "romaji": "machigau (まちがう)", "definition": "to be wrong"},
+    {"value": "昨年", "romaji": "sakunen (さくねん)", "definition": "last year"},
+    {"value": "司書", "romaji": "shisho (ししょ)", "definition": "librarian"},
+    {"value": "働く", "romaji": "hataraku (はたらく)", "definition": "work"},
+    {"value": "正門", "romaji": "seimon (せいもん)", "definition": "main gate"},
+    {"value": "午前", "pinyin": "gozen (ごぜん)", "definition": "morning, AM"},
+    {"value": "倍", "pinyin": "bai (ばい)", "definition": "twice; double"}
 ]

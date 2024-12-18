@@ -1085,7 +1085,8 @@ function create_if_block_4(ctx) {
   return {
     c() {
       button = element("button");
-      attr(button, "class", "pencil-button svelte-zie8ki");
+      button.innerHTML = `<svg fill="#000000" width="24px" height="24px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M21.3,5.54,7.161,19.682c-.01.01-.013.023-.022.033a.99.99,0,0,0-.172.26c-.01.021-.022.041-.03.063s-.013.023-.017.036L4.8,26.437A1,1,0,0,0,6.063,27.7l6.364-2.121c.013,0,.023-.013.036-.017s.041-.02.063-.03a.99.99,0,0,0,.26-.172c.01-.009.023-.012.033-.022L26.96,11.2a4,4,0,0,0,0-5.657A4.1,4.1,0,0,0,21.3,5.54ZM7.328,25.172l.977-2.932,1.955,1.955Zm4.783-1.954L9.282,20.389,21.3,8.368,24.132,11.2ZM25.546,9.783,22.717,6.954a2.048,2.048,0,0,1,2.829,0,2,2,0,0,1,0,2.829ZM21.3,11.2a1,1,0,0,1,0,1.414l-7.778,7.778a1,1,0,0,1-1.414-1.414L19.889,11.2A1,1,0,0,1,21.3,11.2Z"></path></svg>`;
+      attr(button, "class", "pencil-button svelte-1a9dqmr");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -1117,7 +1118,7 @@ function create_if_block_3(ctx) {
       button = element("button");
       button.textContent = "quiz mode";
       attr(button, "id", "changeModeButton");
-      attr(button, "class", "svelte-zie8ki");
+      attr(button, "class", "svelte-1a9dqmr");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -1197,10 +1198,10 @@ function create_if_block_2(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
-      attr(button0, "class", "quiz-answer-choice svelte-zie8ki");
-      attr(button1, "class", "quiz-answer-choice svelte-zie8ki");
-      attr(button2, "class", "quiz-answer-choice svelte-zie8ki");
-      attr(button3, "class", "svelte-zie8ki");
+      attr(button0, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button1, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button2, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button3, "class", "svelte-1a9dqmr");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1353,7 +1354,7 @@ function create_if_block(ctx) {
         if_block.c();
       t1 = space();
       create_component(navigate.$$.fragment);
-      attr(div, "class", "card-container svelte-zie8ki");
+      attr(div, "class", "card-container svelte-1a9dqmr");
     },
     m(target, anchor) {
       mount_component(counter, target, anchor);
@@ -1665,11 +1666,11 @@ function create_fragment(ctx) {
         if_block2.c();
       t24 = space();
       br = element("br");
-      attr(button0, "class", "icon svelte-zie8ki");
-      attr(p0, "class", "svelte-zie8ki");
+      attr(button0, "class", "icon svelte-1a9dqmr");
+      attr(p0, "class", "svelte-1a9dqmr");
       select.disabled = select_disabled_value = /*currMode*/
       ctx[1] === "quiz";
-      attr(select, "class", "svelte-zie8ki");
+      attr(select, "class", "svelte-1a9dqmr");
       if (
         /*selected*/
         ctx[0] === void 0
@@ -1678,32 +1679,32 @@ function create_fragment(ctx) {
           /*select_change_handler*/
           ctx[21].call(select)
         ));
-      attr(p1, "class", "svelte-zie8ki");
-      attr(p2, "class", "svelte-zie8ki");
-      attr(input0, "class", "searchInput svelte-zie8ki");
+      attr(p1, "class", "svelte-1a9dqmr");
+      attr(p2, "class", "svelte-1a9dqmr");
+      attr(input0, "class", "searchInput svelte-1a9dqmr");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-zie8ki");
+      attr(input1, "class", "svelte-1a9dqmr");
       attr(label0, "for", "search-front-choice");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-zie8ki");
+      attr(input2, "class", "svelte-1a9dqmr");
       attr(label1, "for", "search-back-choice");
       attr(input3, "type", "radio");
       attr(input3, "id", "search-tag-choice");
       attr(input3, "name", "search-side-choice");
       input3.value = "tags";
       attr(label2, "for", "search-tag-choice");
-      attr(div, "class", "svelte-zie8ki");
-      attr(button1, "class", "svelte-zie8ki");
+      attr(div, "class", "svelte-1a9dqmr");
+      attr(button1, "class", "svelte-1a9dqmr");
       attr(header, "class", header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-zie8ki");
+      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-1a9dqmr");
     },
     m(target, anchor) {
       insert(target, button0, anchor);
@@ -1895,7 +1896,7 @@ function create_fragment(ctx) {
       }
       if (!current || dirty[0] & /*showOptionsPanel*/
       128 && header_class_value !== (header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-zie8ki")) {
+      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-1a9dqmr")) {
         attr(header, "class", header_class_value);
       }
       let previous_block_index = current_block_type_index;

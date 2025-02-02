@@ -21,6 +21,7 @@ export class Mapper {
           back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
           value: obj.value,
           pinyin: obj.pinyin,
+          definition: obj.definition,
           tags: obj.tags ? this.generateTagsHtml(obj.tags) : "", //obj.tags.reduce((acc, currVal) => acc + `<span class='tag'>${currVal}</span>`, "") : "",
         };
       });

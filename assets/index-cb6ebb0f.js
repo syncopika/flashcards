@@ -856,6 +856,7 @@ class Mapper {
         back: `<p><span class='field'>pinyin:</span> ${obj.pinyin}</p> <p><span class='field'>definition:</span> ${obj.definition}</p>`,
         value: obj.value,
         pinyin: obj.pinyin,
+        definition: obj.definition,
         tags: obj.tags ? this.generateTagsHtml(obj.tags) : ""
         //obj.tags.reduce((acc, currVal) => acc + `<span class='tag'>${currVal}</span>`, "") : "",
       };
@@ -1035,6 +1036,18 @@ class DrawingCanvas {
   }
 }
 const App_svelte_svelte_type_style_lang = "";
+function get_if_ctx_1(ctx) {
+  const child_ctx = ctx.slice();
+  const constants_0 = (
+    /*getPossibleQuizAnswers*/
+    child_ctx[16](
+      /*currCardIndex*/
+      child_ctx[3]
+    )
+  );
+  child_ctx[35] = constants_0;
+  return child_ctx;
+}
 function get_if_ctx(ctx) {
   const child_ctx = ctx.slice();
   const constants_0 = (
@@ -1044,19 +1057,19 @@ function get_if_ctx(ctx) {
       child_ctx[3]
     )
   );
-  child_ctx[34] = constants_0;
+  child_ctx[35] = constants_0;
   return child_ctx;
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[35] = list[i];
+  child_ctx[36] = list[i];
   return child_ctx;
 }
 function create_each_block(ctx) {
   let option;
   let t_value = (
     /*ds*/
-    ctx[35] + ""
+    ctx[36] + ""
   );
   let t;
   return {
@@ -1064,7 +1077,7 @@ function create_each_block(ctx) {
       option = element("option");
       t = text(t_value);
       option.__value = /*ds*/
-      ctx[35];
+      ctx[36];
       option.value = option.__value;
     },
     m(target, anchor) {
@@ -1078,7 +1091,7 @@ function create_each_block(ctx) {
     }
   };
 }
-function create_if_block_4(ctx) {
+function create_if_block_5(ctx) {
   let button;
   let mounted;
   let dispose;
@@ -1109,42 +1122,101 @@ function create_if_block_4(ctx) {
     }
   };
 }
-function create_if_block_3(ctx) {
-  let button;
+function create_if_block_4(ctx) {
+  let p;
+  let t1;
+  let select;
+  let option0;
+  let option1;
+  let option2;
   let mounted;
   let dispose;
   return {
     c() {
-      button = element("button");
-      button.textContent = "quiz mode";
-      attr(button, "id", "changeModeButton");
-      attr(button, "class", "svelte-1a9dqmr");
+      p = element("p");
+      p.textContent = "mode:";
+      t1 = space();
+      select = element("select");
+      option0 = element("option");
+      option0.textContent = "flashcard";
+      option1 = element("option");
+      option1.textContent = "pinyin quiz";
+      option2 = element("option");
+      option2.textContent = "definition quiz";
+      attr(p, "class", "svelte-1a9dqmr");
+      option0.__value = "flashcard";
+      option0.value = option0.__value;
+      option1.__value = "quiz-pinyin";
+      option1.value = option1.__value;
+      option2.__value = "quiz-definition";
+      option2.value = option2.__value;
+      attr(select, "class", "svelte-1a9dqmr");
+      if (
+        /*currMode*/
+        ctx[1] === void 0
+      )
+        add_render_callback(() => (
+          /*select_change_handler_1*/
+          ctx[22].call(select)
+        ));
     },
     m(target, anchor) {
-      insert(target, button, anchor);
+      insert(target, p, anchor);
+      insert(target, t1, anchor);
+      insert(target, select, anchor);
+      append(select, option0);
+      append(select, option1);
+      append(select, option2);
+      select_option(
+        select,
+        /*currMode*/
+        ctx[1]
+      );
       if (!mounted) {
-        dispose = listen(
-          button,
-          "click",
-          /*changeMode*/
-          ctx[15]
-        );
+        dispose = [
+          listen(
+            select,
+            "change",
+            /*select_change_handler_1*/
+            ctx[22]
+          ),
+          listen(
+            select,
+            "change",
+            /*changeMode*/
+            ctx[15]
+          )
+        ];
         mounted = true;
       }
     },
-    p: noop,
+    p(ctx2, dirty) {
+      if (dirty[0] & /*currMode*/
+      2) {
+        select_option(
+          select,
+          /*currMode*/
+          ctx2[1]
+        );
+      }
+    },
     d(detaching) {
       if (detaching)
-        detach(button);
+        detach(p);
+      if (detaching)
+        detach(t1);
+      if (detaching)
+        detach(select);
       mounted = false;
-      dispose();
+      run_all(dispose);
     }
   };
 }
-function create_if_block_2(ctx) {
+function create_if_block_3(ctx) {
   let div;
   let h2;
   let t0;
+  let a;
   let t1_value = (
     /*filteredData*/
     ctx[2][
@@ -1153,26 +1225,27 @@ function create_if_block_2(ctx) {
     ].value + ""
   );
   let t1;
+  let a_href_value;
   let t2;
   let t3;
   let button0;
   let t4_value = (
     /*possibleAnswers*/
-    ctx[34][0].pinyin + ""
+    ctx[35][0].definition + ""
   );
   let t4;
   let t5;
   let button1;
   let t6_value = (
     /*possibleAnswers*/
-    ctx[34][1].pinyin + ""
+    ctx[35][1].definition + ""
   );
   let t6;
   let t7;
   let button2;
   let t8_value = (
     /*possibleAnswers*/
-    ctx[34][2].pinyin + ""
+    ctx[35][2].definition + ""
   );
   let t8;
   let t9;
@@ -1183,7 +1256,8 @@ function create_if_block_2(ctx) {
     c() {
       div = element("div");
       h2 = element("h2");
-      t0 = text("what is the pinyin for ");
+      t0 = text("what is the definition for ");
+      a = element("a");
       t1 = text(t1_value);
       t2 = text("?");
       t3 = space();
@@ -1198,6 +1272,12 @@ function create_if_block_2(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
+      attr(a, "target", "_blank");
+      attr(a, "href", a_href_value = `http://google.com/search?q=${/*filteredData*/
+      ctx[2][
+        /*currCardIndex*/
+        ctx[3]
+      ].value}`);
       attr(button0, "class", "quiz-answer-choice svelte-1a9dqmr");
       attr(button1, "class", "quiz-answer-choice svelte-1a9dqmr");
       attr(button2, "class", "quiz-answer-choice svelte-1a9dqmr");
@@ -1207,7 +1287,8 @@ function create_if_block_2(ctx) {
       insert(target, div, anchor);
       append(div, h2);
       append(h2, t0);
-      append(h2, t1);
+      append(h2, a);
+      append(a, t1);
       append(h2, t2);
       append(div, t3);
       append(div, button0);
@@ -1258,17 +1339,183 @@ function create_if_block_2(ctx) {
         ctx2[3]
       ].value + ""))
         set_data(t1, t1_value);
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12 && a_href_value !== (a_href_value = `http://google.com/search?q=${/*filteredData*/
+      ctx2[2][
+        /*currCardIndex*/
+        ctx2[3]
+      ].value}`)) {
+        attr(a, "href", a_href_value);
+      }
       if (dirty[0] & /*currCardIndex*/
       8 && t4_value !== (t4_value = /*possibleAnswers*/
-      ctx2[34][0].pinyin + ""))
+      ctx2[35][0].definition + ""))
         set_data(t4, t4_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t6_value !== (t6_value = /*possibleAnswers*/
-      ctx2[34][1].pinyin + ""))
+      ctx2[35][1].definition + ""))
         set_data(t6, t6_value);
       if (dirty[0] & /*currCardIndex*/
       8 && t8_value !== (t8_value = /*possibleAnswers*/
-      ctx2[34][2].pinyin + ""))
+      ctx2[35][2].definition + ""))
+        set_data(t8, t8_value);
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div);
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function create_if_block_2(ctx) {
+  let div;
+  let h2;
+  let t0;
+  let a;
+  let t1_value = (
+    /*filteredData*/
+    ctx[2][
+      /*currCardIndex*/
+      ctx[3]
+    ].value + ""
+  );
+  let t1;
+  let a_href_value;
+  let t2;
+  let t3;
+  let button0;
+  let t4_value = (
+    /*possibleAnswers*/
+    ctx[35][0].pinyin + ""
+  );
+  let t4;
+  let t5;
+  let button1;
+  let t6_value = (
+    /*possibleAnswers*/
+    ctx[35][1].pinyin + ""
+  );
+  let t6;
+  let t7;
+  let button2;
+  let t8_value = (
+    /*possibleAnswers*/
+    ctx[35][2].pinyin + ""
+  );
+  let t8;
+  let t9;
+  let button3;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      h2 = element("h2");
+      t0 = text("what is the pinyin for ");
+      a = element("a");
+      t1 = text(t1_value);
+      t2 = text("?");
+      t3 = space();
+      button0 = element("button");
+      t4 = text(t4_value);
+      t5 = space();
+      button1 = element("button");
+      t6 = text(t6_value);
+      t7 = space();
+      button2 = element("button");
+      t8 = text(t8_value);
+      t9 = space();
+      button3 = element("button");
+      button3.textContent = "next";
+      attr(a, "target", "_blank");
+      attr(a, "href", a_href_value = `http://google.com/search?q=${/*filteredData*/
+      ctx[2][
+        /*currCardIndex*/
+        ctx[3]
+      ].value}`);
+      attr(button0, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button1, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button2, "class", "quiz-answer-choice svelte-1a9dqmr");
+      attr(button3, "class", "svelte-1a9dqmr");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, h2);
+      append(h2, t0);
+      append(h2, a);
+      append(a, t1);
+      append(h2, t2);
+      append(div, t3);
+      append(div, button0);
+      append(button0, t4);
+      append(div, t5);
+      append(div, button1);
+      append(button1, t6);
+      append(div, t7);
+      append(div, button2);
+      append(button2, t8);
+      append(div, t9);
+      append(div, button3);
+      if (!mounted) {
+        dispose = [
+          listen(
+            button0,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[17]
+          ),
+          listen(
+            button1,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[17]
+          ),
+          listen(
+            button2,
+            "click",
+            /*checkQuizAnswer*/
+            ctx[17]
+          ),
+          listen(
+            button3,
+            "click",
+            /*shuffle*/
+            ctx[14]
+          )
+        ];
+        mounted = true;
+      }
+    },
+    p(ctx2, dirty) {
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12 && t1_value !== (t1_value = /*filteredData*/
+      ctx2[2][
+        /*currCardIndex*/
+        ctx2[3]
+      ].value + ""))
+        set_data(t1, t1_value);
+      if (dirty[0] & /*filteredData, currCardIndex*/
+      12 && a_href_value !== (a_href_value = `http://google.com/search?q=${/*filteredData*/
+      ctx2[2][
+        /*currCardIndex*/
+        ctx2[3]
+      ].value}`)) {
+        attr(a, "href", a_href_value);
+      }
+      if (dirty[0] & /*currCardIndex*/
+      8 && t4_value !== (t4_value = /*possibleAnswers*/
+      ctx2[35][0].pinyin + ""))
+        set_data(t4, t4_value);
+      if (dirty[0] & /*currCardIndex*/
+      8 && t6_value !== (t6_value = /*possibleAnswers*/
+      ctx2[35][1].pinyin + ""))
+        set_data(t6, t6_value);
+      if (dirty[0] & /*currCardIndex*/
+      8 && t8_value !== (t8_value = /*possibleAnswers*/
+      ctx2[35][2].pinyin + ""))
         set_data(t8, t8_value);
     },
     i: noop,
@@ -1293,10 +1540,10 @@ function create_if_block(ctx) {
   let updating_totalCards_1;
   let current;
   function counter_currCardIndex_binding(value) {
-    ctx[22](value);
+    ctx[23](value);
   }
   function counter_totalCards_binding(value) {
-    ctx[23](value);
+    ctx[24](value);
   }
   let counter_props = {};
   if (
@@ -1321,10 +1568,10 @@ function create_if_block(ctx) {
     ctx[4] > 0 && create_if_block_1(ctx)
   );
   function navigate_currCardIndex_binding(value) {
-    ctx[26](value);
+    ctx[27](value);
   }
   function navigate_totalCards_binding(value) {
-    ctx[27](value);
+    ctx[28](value);
   }
   let navigate_props = {};
   if (
@@ -1342,7 +1589,7 @@ function create_if_block(ctx) {
     ctx[4];
   }
   navigate = new Navigate({ props: navigate_props });
-  ctx[25](navigate);
+  ctx[26](navigate);
   binding_callbacks.push(() => bind(navigate, "currCardIndex", navigate_currCardIndex_binding));
   binding_callbacks.push(() => bind(navigate, "totalCards", navigate_totalCards_binding));
   return {
@@ -1447,7 +1694,7 @@ function create_if_block(ctx) {
         if_block.d();
       if (detaching)
         detach(t1);
-      ctx[25](null);
+      ctx[26](null);
       destroy_component(navigate, detaching);
     }
   };
@@ -1479,7 +1726,7 @@ function create_if_block_1(ctx) {
     )
   };
   card = new Card({ props: card_props });
-  ctx[24](card);
+  ctx[25](card);
   return {
     c() {
       create_component(card.$$.fragment);
@@ -1524,7 +1771,7 @@ function create_if_block_1(ctx) {
       current = false;
     },
     d(detaching) {
-      ctx[24](null);
+      ctx[25](null);
       destroy_component(card, detaching);
     }
   };
@@ -1567,8 +1814,6 @@ function create_fragment(ctx) {
   let t23;
   let current_block_type_index;
   let if_block2;
-  let t24;
-  let br;
   let current;
   let mounted;
   let dispose;
@@ -1582,13 +1827,13 @@ function create_fragment(ctx) {
   }
   let if_block0 = (
     /*selected*/
-    ctx[0] === "chinese" && create_if_block_4(ctx)
+    ctx[0] === "chinese" && create_if_block_5(ctx)
   );
   let if_block1 = (
     /*selected*/
-    ctx[0] === "chinese" && create_if_block_3(ctx)
+    ctx[0] === "chinese" && create_if_block_4(ctx)
   );
-  const if_block_creators = [create_if_block, create_if_block_2];
+  const if_block_creators = [create_if_block, create_if_block_2, create_if_block_3];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (
@@ -1598,14 +1843,21 @@ function create_fragment(ctx) {
       return 0;
     if (
       /*currMode*/
-      ctx2[1] === "quiz"
+      ctx2[1] === "quiz-pinyin"
     )
       return 1;
+    if (
+      /*currMode*/
+      ctx2[1] === "quiz-definition"
+    )
+      return 2;
     return -1;
   }
   function select_block_ctx(ctx2, index) {
     if (index === 1)
       return get_if_ctx(ctx2);
+    if (index === 2)
+      return get_if_ctx_1(ctx2);
     return ctx2;
   }
   if (~(current_block_type_index = select_block_type(ctx))) {
@@ -1664,12 +1916,10 @@ function create_fragment(ctx) {
       t23 = space();
       if (if_block2)
         if_block2.c();
-      t24 = space();
-      br = element("br");
       attr(button0, "class", "icon svelte-1a9dqmr");
       attr(p0, "class", "svelte-1a9dqmr");
       select.disabled = select_disabled_value = /*currMode*/
-      ctx[1] === "quiz";
+      ctx[1].includes("quiz-");
       attr(select, "class", "svelte-1a9dqmr");
       if (
         /*selected*/
@@ -1755,8 +2005,6 @@ function create_fragment(ctx) {
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].m(main, null);
       }
-      append(main, t24);
-      append(main, br);
       current = true;
       if (!mounted) {
         dispose = [
@@ -1853,7 +2101,7 @@ function create_fragment(ctx) {
       }
       if (!current || dirty[0] & /*currMode*/
       2 && select_disabled_value !== (select_disabled_value = /*currMode*/
-      ctx2[1] === "quiz")) {
+      ctx2[1].includes("quiz-"))) {
         select.disabled = select_disabled_value;
       }
       if (dirty[0] & /*selected, datasets*/
@@ -1871,7 +2119,7 @@ function create_fragment(ctx) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_4(ctx2);
+          if_block0 = create_if_block_5(ctx2);
           if_block0.c();
           if_block0.m(header, t9);
         }
@@ -1886,7 +2134,7 @@ function create_fragment(ctx) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
         } else {
-          if_block1 = create_if_block_3(ctx2);
+          if_block1 = create_if_block_4(ctx2);
           if_block1.c();
           if_block1.m(header, null);
         }
@@ -1922,7 +2170,7 @@ function create_fragment(ctx) {
             if_block2.p(select_block_ctx(ctx2, current_block_type_index), dirty);
           }
           transition_in(if_block2, 1);
-          if_block2.m(main, t24);
+          if_block2.m(main, null);
         } else {
           if_block2 = null;
         }
@@ -2083,14 +2331,11 @@ function instance($$self, $$props, $$invalidate) {
   };
   const changeMode = (evt) => {
     const target = evt.target;
-    if (currMode === "flashcard") {
-      $$invalidate(1, currMode = "quiz");
-      target.textContent = "flashcard mode";
+    const selected2 = target.value;
+    if (selected2.includes("quiz")) {
       shuffle();
-    } else {
-      $$invalidate(1, currMode = "flashcard");
-      target.textContent = "quiz mode";
     }
+    $$invalidate(1, currMode = selected2);
   };
   const getPossibleQuizAnswers = (correctAnswerIndex) => {
     const possibleAnswers = [
@@ -2111,7 +2356,12 @@ function instance($$self, $$props, $$invalidate) {
   const checkQuizAnswer = (evt) => {
     const target = evt.target;
     const choice = target.textContent.trim();
-    const actualAnswer = filteredData[currCardIndex].pinyin.trim();
+    let actualAnswer;
+    if (currMode === "quiz-pinyin") {
+      actualAnswer = filteredData[currCardIndex].pinyin.trim();
+    } else if (currMode === "quiz-definition") {
+      actualAnswer = filteredData[currCardIndex].definition.trim();
+    }
     if (choice === actualAnswer) {
       target.style.border = "1px solid #32cd32";
       target.style.backgroundColor = "#32cd32";
@@ -2244,6 +2494,10 @@ function instance($$self, $$props, $$invalidate) {
     $$invalidate(0, selected);
     $$invalidate(8, datasets);
   }
+  function select_change_handler_1() {
+    currMode = select_value(this);
+    $$invalidate(1, currMode);
+  }
   function counter_currCardIndex_binding(value) {
     currCardIndex = value;
     $$invalidate(3, currCardIndex);
@@ -2295,6 +2549,7 @@ function instance($$self, $$props, $$invalidate) {
     touchend,
     openDrawingCanvas,
     select_change_handler,
+    select_change_handler_1,
     counter_currCardIndex_binding,
     counter_totalCards_binding,
     card_binding,

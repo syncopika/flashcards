@@ -332,5 +332,7 @@
     {"value": "炭火", "romaji": "sumibi (すみび)", "definition": "charcoal fire"},
     {"value": "一覧", "romaji": "ichiran (いちらん)", "definition": "list"},
     {"value": "漸く", "romaji": "youyaku (ようやく)", "definition": "at last; finally"},
-    {"value": "食べ応え", "romaji": "tabegotae (たべごたえ)", "definition": "(of food) being satisfying; being filling"}
+    {"value": "食べ応え", "romaji": "tabegotae (たべごたえ)", "definition": "(of food) being satisfying; being filling"},
+    {"value": "ずっしり", "romaji": "zusshiri (ずっしり)", "definition": "to be heavy; to be numerous"},
+    {"value": "生地", "romaji": "kiji (きじ)", "definition": "batter, dough; cloth; one's true colors or character"}
 ]

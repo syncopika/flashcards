@@ -1,0 +1,1 @@
+export type Mode = 'flashcard' | 'quiz-pinyin' | 'quiz-definition';

@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { Mode } from './lib/types';
 import Card from './lib/Card.svelte';
 import Counter from './lib/Counter.svelte';
 import Navigate from './lib/Navigate.svelte';
@@ -19,7 +20,7 @@ let datasets: string[] = [
 ];
 
 let selected: string = 'chinese';
-let currMode: 'flashcard' | 'quiz' = 'flashcard';
+let currMode: Mode = 'flashcard';
 let data: Record<string, string>[] = [];
 let filteredData: Record<string, string>[] = [];
 let currCardIndex: number = 0;
@@ -165,15 +166,12 @@ const shuffle = () => {
 };
 
 const changeMode = (evt: Event) => {
-  const target = evt.target as HTMLElement;
-  if(currMode === 'flashcard'){
-    currMode = 'quiz';
-    target.textContent = 'flashcard mode';
+  const target = evt.target as HTMLSelectElement;
+  const selected = target.value as Mode;
+  if(selected.includes('quiz')){
     shuffle();
-  }else{
-    currMode = 'flashcard';
-    target.textContent = 'quiz mode';
   }
+  currMode = selected;
 };
 
 const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string, string>> => {
@@ -196,14 +194,19 @@ const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string
     possibleAnswers[counter] = possibleAnswers[idx];
     possibleAnswers[idx] = tmp;
   }
-  
   return possibleAnswers;
 };
 
 const checkQuizAnswer = (evt: Event) => {
   const target = evt.target as HTMLElement;
   const choice = target.textContent.trim();
-  const actualAnswer = filteredData[currCardIndex].pinyin.trim();
+  
+  let actualAnswer;
+  if(currMode === 'quiz-pinyin'){
+    actualAnswer = filteredData[currCardIndex].pinyin.trim();
+  }else if(currMode === 'quiz-definition'){
+    actualAnswer = filteredData[currCardIndex].definition.trim();
+  }
   
   if(choice === actualAnswer){
     target.style.border = "1px solid #32cd32";
@@ -364,7 +367,7 @@ const openResults = (results: HanziLookupResult[]) => {
 
 <header class="options-panel {showOptionsPanel ? 'options-panel-on' : 'options-panel-off'}">
   <p>dataset: </p>
-  <select bind:value={selected} on:change={onChange} disabled={currMode === 'quiz'}>
+  <select bind:value={selected} on:change={onChange} disabled={currMode.includes('quiz-')}>
     {#each datasets as ds}
       <option value={ds}>{ds}</option>
     {/each}
@@ -419,7 +422,13 @@ const openResults = (results: HanziLookupResult[]) => {
   <button on:click={shuffle}>shuffle</button>
   
   {#if selected === "chinese"}
-    <button id="changeModeButton" on:click={changeMode}>quiz mode</button>
+    <!-- <button id="changeModeButton" on:click={changeMode}>quiz mode</button> -->
+    <p> mode: </p>
+    <select bind:value={currMode} on:change={changeMode}>
+        <option value='flashcard'>flashcard</option>
+        <option value='quiz-pinyin'>pinyin quiz</option>
+        <option value='quiz-definition'>definition quiz</option>
+    </select>
   {/if}
 </header>
 
@@ -441,18 +450,25 @@ const openResults = (results: HanziLookupResult[]) => {
     </div>
     
     <Navigate bind:this={navComponent} bind:currCardIndex bind:totalCards />
-  {:else if currMode === 'quiz'}
+  {:else if currMode === 'quiz-pinyin'}
     {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
-      <h2>what is the pinyin for {filteredData[currCardIndex].value}?</h2>
+      <h2>what is the pinyin for <a target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[0].pinyin}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[1].pinyin}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[2].pinyin}</button>
       <button on:click={shuffle}> next </button>
     </div>
+  {:else if currMode === 'quiz-definition'}
+    {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
+    <div>
+      <h2>what is the definition for <a target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[0].definition}</button>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[1].definition}</button>
+      <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[2].definition}</button>
+      <button on:click={shuffle}> next </button>
+    </div>
   {/if}
-  
-  <br />
 </main>
 
 <style>

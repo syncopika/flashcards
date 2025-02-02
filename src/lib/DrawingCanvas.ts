@@ -2,7 +2,6 @@
 // https://github.com/gugray/hanzi_lookup/blob/master/web_demo/drawingBoard.js
 
 export class DrawingCanvas {
-
   canvas: HTMLCanvasElement;
   worker: Worker; // web worker to communicate with
   clicking: boolean;

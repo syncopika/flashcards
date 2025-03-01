@@ -1561,5 +1561,11 @@
     {"value": "感慨", "pinyin": "gan3 kai3", "definition": "to have a stirring of emotion"},
     {"value": "公主", "pinyin": "gong1 zhu3", "definition": "princess"},
     {"value": "默默", "pinyin": "mo4 mo4", "definition": "quietly; silently"},
-    {"value": "除夕", "pinyin": "chu2 xi1", "definition": "Chinese New Year's Eve"}
+    {"value": "除夕", "pinyin": "chu2 xi1", "definition": "Chinese New Year's Eve"},
+    {"value": "接管", "pinyin": "jie1 guan3", "definition": "to take over (control or management of); to assume control of"},
+    {"value": "均價", "pinyin": "jun1 jia4", "definition": "average price"},
+    {"value": "成交", "pinyin": "cheng2 jiao1", "definition": "to close a deal; to conclude a transaction"},
+    {"value": "由來", "pinyin": "you2 lai2", "definition": "origin; source"},
+    {"value": "蜂蜜", "pinyin": "feng1 mi4", "definition": "honey", "tags": ["food"]},
+    {"value": "看情況", "pinyin": "kan4 qing2 kuang4", "definition": "it depends"}
 ]

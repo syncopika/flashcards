@@ -1099,7 +1099,7 @@ function create_if_block_5(ctx) {
     c() {
       button = element("button");
       button.innerHTML = `<svg fill="#000000" width="24px" height="24px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M21.3,5.54,7.161,19.682c-.01.01-.013.023-.022.033a.99.99,0,0,0-.172.26c-.01.021-.022.041-.03.063s-.013.023-.017.036L4.8,26.437A1,1,0,0,0,6.063,27.7l6.364-2.121c.013,0,.023-.013.036-.017s.041-.02.063-.03a.99.99,0,0,0,.26-.172c.01-.009.023-.012.033-.022L26.96,11.2a4,4,0,0,0,0-5.657A4.1,4.1,0,0,0,21.3,5.54ZM7.328,25.172l.977-2.932,1.955,1.955Zm4.783-1.954L9.282,20.389,21.3,8.368,24.132,11.2ZM25.546,9.783,22.717,6.954a2.048,2.048,0,0,1,2.829,0,2,2,0,0,1,0,2.829ZM21.3,11.2a1,1,0,0,1,0,1.414l-7.778,7.778a1,1,0,0,1-1.414-1.414L19.889,11.2A1,1,0,0,1,21.3,11.2Z"></path></svg>`;
-      attr(button, "class", "pencil-button svelte-1yq7huk");
+      attr(button, "class", "pencil-button svelte-1si32xt");
     },
     m(target, anchor) {
       insert(target, button, anchor);
@@ -1123,8 +1123,10 @@ function create_if_block_5(ctx) {
   };
 }
 function create_if_block_4(ctx) {
-  let p;
+  let p0;
   let t1;
+  let p1;
+  let t3;
   let select;
   let option0;
   let option1;
@@ -1133,9 +1135,12 @@ function create_if_block_4(ctx) {
   let dispose;
   return {
     c() {
-      p = element("p");
-      p.textContent = "mode:";
+      p0 = element("p");
+      p0.textContent = "|";
       t1 = space();
+      p1 = element("p");
+      p1.textContent = "mode:";
+      t3 = space();
       select = element("select");
       option0 = element("option");
       option0.textContent = "flashcard";
@@ -1143,14 +1148,15 @@ function create_if_block_4(ctx) {
       option1.textContent = "pinyin quiz";
       option2 = element("option");
       option2.textContent = "definition quiz";
-      attr(p, "class", "svelte-1yq7huk");
+      attr(p0, "class", "svelte-1si32xt");
+      attr(p1, "class", "svelte-1si32xt");
       option0.__value = "flashcard";
       option0.value = option0.__value;
       option1.__value = "quiz-pinyin";
       option1.value = option1.__value;
       option2.__value = "quiz-definition";
       option2.value = option2.__value;
-      attr(select, "class", "svelte-1yq7huk");
+      attr(select, "class", "svelte-1si32xt");
       if (
         /*currMode*/
         ctx[1] === void 0
@@ -1161,8 +1167,10 @@ function create_if_block_4(ctx) {
         ));
     },
     m(target, anchor) {
-      insert(target, p, anchor);
+      insert(target, p0, anchor);
       insert(target, t1, anchor);
+      insert(target, p1, anchor);
+      insert(target, t3, anchor);
       insert(target, select, anchor);
       append(select, option0);
       append(select, option1);
@@ -1202,9 +1210,13 @@ function create_if_block_4(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(p);
+        detach(p0);
       if (detaching)
         detach(t1);
+      if (detaching)
+        detach(p1);
+      if (detaching)
+        detach(t3);
       if (detaching)
         detach(select);
       mounted = false;
@@ -1278,10 +1290,10 @@ function create_if_block_3(ctx) {
         /*currCardIndex*/
         ctx[3]
       ].value}`);
-      attr(button0, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button1, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button2, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button3, "class", "svelte-1yq7huk");
+      attr(button0, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button1, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button2, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button3, "class", "svelte-1si32xt");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1436,10 +1448,10 @@ function create_if_block_2(ctx) {
         /*currCardIndex*/
         ctx[3]
       ].value}`);
-      attr(button0, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button1, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button2, "class", "quiz-answer-choice svelte-1yq7huk");
-      attr(button3, "class", "svelte-1yq7huk");
+      attr(button0, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button1, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button2, "class", "quiz-answer-choice svelte-1si32xt");
+      attr(button3, "class", "svelte-1si32xt");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1601,7 +1613,7 @@ function create_if_block(ctx) {
         if_block.c();
       t1 = space();
       create_component(navigate.$$.fragment);
-      attr(div, "class", "card-container svelte-1yq7huk");
+      attr(div, "class", "card-container svelte-1si32xt");
     },
     m(target, anchor) {
       mount_component(counter, target, anchor);
@@ -1809,13 +1821,11 @@ function create_fragment(ctx) {
   let t20;
   let button1;
   let t22;
-  let p4;
-  let t24;
   let header_class_value;
-  let t25;
+  let t23;
   let main;
   let h1;
-  let t27;
+  let t25;
   let current_block_type_index;
   let if_block2;
   let current;
@@ -1914,23 +1924,20 @@ function create_fragment(ctx) {
       button1 = element("button");
       button1.textContent = "shuffle";
       t22 = space();
-      p4 = element("p");
-      p4.textContent = "|";
-      t24 = space();
       if (if_block1)
         if_block1.c();
-      t25 = space();
+      t23 = space();
       main = element("main");
       h1 = element("h1");
       h1.textContent = "flashcards";
-      t27 = space();
+      t25 = space();
       if (if_block2)
         if_block2.c();
-      attr(button0, "class", "icon svelte-1yq7huk");
-      attr(p0, "class", "svelte-1yq7huk");
+      attr(button0, "class", "icon svelte-1si32xt");
+      attr(p0, "class", "svelte-1si32xt");
       select.disabled = select_disabled_value = /*currMode*/
       ctx[1].includes("quiz-");
-      attr(select, "class", "svelte-1yq7huk");
+      attr(select, "class", "svelte-1si32xt");
       if (
         /*selected*/
         ctx[0] === void 0
@@ -1939,34 +1946,33 @@ function create_fragment(ctx) {
           /*select_change_handler*/
           ctx[21].call(select)
         ));
-      attr(p1, "class", "svelte-1yq7huk");
-      attr(p2, "class", "svelte-1yq7huk");
-      attr(input0, "class", "searchInput svelte-1yq7huk");
+      attr(p1, "class", "svelte-1si32xt");
+      attr(p2, "class", "svelte-1si32xt");
+      attr(input0, "class", "searchInput svelte-1si32xt");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
       attr(input1, "id", "search-front-choice");
       attr(input1, "name", "search-side-choice");
       input1.value = "front";
-      attr(input1, "class", "svelte-1yq7huk");
+      attr(input1, "class", "svelte-1si32xt");
       attr(label0, "for", "search-front-choice");
       attr(input2, "type", "radio");
       attr(input2, "id", "search-back-choice");
       attr(input2, "name", "search-side-choice");
       input2.value = "back";
-      attr(input2, "class", "svelte-1yq7huk");
+      attr(input2, "class", "svelte-1si32xt");
       attr(label1, "for", "search-back-choice");
       attr(input3, "type", "radio");
       attr(input3, "id", "search-tag-choice");
       attr(input3, "name", "search-side-choice");
       input3.value = "tags";
       attr(label2, "for", "search-tag-choice");
-      attr(div, "class", "svelte-1yq7huk");
-      attr(p3, "class", "svelte-1yq7huk");
-      attr(button1, "class", "svelte-1yq7huk");
-      attr(p4, "class", "svelte-1yq7huk");
+      attr(div, "class", "svelte-1si32xt");
+      attr(p3, "class", "svelte-1si32xt");
+      attr(button1, "class", "svelte-1si32xt");
       attr(header, "class", header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-1yq7huk");
+      (ctx[7] ? "options-panel-on" : "options-panel-off") + " svelte-1si32xt");
     },
     m(target, anchor) {
       insert(target, button0, anchor);
@@ -2010,14 +2016,12 @@ function create_fragment(ctx) {
       append(header, t20);
       append(header, button1);
       append(header, t22);
-      append(header, p4);
-      append(header, t24);
       if (if_block1)
         if_block1.m(header, null);
-      insert(target, t25, anchor);
+      insert(target, t23, anchor);
       insert(target, main, anchor);
       append(main, h1);
-      append(main, t27);
+      append(main, t25);
       if (~current_block_type_index) {
         if_blocks[current_block_type_index].m(main, null);
       }
@@ -2160,7 +2164,7 @@ function create_fragment(ctx) {
       }
       if (!current || dirty[0] & /*showOptionsPanel*/
       128 && header_class_value !== (header_class_value = "options-panel " + /*showOptionsPanel*/
-      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-1yq7huk")) {
+      (ctx2[7] ? "options-panel-on" : "options-panel-off") + " svelte-1si32xt")) {
         attr(header, "class", header_class_value);
       }
       let previous_block_index = current_block_type_index;
@@ -2215,7 +2219,7 @@ function create_fragment(ctx) {
       if (if_block1)
         if_block1.d();
       if (detaching)
-        detach(t25);
+        detach(t23);
       if (detaching)
         detach(main);
       if (~current_block_type_index) {

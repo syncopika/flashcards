@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "validate-json": "node validate_json",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {

@@ -423,10 +423,9 @@ const openResults = (results: HanziLookupResult[]) => {
   
   <button on:click={shuffle}>shuffle</button>
   
-  <p> | </p>
-  
   {#if selected === "chinese"}
     <!-- <button id="changeModeButton" on:click={changeMode}>quiz mode</button> -->
+    <p> | </p>
     <p> mode: </p>
     <select bind:value={currMode} on:change={changeMode}>
         <option value='flashcard'>flashcard</option>
@@ -515,6 +514,7 @@ button {
 @media (max-width: 1000px) and (min-width: 501px) {
   .options-panel {
     padding-top: 5%;
+    padding-bottom: 2%;
   }
 }
 

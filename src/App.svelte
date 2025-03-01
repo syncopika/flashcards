@@ -419,7 +419,11 @@ const openResults = (results: HanziLookupResult[]) => {
     <label for="search-tag-choice">tag</label>
   </div>
   
+  <p> | </p>
+  
   <button on:click={shuffle}>shuffle</button>
+  
+  <p> | </p>
   
   {#if selected === "chinese"}
     <!-- <button id="changeModeButton" on:click={changeMode}>quiz mode</button> -->
@@ -504,6 +508,7 @@ button {
 @media (max-width: 500px) {
   .options-panel {
     padding-top: 7%;
+    padding-bottom: 2%;
   }
 }
 

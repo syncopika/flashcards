@@ -1,4 +1,5 @@
 // validate the JSON datasets
+// TODO: can we also detect duplicates?
 import { readFileSync } from 'fs';
 
 function checkDatasets(){

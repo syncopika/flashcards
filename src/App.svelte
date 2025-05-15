@@ -200,6 +200,7 @@ const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string
 const checkQuizAnswer = (evt: Event) => {
   const target = evt.target as HTMLElement;
   const choice = target.textContent.trim();
+  const originalBtnBgColor = target.style.backgroundColor;
   
   let actualAnswer;
   if(currMode === 'quiz-pinyin'){
@@ -218,7 +219,7 @@ const checkQuizAnswer = (evt: Event) => {
   
   setTimeout(() => {
     target.style.border = "1px solid #000";
-    target.style.backgroundColor = "#fff";
+    target.style.backgroundColor = originalBtnBgColor;
   }, 2000);
 };
 

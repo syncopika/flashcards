@@ -1035,6 +1035,7 @@ class DrawingCanvas {
     return this.canvas;
   }
 }
+const App_svelte_svelte_type_style_lang = "";
 function get_if_ctx_1(ctx) {
   const child_ctx = ctx.slice();
   const constants_0 = (
@@ -1938,7 +1939,7 @@ function create_fragment(ctx) {
           /*select_change_handler*/
           ctx[21].call(select)
         ));
-      attr(input0, "class", "searchInput");
+      attr(input0, "class", "search-input");
       attr(input0, "type", "text");
       attr(input0, "name", "search");
       attr(input1, "type", "radio");
@@ -2282,7 +2283,7 @@ function instance($$self, $$props, $$invalidate) {
     $$invalidate(2, filteredData = data);
   };
   const onChangeSearch = async () => {
-    const searchInput = document.querySelector(".searchInput");
+    const searchInput = document.querySelector(".search-input");
     if (searchInput && currMode === "flashcard") {
       const inputVal = searchInput.value;
       if (inputVal !== "") {
@@ -2361,6 +2362,7 @@ function instance($$self, $$props, $$invalidate) {
   const checkQuizAnswer = (evt) => {
     const target = evt.target;
     const choice = target.textContent.trim();
+    const originalBtnBgColor = target.style.backgroundColor;
     let actualAnswer;
     if (currMode === "quiz-pinyin") {
       actualAnswer = filteredData[currCardIndex].pinyin.trim();
@@ -2377,7 +2379,7 @@ function instance($$self, $$props, $$invalidate) {
     setTimeout(
       () => {
         target.style.border = "1px solid #000";
-        target.style.backgroundColor = "#fff";
+        target.style.backgroundColor = originalBtnBgColor;
       },
       2e3
     );
@@ -2475,7 +2477,7 @@ function instance($$self, $$props, $$invalidate) {
       resultElement.appendChild(matchScore);
       resultElement.classList.add("match-result");
       resultElement.addEventListener("click", () => {
-        const searchInput = document.querySelector(".searchInput");
+        const searchInput = document.querySelector(".search-input");
         if (searchInput)
           searchInput.value = r.hanzi;
       });

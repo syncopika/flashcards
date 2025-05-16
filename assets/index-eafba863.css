@@ -76,7 +76,7 @@ input, select {
   font-family: inherit;
 }
 
-.searchInput {
+.search-input {
   width: 140px;
 }
 
@@ -141,11 +141,6 @@ button {
   border-radius: 8px;
 }
 
-:global(.match-result):hover {
-  cursor: pointer;
-  outline: 1px solid #000;
-}
-
 .quiz-answer-choice:hover {
   cursor: pointer;
 }
@@ -186,4 +181,4 @@ button {
     background-color: #f9f9f9;
   }
 }
-.cardInner.svelte-tkacgb{border:1px solid #000;border-radius:10px;position:relative;width:100%;height:100%;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);transition:transform 0.6s;transform-style:preserve-3d;padding:3px}.cardInner.svelte-tkacgb:hover,.cardInnerFlipped.svelte-tkacgb:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.5)}.cardInnerFlipped.svelte-tkacgb{border:1px solid #000;border-radius:10px;position:relative;width:100%;height:100%;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);transition:transform 0.6s;transform-style:preserve-3d;transform:rotateY(180deg);padding:3px}.front.svelte-tkacgb,.back.svelte-tkacgb{width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden}.front.svelte-tkacgb{display:flex;align-items:center;justify-content:center;font-size:40px}.back.svelte-tkacgb{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center}.back.svelte-tkacgb .field{font-weight:bold}.counter.svelte-1stcjer p.svelte-1stcjer{display:inline-block}.navigate.svelte-6mz84w button.svelte-6mz84w{display:inline-block}
+.cardInner.svelte-tkacgb{border:1px solid #000;border-radius:10px;position:relative;width:100%;height:100%;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);transition:transform 0.6s;transform-style:preserve-3d;padding:3px}.cardInner.svelte-tkacgb:hover,.cardInnerFlipped.svelte-tkacgb:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.5)}.cardInnerFlipped.svelte-tkacgb{border:1px solid #000;border-radius:10px;position:relative;width:100%;height:100%;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);transition:transform 0.6s;transform-style:preserve-3d;transform:rotateY(180deg);padding:3px}.front.svelte-tkacgb,.back.svelte-tkacgb{width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden}.front.svelte-tkacgb{display:flex;align-items:center;justify-content:center;font-size:40px}.back.svelte-tkacgb{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center}.back.svelte-tkacgb .field{font-weight:bold}.counter.svelte-1stcjer p.svelte-1stcjer{display:inline-block}.navigate.svelte-6mz84w button.svelte-6mz84w{display:inline-block}.match-result:hover{cursor:pointer;outline:1px solid #000}.match-result{color:#000}

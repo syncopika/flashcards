@@ -101,7 +101,7 @@ const onChange = async () => {
 };
 
 const onChangeSearch = async () => {
-  const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+  const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
   if(searchInput && currMode === 'flashcard'){
     const inputVal = searchInput.value;
     if(inputVal !== ""){
@@ -336,7 +336,7 @@ const openResults = (results: HanziLookupResult[]) => {
     resultElement.classList.add('match-result');
     resultElement.addEventListener('click', () => {
       // add to search input
-      const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+      const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
       if(searchInput) searchInput.value = r.hanzi;
     });
     resultElement.style.backgroundColor = '#fff';
@@ -376,7 +376,7 @@ const openResults = (results: HanziLookupResult[]) => {
   <p> | </p>
   <p> search: </p>
   <input 
-    class="searchInput" 
+    class="search-input" 
     type="text" 
     name="search" 
     on:input={searchDebounce}
@@ -474,3 +474,14 @@ const openResults = (results: HanziLookupResult[]) => {
     </div>
   {/if}
 </main>
+
+<style>
+:global(.match-result):hover {
+  cursor: pointer;
+  outline: 1px solid #000;
+}
+
+:global(.match-result){
+  color: #000;
+}
+</style>

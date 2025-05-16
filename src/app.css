@@ -76,7 +76,7 @@ input, select {
   font-family: inherit;
 }
 
-.searchInput {
+.search-input {
   width: 140px;
 }
 
@@ -139,11 +139,6 @@ button {
   margin-top: 2rem;
   border: 1px solid #000;
   border-radius: 8px;
-}
-
-:global(.match-result):hover {
-  cursor: pointer;
-  outline: 1px solid #000;
 }
 
 .quiz-answer-choice:hover {

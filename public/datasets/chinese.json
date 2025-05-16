@@ -1686,5 +1686,9 @@
     {"value": "也許", "pinyin": "ye3 xu3", "definition": "possibly; perhaps; maybe"},
     {"value": "見怪不怪", "pinyin": "jian4 guai4 bu4 guai4", "definition": "to keep one's calm in the face of the unexpected; to not wonder at strange sights", "tags": ["idiom"]},
     {"value": "宗旨", "pinyin": "zong1 zhi3", "definition": "aim; purpose; objective; mission"},
-    {"value": "歸還", "pinyin": "gui1 huan2", "definition": "to give back to someone; to return to owner"}
+    {"value": "歸還", "pinyin": "gui1 huan2", "definition": "to give back to someone; to return to owner"},
+    {"value": "知足", "pinyin": "zhi1 zu2", "definition": "content; to be fulfilled; to be satisfied with one's life"},
+    {"value": "客運", "pinyin": "ke4 yun4", "definition": "bus; passenger transport"},
+    {"value": "失物", "pinyin": "shi1 wu4", "definition": "lost property"},
+    {"value": "家具", "pinyin": "jia1 ju4", "definition": "furniture"}
 ]

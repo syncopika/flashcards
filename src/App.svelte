@@ -101,7 +101,7 @@ const onChange = async () => {
 };
 
 const onChangeSearch = async () => {
-  const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+  const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
   if(searchInput && currMode === 'flashcard'){
     const inputVal = searchInput.value;
     if(inputVal !== ""){
@@ -200,6 +200,7 @@ const getPossibleQuizAnswers = (correctAnswerIndex: number): Array<Record<string
 const checkQuizAnswer = (evt: Event) => {
   const target = evt.target as HTMLElement;
   const choice = target.textContent.trim();
+  const originalBtnBgColor = target.style.backgroundColor;
   
   let actualAnswer;
   if(currMode === 'quiz-pinyin'){
@@ -218,7 +219,7 @@ const checkQuizAnswer = (evt: Event) => {
   
   setTimeout(() => {
     target.style.border = "1px solid #000";
-    target.style.backgroundColor = "#fff";
+    target.style.backgroundColor = originalBtnBgColor;
   }, 2000);
 };
 
@@ -335,7 +336,7 @@ const openResults = (results: HanziLookupResult[]) => {
     resultElement.classList.add('match-result');
     resultElement.addEventListener('click', () => {
       // add to search input
-      const searchInput: HTMLInputElement | null = document.querySelector('.searchInput');
+      const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
       if(searchInput) searchInput.value = r.hanzi;
     });
     resultElement.style.backgroundColor = '#fff';
@@ -375,7 +376,7 @@ const openResults = (results: HanziLookupResult[]) => {
   <p> | </p>
   <p> search: </p>
   <input 
-    class="searchInput" 
+    class="search-input" 
     type="text" 
     name="search" 
     on:input={searchDebounce}
@@ -475,90 +476,12 @@ const openResults = (results: HanziLookupResult[]) => {
 </main>
 
 <style>
-header {
-  text-align: center;
-}
-
-button {
-  margin: 4px;
-}
-
-.pencil-button {
-  padding: 5px;
-  vertical-align: middle;
-}
-
-.card-container {
-  height: 200px;
-  width: 280px;
-  margin: 0 auto;
-  margin-bottom: 5%;
-  perspective: 1000px;
-}
-
-.options-panel {
-  position: fixed;
-  width: 100%;
-  left: 0;
-  box-shadow: 0px 1px 1px #ccc;
-  background: #fff;
-}
-
-@media (max-width: 500px) {
-  .options-panel {
-    padding-top: 7%;
-    padding-bottom: 2%;
-  }
-}
-
-@media (max-width: 1000px) and (min-width: 501px) {
-  .options-panel {
-    padding-top: 5%;
-    padding-bottom: 2%;
-  }
-}
-
-.options-panel>* {
-  display: inline-block;
-}
-
-.options-panel-on {
-  top: 0;
-  transition: 0.5s;
-}
-
-.options-panel-off {
-  height: 0px;
-  top: calc(0vh - 200px);
-  transition: 0.5s;
-}
-
-.icon {
-  position: relative;
-  z-index: 10;
-  margin: 0;
-}
-
-.quiz-answer-choice {
-  display: block;
-  padding: 0.8em;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  border: 1px solid #000;
-  border-radius: 8px;
-}
-
 :global(.match-result):hover {
   cursor: pointer;
   outline: 1px solid #000;
 }
 
-.quiz-answer-choice:hover {
-  cursor: pointer;
-}
-
-#search-front-choice, #search-back-choice {
-  display: inline-block;
+:global(.match-result){
+  color: #000;
 }
 </style>

@@ -383,5 +383,6 @@
     {"value": "手頃", "romaji": "tegoro (てごろ)", "definition": "handy; convenient; reasonable"},
     {"value": "絶交", "romaji": "zekkou (ぜっこう)", "definition": "breakup; breaking off one's relationship"},
     {"value": "取り除く", "romaji": "torinozoku (とりのぞく)", "definition": "to remove; prune away; take away"},
-    {"value": "効く", "romaji": "kiku (きく)", "definition": "to be effective; act upon; to work; to have; to be able to be applied"}
+    {"value": "効く", "romaji": "kiku (きく)", "definition": "to be effective; act upon; to work; to have; to be able to be applied"},
+    {"value": "営業", "romaji": "eigyou (えいぎょう)", "definition": "to operate a business; operation; sales; business"}
 ]

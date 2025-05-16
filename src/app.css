@@ -76,8 +76,91 @@ input, select {
   font-family: inherit;
 }
 
-.searchInput {
+.search-input {
   width: 140px;
+}
+
+header {
+  text-align: center;
+}
+
+button {
+  margin: 4px;
+}
+
+.pencil-button {
+  padding: 5px;
+  vertical-align: middle;
+  background-color: #ffffff;
+}
+
+.card-container {
+  height: 200px;
+  width: 280px;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  perspective: 1000px;
+}
+
+.options-panel {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 1px 1px #ccc;
+  background-color: #242424;
+}
+
+.options-panel>* {
+  display: inline-block;
+}
+
+.options-panel-on {
+  top: 0;
+  transition: 0.5s;
+}
+
+.options-panel-off {
+  height: 0px;
+  top: calc(0vh - 200px);
+  transition: 0.5s;
+}
+
+.icon {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+}
+
+.quiz-answer-choice {
+  display: block;
+  padding: 0.8em;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.quiz-answer-choice:hover {
+  cursor: pointer;
+}
+
+#search-front-choice, #search-back-choice {
+  display: inline-block;
+}
+
+@media (max-width: 500px) {
+  .options-panel {
+    padding-top: 7%;
+    padding-bottom: 2%;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 501px) {
+  .options-panel {
+    padding-top: 5%;
+    padding-bottom: 2%;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -89,6 +172,12 @@ input, select {
     color: #747bff;
   }
   button {
+    background-color: #f9f9f9;
+  }
+  .options-panel {
+    background-color: #ffffff;
+  }
+  .pencil-button {
     background-color: #f9f9f9;
   }
 }

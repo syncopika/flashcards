@@ -384,5 +384,12 @@
     {"value": "絶交", "romaji": "zekkou (ぜっこう)", "definition": "breakup; breaking off one's relationship"},
     {"value": "取り除く", "romaji": "torinozoku (とりのぞく)", "definition": "to remove; prune away; take away"},
     {"value": "効く", "romaji": "kiku (きく)", "definition": "to be effective; act upon; to work; to have; to be able to be applied"},
-    {"value": "営業", "romaji": "eigyou (えいぎょう)", "definition": "to operate a business; operation; sales; business"}
+    {"value": "営業", "romaji": "eigyou (えいぎょう)", "definition": "to operate a business; operation; sales; business"},
+    {"value": "納得", "romaji": "nattoku (なっとく)", "definition": "agreement; understanding"},
+    {"value": "耐久", "romaji": "taikyuu (たいきゅう)", "definition": "endurance"},
+    {"value": "無愛想", "romaji": "buaisou (ぶあいそう)", "definition": "unfriendly; in an unfriendly manner"},
+    {"value": "相応しい", "romaji": "fusuwashii (ふすわしい)", "definition": "appropriate; proper; suitable"},
+    {"value": "去年", "romaji": "kyonen (きょねん)", "definition": "last year"},
+    {"value": "撮影", "romaji": "satsuei (さつえい)", "definition": "photography; filming"},
+    {"value": "成績", "romaji": "seiseki (せいせき)", "definition": "results; score; grades; achievements"}
 ]

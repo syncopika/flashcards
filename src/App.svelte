@@ -67,7 +67,7 @@ async function getJSONDataset(dataName: string){
   try {
     // try getting json from repo (rely on one source only for data). this way I don't have to keep updating the data in multiple places
     // e.g. if I have my deployment on a different branch I don't have to keep updating the datasets there
-    const filename = `https://github.com/syncopika/flashcards/blob/main/public/datasets/${dataName}.json`;
+    const filename = `https://raw.githubusercontent.com/syncopika/flashcards/refs/heads/main/public/datasets/${dataName}.json`;
     console.log(`getting data from: ${filename}`);
     return await fetch(filename);
   }catch(err){

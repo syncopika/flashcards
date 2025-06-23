@@ -2216,6 +2216,17 @@ function create_fragment(ctx) {
     }
   };
 }
+async function getJSONDataset(dataName) {
+  try {
+    const filename = `https://github.com/syncopika/flashcards/blob/main/public/datasets/${dataName}.json`;
+    console.log(`getting data from: ${filename}`);
+    return await fetch(filename);
+  } catch (err) {
+    console.log(err);
+    console.log("getting data from local dataset instead");
+    return await fetch(`datasets/${dataName}.json`);
+  }
+}
 function instance($$self, $$props, $$invalidate) {
   let datasets = ["bopomofo", "chinese", "japanese", "cantonese"];
   let selected = "chinese";
@@ -2255,7 +2266,7 @@ function instance($$self, $$props, $$invalidate) {
   }
   onMount(async () => {
     const mapper = new Mapper();
-    const res = await fetch("datasets/chinese.json");
+    const res = await getJSONDataset("chinese");
     const d = await res.json();
     data = mapper.processChineseDataset(d);
     $$invalidate(2, filteredData = data);
@@ -2267,7 +2278,7 @@ function instance($$self, $$props, $$invalidate) {
   };
   const onChange = async () => {
     const mapper = new Mapper();
-    const res = await fetch(`datasets/${selected}.json`);
+    const res = await getJSONDataset(selected);
     const d = await res.json();
     if (selected === "chinese") {
       data = mapper.processChineseDataset(d);

@@ -63,10 +63,25 @@ function handleKeydown(evt: KeyboardEvent){
   }
 }
 
+async function getJSONDataset(dataName: string){
+  try {
+    // try getting json from repo (rely on one source only for data). this way I don't have to keep updating the data in multiple places
+    // e.g. if I have my deployment on a different branch I don't have to keep updating the datasets there
+    const filename = `https://github.com/syncopika/flashcards/blob/main/public/datasets/${dataName}.json`;
+    console.log(`getting data from: ${filename}`);
+    return await fetch(filename);
+  }catch(err){
+    // otherwise fall back to the file in /datasets. may be outdated
+    console.log(err);
+    console.log('getting data from local dataset instead');
+    return await fetch(`datasets/${dataName}.json`);
+  }
+}
+
 // fetch data
 onMount(async () => {
   const mapper = new Mapper();
-  const res = await fetch('datasets/chinese.json');
+  const res = await getJSONDataset('chinese');
   const d = await res.json();
   
   data = mapper.processChineseDataset(d);
@@ -82,7 +97,8 @@ const toggleOptionsPanel = () => {
 
 const onChange = async () => {
   const mapper = new Mapper();
-  const res = await fetch(`datasets/${selected}.json`);
+  
+  const res = await getJSONDataset(selected);
   const d = await res.json();
   
   if(selected === "chinese"){

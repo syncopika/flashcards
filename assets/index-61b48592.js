@@ -2218,7 +2218,7 @@ function create_fragment(ctx) {
 }
 async function getJSONDataset(dataName) {
   try {
-    const filename = `https://github.com/syncopika/flashcards/blob/main/public/datasets/${dataName}.json`;
+    const filename = `https://raw.githubusercontent.com/syncopika/flashcards/refs/heads/main/public/datasets/${dataName}.json`;
     console.log(`getting data from: ${filename}`);
     return await fetch(filename);
   } catch (err) {

@@ -391,5 +391,6 @@
     {"value": "相応しい", "romaji": "fusuwashii (ふすわしい)", "definition": "appropriate; proper; suitable"},
     {"value": "去年", "romaji": "kyonen (きょねん)", "definition": "last year"},
     {"value": "撮影", "romaji": "satsuei (さつえい)", "definition": "photography; filming"},
-    {"value": "成績", "romaji": "seiseki (せいせき)", "definition": "results; score; grades; achievements"}
+    {"value": "成績", "romaji": "seiseki (せいせき)", "definition": "results; score; grades; achievements"},
+    {"value": "中身", "romaji": "nakami (なかみ)", "definition": "contents; interior; filling; substance; content"}
 ]

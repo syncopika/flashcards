@@ -392,5 +392,13 @@
     {"value": "去年", "romaji": "kyonen (きょねん)", "definition": "last year"},
     {"value": "撮影", "romaji": "satsuei (さつえい)", "definition": "photography; filming"},
     {"value": "成績", "romaji": "seiseki (せいせき)", "definition": "results; score; grades; achievements"},
-    {"value": "中身", "romaji": "nakami (なかみ)", "definition": "contents; interior; filling; substance; content"}
+    {"value": "中身", "romaji": "nakami (なかみ)", "definition": "contents; interior; filling; substance; content"},
+    {"value": "迫力", "romaji": "hakuryoku (はくりょく)", "definition": "force; power; impact"},
+    {"value": "かざす", "romaji": "kazasu (かざす)", "definition": "to cover; to put one's hands over; told over one's head; to hold high"},
+    {"value": "鬱陶しい", "romaji": "uttoushii (うっとうしい)", "definition": "annoying; pesky; depressing"},
+    {"value": "勢い", "romaji": "ikioi (いきおい)", "definition": "force; power; strength; energy; vigor"},
+    {"value": "奉納", "romaji": "hounou (ほうのう)", "definition": "offering or dedicating something to the gods"},
+    {"value": "加護", "romaji": "kago (かご)", "definition": "divine protection; a blessing"},
+    {"value": "背徳", "romaji": "haitoku (はいとく)", "definition": "lack of morals; corruption"},
+    {"value": "案外", "romaji": "angai (あんがい)", "definition": "unexpected"}
 ]

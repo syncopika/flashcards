@@ -1972,5 +1972,22 @@
     {"value": "無論", "pinyin": "wu2 lun4", "definition": "no matter; regardless of; whether"},
     {"value": "內向", "pinyin": "nei4 xiang4", "definition": "introverted"},
     {"value": "埋頭", "pinyin": "mai2 tou2", "definition": "to lower one's head to dodge an obstacle; to duck; to immerse oneself in; to dedicate onself to"},
-    {"value": "友善", "pinyin": "you3 shan4", "definition": "amiable; friendly"}
+    {"value": "友善", "pinyin": "you3 shan4", "definition": "amiable; friendly"},
+    {"value": "曾經", "pinyin": "ceng2 jing1", "definition": "once; before; used to; in the past"},
+    {"value": "默契", "pinyin": "mo4 qi4", "definition": "having a secret agreement; tacit understanding or implicit recognition"},
+    {"value": "知識", "pinyin": "zhi1 shi4", "definition": "knowledge"},
+    {"value": "基改", "pinyin": "ji1 gai3", "definition": "genetically modified"},
+    {"value": "抵達", "pinyin": "di3 da2", "definition": "to arrive; to reach a destination"},
+    {"value": "鬼撞牆", "pinyin": "gui3 zhuang4 qiang2", "definition": "to go in circles"},
+    {"value": "執照", "pinyin": "zhi2 zhao4", "definition": "license; permit"},
+    {"value": "方言", "pinyin": "fang1 yan2", "definition": "dialect"},
+    {"value": "失落", "pinyin": "shi1 luo4", "definition": "at a loss; depressed; dispirited"},
+    {"value": "出生", "pinyin": "chu2 sheng1", "definition": "to be born"},
+    {"value": "派對", "pinyin": "pai4 dui4", "definition": "party"},
+    {"value": "援助", "pinyin": "yuan2 zhu4", "definition": "to aid; to support"},
+    {"value": "併", "pinyin": "bing4", "definition": "to combine; to amalgamate"},
+    {"value": "點餐", "pinyin": "dian3 can1", "definition": "to order a meal"},
+    {"value": "加倍", "pinyin": "jia1 bei4", "definition": "to double; to redouble"},
+    {"value": "故障", "pinyin": "gu4 zhang4", "definition": "breakdown; malfunction; fault; failure"},
+    {"value": "伸出", "pinyin": "shen1 chu1", "definition": "to reach out; to extend"}
 ]

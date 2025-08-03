@@ -400,5 +400,8 @@
     {"value": "奉納", "romaji": "hounou (ほうのう)", "definition": "offering or dedicating something to the gods"},
     {"value": "加護", "romaji": "kago (かご)", "definition": "divine protection; a blessing"},
     {"value": "背徳", "romaji": "haitoku (はいとく)", "definition": "lack of morals; corruption"},
-    {"value": "案外", "romaji": "angai (あんがい)", "definition": "unexpected"}
+    {"value": "案外", "romaji": "angai (あんがい)", "definition": "unexpected"},
+    {"value": "故障", "romaji": "koshou (こしょう)", "definition": "broken; break down; to go out of order"},
+    {"value": "背景", "romaji": "haikei (はいけい)", "definition": "background"},
+    {"value": "大勢", "romaji": "oozei (おおぜい)", "definition": "crowd; a large number of people"}
 ]

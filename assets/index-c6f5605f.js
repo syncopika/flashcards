@@ -2489,8 +2489,11 @@ function instance($$self, $$props, $$invalidate) {
       resultElement.classList.add("match-result");
       resultElement.addEventListener("click", () => {
         const searchInput = document.querySelector(".search-input");
-        if (searchInput)
+        if (searchInput) {
           searchInput.value = r.hanzi;
+          console.log(`searching cards for ${r.hanzi}`);
+          onChangeSearch();
+        }
       });
       resultElement.style.backgroundColor = "#fff";
       display.appendChild(resultElement);

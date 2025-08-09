@@ -1989,5 +1989,13 @@
     {"value": "點餐", "pinyin": "dian3 can1", "definition": "to order a meal"},
     {"value": "加倍", "pinyin": "jia1 bei4", "definition": "to double; to redouble"},
     {"value": "故障", "pinyin": "gu4 zhang4", "definition": "breakdown; malfunction; fault; failure"},
-    {"value": "伸出", "pinyin": "shen1 chu1", "definition": "to reach out; to extend"}
+    {"value": "伸出", "pinyin": "shen1 chu1", "definition": "to reach out; to extend"},
+    {"value": "行人", "pinyin": "xing2 ren2", "definition": "pedestrian"},
+    {"value": "出行", "pinyin": "chu1 xing2", "definition": "to set out on a long journey"},
+    {"value": "野餐", "pinyin": "ye3 can1", "definition": "picnic"},
+    {"value": "成分", "pinyin": "cheng2 fen4", "definition": "ingredient; element; component"},
+    {"value": "現金", "pinyin": "xian4 jin1", "definition": "cash"},
+    {"value": "反對", "pinyin": "fan3 dui4", "definition": "to oppose; to be against"},
+    {"value": "等於", "pinyin": "deng3 yu2", "definition": "equal to"},
+    {"value": "斑馬線", "pinyin": "ban1 ma3 xian4", "definition": "crosswalk; zebra crossing"}
 ]

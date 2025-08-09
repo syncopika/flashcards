@@ -353,7 +353,12 @@ const openResults = (results: HanziLookupResult[]) => {
     resultElement.addEventListener('click', () => {
       // add to search input
       const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
-      if(searchInput) searchInput.value = r.hanzi;
+      if(searchInput){
+        searchInput.value = r.hanzi;
+        // then search cards
+        console.log(`searching cards for ${r.hanzi}`);
+        onChangeSearch();
+      }
     });
     resultElement.style.backgroundColor = '#fff';
     

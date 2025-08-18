@@ -6,6 +6,7 @@ function checkDatasets(){
     const datasets = [
         "public/datasets/chinese.json",
         "public/datasets/japanese.json",
+        "public/datasets/cantonese.json",
     ];
 
     datasets.forEach(dataset => {

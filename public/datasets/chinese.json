@@ -1958,7 +1958,7 @@
     {"value": "班別", "pinyin": "ban1 bie2", "definition": "class (distinguished from other classes)"},
     {"value": "殺菌", "pinyin": "sha1 jun1", "definition": "to sterilize; to disinfect"},
     {"value": "投票", "pinyin": "tou2 piao4", "definition": "to vote; to cast a vote; to cast a ballot"},
-    {"value": "票選", "pinyin": "piano4 xuan3", "definition": "to choose by ballot"},
+    {"value": "票選", "pinyin": "piao4 xuan3", "definition": "to choose by ballot"},
     {"value": "選舉", "pinyin": "xuan3 ju3", "definition": "to elect"},
     {"value": "端出", "pinyin": "duan1 chu1", "definition": "to bring something out"},
     {"value": "迫不及待", "pinyin": "po4 bu4 ji2 dai4", "definition": "impatient; in a hurry", "tags": ["idiom"]},
@@ -2014,5 +2014,12 @@
     {"value": "硫黃", "pinyin": "liu2 huang2", "definition": "sulfur"},
     {"value": "前途", "pinyin": "qian2 tu2", "definition": "prospects; future; outlook"},
     {"value": "吉祥", "pinyin": "ji2 xiang2", "definition": "lucky; auspicious"},
-    {"value": "姻緣", "pinyin": "yin1 yuan2", "definition": "happy fate which brings lovers together"}
+    {"value": "姻緣", "pinyin": "yin1 yuan2", "definition": "happy fate which brings lovers together"},
+    {"value": "祈福", "pinyin": "qi2 fu2", "definition": "to pay for blessings"},
+    {"value": "論點", "pinyin": "lun4 dian3", "definition": "argument; point of an argument"},
+    {"value": "站不住腳", "pinyin": "zhan4 bu4 zhu4 jiao3", "definition": "to be groundless; to be ill-founded; to not have a leg to stand on", "tags": ["idiom"]},
+    {"value": "鋼琴", "pinyin": "gang1 qin2", "definition": "piano"},
+    {"value": "內行", "pinyin": "nei4 hang2", "definition": "expert; master; adept"},
+    {"value": "緩和", "pinyin": "huan3 he2", "definition": "to alleviate; to ease up; to mitigate"},
+    {"value": "躍進", "pinyin": "yue4 jin4", "definition": "to leap forward; to make rapid progress"}
 ]

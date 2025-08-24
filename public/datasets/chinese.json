@@ -2027,5 +2027,13 @@
     {"value": "紫米", "pinyin": "zi3 mi3", "definition": "black rice; purple rice"},
     {"value": "叮嚀", "pinyin": "ding4 ning2", "definition": "to exhort; to urge; to advise repeatedly"},
     {"value": "揭密", "pinyin": "jie1 mi4", "definition": "to reveal a secret; to reveal the truth"},
-    {"value": "坐落", "pinyin": "zuo4 luo4", "definition": "to be situated; to be located"}
+    {"value": "坐落", "pinyin": "zuo4 luo4", "definition": "to be situated; to be located"},
+    {"value": "循環", "pinyin": "xun2 huan2", "definition": "to cycle; to circulate; to recur"},
+    {"value": "鬆餅", "pinyin": "song1 bing3", "definition": "waffle; pancake", "tags": ["food"]},
+    {"value": "借用", "pinyin": "jie4 yong4", "definition": "to borrow"},
+    {"value": "碰撞", "pinyin": "peng4 zhuang4", "definition": "to collide; to run into; to offend; to hurt"},
+    {"value": "天花板", "pinyin": "tian1 hua1 ban3", "definition": "ceiling"},
+    {"value": "地板", "pinyin": "di4 ban3", "definition": "floor"},
+    {"value": "往復", "pinyin": "wang3 fu4", "definition": "to go and come back; to make a round trip; again and again"},
+    {"value": "堪憂", "pinyin": "kan1 you1", "definition": "worrying; concerning"}
 ]

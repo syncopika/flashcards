@@ -2035,5 +2035,13 @@
     {"value": "天花板", "pinyin": "tian1 hua1 ban3", "definition": "ceiling"},
     {"value": "地板", "pinyin": "di4 ban3", "definition": "floor"},
     {"value": "往復", "pinyin": "wang3 fu4", "definition": "to go and come back; to make a round trip; again and again"},
-    {"value": "堪憂", "pinyin": "kan1 you1", "definition": "worrying; concerning"}
+    {"value": "堪憂", "pinyin": "kan1 you1", "definition": "worrying; concerning"},
+    {"value": "撐", "pinyin": "cheng1", "definition": "to prop; to support; to maintain; to sustain; to keep up"},
+    {"value": "分析", "pinyin": "fen1 xi1", "definition": "to analyze"},
+    {"value": "善惡", "pinyin": "shan4 e4", "definition": "good and evil"},
+    {"value": "甕", "pinyin": "weng4", "definition": "urn; pottery jar"},
+    {"value": "發飆", "pinyin": "fa1 biao1", "definition": "to get angry; to lost one's temper"},
+    {"value": "求證", "pinyin": "qiu2 zheng4", "definition": "to seek to prove; to seek evidence"},
+    {"value": "敗北", "pinyin": "bai4 bei3", "definition": "to be defeated; to suffer defeat"},
+    {"value": "糖尿病", "pinyin": "tang2 niao4 bing4", "definition": "diabetes"}
 ]

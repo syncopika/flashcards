@@ -71,10 +71,7 @@ async function getJSONDataset(dataName: string){
     console.log(`getting data from: ${filename}`);
     return await fetch(filename);
   }catch(err){
-    // otherwise fall back to the file in /datasets. may be outdated
     console.log(err);
-    console.log('getting data from local dataset instead');
-    return await fetch(`datasets/${dataName}.json`);
   }
 }
 

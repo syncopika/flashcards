@@ -2223,8 +2223,6 @@ async function getJSONDataset(dataName) {
     return await fetch(filename);
   } catch (err) {
     console.log(err);
-    console.log("getting data from local dataset instead");
-    return await fetch(`datasets/${dataName}.json`);
   }
 }
 function instance($$self, $$props, $$invalidate) {

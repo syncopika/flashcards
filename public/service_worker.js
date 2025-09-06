@@ -19,6 +19,7 @@ async function networkFirst(request){
     return networkResponse;
   }catch(err){
     // if fetch failed, possibly no internet? so try the cache for the data
+    console.log("failed to get data from url, trying cache");
     const cachedResponse = await caches.match(request);
     return cachedResponse || Response.error();
   }
@@ -39,8 +40,6 @@ async function precache(){
     "hanzi_lookup_worker.js",
     "hanzi_lookup.js",
     "hanzi_lookup_bg.wasm",
-    //".js", 
-    //"index-eafba863.css"
   ];
   console.log("precaching resources");
   const cache = await caches.open(cacheName);

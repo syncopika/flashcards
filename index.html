@@ -10,5 +10,21 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      // register our service worker to handle data fetching
+      // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register
+      if("serviceWorker" in navigator){
+        navigator.serviceWorker.register("/service_worker.js").then(
+          (registration) => {
+            console.log("service worker registration succeeded:", registration);
+          },
+          (err) => {
+            console.error(`service worker registration failed: ${err}`);
+          },
+        );
+      }else{
+        console.error("service workers are not supported");
+      }
+    </script>
   </body>
 </html>

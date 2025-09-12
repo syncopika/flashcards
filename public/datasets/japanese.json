@@ -403,5 +403,10 @@
     {"value": "案外", "romaji": "angai (あんがい)", "definition": "unexpected"},
     {"value": "故障", "romaji": "koshou (こしょう)", "definition": "broken; break down; to go out of order"},
     {"value": "背景", "romaji": "haikei (はいけい)", "definition": "background"},
-    {"value": "大勢", "romaji": "oozei (おおぜい)", "definition": "crowd; a large number of people"}
+    {"value": "大勢", "romaji": "oozei (おおぜい)", "definition": "crowd; a large number of people"},
+    {"value": "挑戦", "romaji": "chousen (ちょうせん)", "definition": "challenge; dare; attempt"},
+    {"value": "窓口", "romaji": "madoguchi (まどぐち)", "definition": "counter; window; ticket window; contact person"},
+    {"value": "対応", "romaji": "taiou (たいおう)", "definition": "correspondence; dealing with; handling"},
+    {"value": "流暢", "romaji": "ryuchou (りゅうちょう)", "definition": "fluent"},
+    {"value": "調理", "romaji": "chouri (ちょうり)", "definition": "cooking; food preparation"}
 ]

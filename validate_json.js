@@ -14,6 +14,11 @@ function checkDatasets(){
         try {
             JSON.parse(json);
             console.log(`${dataset} is valid JSON.`);
+            
+            if(dataset.includes('chinese')){
+              const data = JSON.parse(json);
+              data.forEach((row, idx) => checkValues(idx, row));
+            }
         } catch(err) {
             console.log(`${dataset} is invalid JSON. error: ${err}`);
             process.exit(1);
@@ -21,6 +26,14 @@ function checkDatasets(){
     });
     
     process.exit(0);
+}
+
+// make sure definition, value, pinyin are populated
+function checkValues(idx, row){
+  if(row.definition === "" || row.value === "" || row.pinyin === ""){
+    console.log(`line ${idx + 2} is missing a definition or value`);
+    throw new Error('missing data');
+  }
 }
 
 checkDatasets();

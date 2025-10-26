@@ -2294,7 +2294,7 @@ function instance($$self, $$props, $$invalidate) {
   const onChangeSearch = async () => {
     const searchInput = document.querySelector(".search-input");
     if (searchInput && currMode === "flashcard") {
-      const inputVal = searchInput.value;
+      const inputVal = searchInput.value.toLowerCase();
       if (inputVal !== "") {
         const selectedRadioBtn = document.querySelector('input[name="search-side-choice"]:checked');
         if (selectedRadioBtn) {

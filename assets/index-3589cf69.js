@@ -2303,13 +2303,13 @@ function instance($$self, $$props, $$invalidate) {
             $$invalidate(2, filteredData = data.filter((x) => {
               var _a;
               const val = inputVal.split(" ").join("");
-              const regex = x.pinyin.match(/[a-z]+/g).join("");
-              return val === regex || ((_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal));
+              const regex = x.pinyin.toLowerCase().match(/[a-z]+/g).join("");
+              return val === regex || ((_a = x[selectedSide]) == null ? void 0 : _a.toLowerCase().includes(inputVal));
             }));
           } else {
             $$invalidate(2, filteredData = data.filter((x) => {
               var _a;
-              return (_a = x[selectedSide]) == null ? void 0 : _a.includes(inputVal);
+              return (_a = x[selectedSide]) == null ? void 0 : _a.toLowerCase().includes(inputVal);
             }));
           }
         }

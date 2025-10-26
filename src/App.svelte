@@ -133,11 +133,11 @@ const onChangeSearch = async () => {
           // instead of card side?
           filteredData = data.filter(x => {
             const val = inputVal.split(' ').join('');
-            const regex = x.pinyin.match(/[a-z]+/g).join('');
-            return val === regex || x[selectedSide]?.includes(inputVal);
+            const regex = x.pinyin.toLowerCase().match(/[a-z]+/g).join('');
+            return val === regex || x[selectedSide]?.toLowerCase().includes(inputVal);
           });
         }else{
-          filteredData = data.filter(x => x[selectedSide]?.includes(inputVal));
+          filteredData = data.filter(x => x[selectedSide]?.toLowerCase().includes(inputVal));
         }
       }
     }else{

@@ -116,7 +116,7 @@ const onChange = async () => {
 const onChangeSearch = async () => {
   const searchInput: HTMLInputElement | null = document.querySelector('.search-input');
   if(searchInput && currMode === 'flashcard'){
-    const inputVal = searchInput.value;
+    const inputVal = searchInput.value.toLowerCase();
     if(inputVal !== ""){
       // then filter data
       const selectedRadioBtn: HTMLInputElement | null = document.querySelector('input[name="search-side-choice"]:checked');

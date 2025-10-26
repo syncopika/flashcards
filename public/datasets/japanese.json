@@ -406,5 +406,9 @@
     {"value": "窓口", "romaji": "madoguchi (まどぐち)", "definition": "counter; window; ticket window; contact person"},
     {"value": "対応", "romaji": "taiou (たいおう)", "definition": "correspondence; dealing with; handling"},
     {"value": "流暢", "romaji": "ryuchou (りゅうちょう)", "definition": "fluent"},
-    {"value": "調理", "romaji": "chouri (ちょうり)", "definition": "cooking; food preparation"}
+    {"value": "調理", "romaji": "chouri (ちょうり)", "definition": "cooking; food preparation"},
+    {"value": "愚痴", "romaji": "guchi (ぐち)", "definition": "complaint; grumble"},
+    {"value": "定番", "romaji": "teiban (ていばん)", "definition": "standard; staple; classic"},
+    {"value": "あっさり", "romaji": "assari (あっさり)", "definition": "easily; readily"},
+    {"value": "成り立つ", "romaji": "naritatsu (なりたつ)", "definition": "consist of; be composed of; reach; be concluded; be constructible"}
 ]

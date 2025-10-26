@@ -2233,5 +2233,18 @@
     {"value": "弄好", "pinyin": "nong4 hao3", "definition": "to handle properly"},
     {"value": "博覽會", "pinyin": "bo2 lan3 hui4", "definition": "fair; expo"},
     {"value": "槳", "pinyin": "jiang3", "definition": "oar; paddle"},
-    {"value": "划", "pinyin": "hua2", "definition": "to row; to paddle; to calculate; to be profitable"}
+    {"value": "划", "pinyin": "hua2", "definition": "to row; to paddle; to calculate; to be profitable"},
+    {"value": "髒話", "pinyin": "zang1 hua4", "definition": "profanity; foul language"},
+    {"value": "毛手毛腳", "pinyin": "mao2 shou3 mao2 jiao3", "definition": "to be careless in handling things; to fondle", "tags": ["idiom"]},
+    {"value": "霜", "pinyin": "shuang1", "definition": "frost; cream"},
+    {"value": "防曬霜", "pinyin": "fang2 shai4 shuang1", "definition": "sunscreen"},
+    {"value": "考量", "pinyin": "kao3 liang2", "definition": "to give serious consideration to; to deliberate"},
+    {"value": "臨時", "pinyin": "lin2 shi2", "definition": "temporary; provisional; ad hoc; at the last moment"},
+    {"value": "驚呼", "pinyin": "jing1 hu1", "definition": "to cry out in alarm; to exclaim"},
+    {"value": "復刻", "pinyin": "fu4 ke4", "definition": "to reprint a work that has been out-of-print; to fork; to create a copy of"},
+    {"value": "窮人", "pinyin": "qiong2 ren2", "definition": "poor person"},
+    {"value": "滅絕", "pinyin": "mie4 jue2", "definition": "to wipe out; to exterminate; to become extinct"},
+    {"value": "瀕臨", "pinyin": "bin1 lin2", "definition": "to be close to; on the verge of"},
+    {"value": "嚴重", "pinyin": "yan2 zhong4", "definition": "serious; critical; severe"},
+    {"value": "周遭", "pinyin": "zhou1 zao1", "definition": "the surrounding area"}
 ]

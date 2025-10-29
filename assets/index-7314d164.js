@@ -2491,6 +2491,7 @@ function instance($$self, $$props, $$invalidate) {
           searchInput.value = r.hanzi;
           console.log(`searching cards for ${r.hanzi}`);
           onChangeSearch();
+          alert(`set search input to ${r.hanzi}!`);
         }
       });
       resultElement.style.backgroundColor = "#fff";

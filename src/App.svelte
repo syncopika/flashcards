@@ -150,7 +150,7 @@ const onChangeSearch = async () => {
 };
 
 const onChangeSearchDebounce = () => {
-  let timer;
+  let timer: number;
   return () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -215,7 +215,7 @@ const checkQuizAnswer = (evt: Event) => {
   const choice = target.textContent.trim();
   const originalBtnBgColor = target.style.backgroundColor;
   
-  let actualAnswer;
+  let actualAnswer: string;
   if(currMode === 'quiz-pinyin'){
     actualAnswer = filteredData[currCardIndex].pinyin.trim();
   }else if(currMode === 'quiz-definition'){
@@ -355,6 +355,7 @@ const openResults = (results: HanziLookupResult[]) => {
         // then search cards
         console.log(`searching cards for ${r.hanzi}`);
         onChangeSearch();
+        alert(`set search input to ${r.hanzi}!`);
       }
     });
     resultElement.style.backgroundColor = '#fff';

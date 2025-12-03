@@ -410,5 +410,14 @@
     {"value": "愚痴", "romaji": "guchi (ぐち)", "definition": "complaint; grumble"},
     {"value": "定番", "romaji": "teiban (ていばん)", "definition": "standard; staple; classic"},
     {"value": "あっさり", "romaji": "assari (あっさり)", "definition": "easily; readily"},
-    {"value": "成り立つ", "romaji": "naritatsu (なりたつ)", "definition": "consist of; be composed of; reach; be concluded; be constructible"}
+    {"value": "成り立つ", "romaji": "naritatsu (なりたつ)", "definition": "consist of; be composed of; reach; be concluded; be constructible"},
+    {"value": "困惑", "romaji": "konwaku (こんわく)", "definition": "bewilderment; bemusement"},
+    {"value": "独特", "romaji": "dokutoku (どくとく)", "definition": "uniqueness; inmitability"},
+    {"value": "値段", "romaji": "nedan (ねだん)", "definition": "price; cost"},
+    {"value": "飼う", "romaji": "kau (かう)", "definition": "to keep a pet"},
+    {"value": "事前", "romaji": "jizen (じぜん)", "definition": "beforehand; prior"},
+    {"value": "窪み", "romaji": "kubomi (くぼみ)", "definition": "hollow, dip, depression"},
+    {"value": "語録", "romaji": "goroku (ごろく)", "definition": "analects; sayings; quotations"},
+    {"value": "諄い", "romaji": "kudoi (くどい)", "definition": "verbose; long-winded; heavy; rich"},
+    {"value": "そこそこ", "romaji": "sokosoko (そこそこ)", "definition": "fairly; considerably; many; plenty"}
 ]

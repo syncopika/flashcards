@@ -419,5 +419,12 @@
     {"value": "窪み", "romaji": "kubomi (くぼみ)", "definition": "hollow, dip, depression"},
     {"value": "語録", "romaji": "goroku (ごろく)", "definition": "analects; sayings; quotations"},
     {"value": "諄い", "romaji": "kudoi (くどい)", "definition": "verbose; long-winded; heavy; rich"},
-    {"value": "そこそこ", "romaji": "sokosoko (そこそこ)", "definition": "fairly; considerably; many; plenty"}
+    {"value": "そこそこ", "romaji": "sokosoko (そこそこ)", "definition": "fairly; considerably; many; plenty"},
+    {"value": "修行", "romaji": "shugyou (しゅぎょう)", "definition": "training"},
+    {"value": "商品", "romaji": "shouhin (しょうひん)", "definition": "item or commodity for sale"},
+    {"value": "話題", "romaji": "wadai (わだい)", "definition": "topic; subject of conversation"},
+    {"value": "薬局", "romaji": "yakkyoku (やっきょく)", "definition": "pharmacy; drugstore"},
+    {"value": "よれよれ", "romaji": "yoreyore (よれよれ)", "definition": "worn-out; frayed; wrinkled"},
+    {"value": "余計", "romaji": "yokei (よけい)", "definition": "extra; excessive; unnecessary; superfluous"},
+    {"value": "追加", "romaji": "tsuika (ついか)", "definition": "additional; supplemental"}
 ]

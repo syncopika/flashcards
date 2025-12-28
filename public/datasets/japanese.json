@@ -426,5 +426,11 @@
     {"value": "薬局", "romaji": "yakkyoku (やっきょく)", "definition": "pharmacy; drugstore"},
     {"value": "よれよれ", "romaji": "yoreyore (よれよれ)", "definition": "worn-out; frayed; wrinkled"},
     {"value": "余計", "romaji": "yokei (よけい)", "definition": "extra; excessive; unnecessary; superfluous"},
-    {"value": "追加", "romaji": "tsuika (ついか)", "definition": "additional; supplemental"}
+    {"value": "追加", "romaji": "tsuika (ついか)", "definition": "additional; supplemental"},
+    {"value": "都市", "romaji": "toshi (とし)", "definition": "city; town; urban"},
+    {"value": "絶賛", "romaji": "zessan (ぜっさん)", "definition": "high praise; acclaim; currently; presently"},
+    {"value": "振り", "romaji": "furi (ふり)", "definition": "swing; shake; appearance; behavior; manner; to pretend"},
+    {"value": "即席", "romaji": "sokuseki (そくせき)", "definition": "impromptu; instant (of a beverage or food)"},
+    {"value": "試走", "romaji": "shisou (しそう)", "definition": "test drive; trial run"},
+    {"value": "狂言", "romaji": "kyougen (きょうげん)", "definition": "a kabuki piece, a charade; a performance meant to trick someone"}
 ]

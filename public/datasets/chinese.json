@@ -2315,5 +2315,10 @@
     {"value": "題材", "pinyin": "ti2 cai2", "definition": "subject matter; theme"},
     {"value": "雄壯", "pinyin": "xiong2 zhuang4", "definition": "majestic; magnificent"},
     {"value": "威武", "pinyin": "wei1 wu3", "definition": "mighty; powerful; formidable"},
-    {"value": "興奮", "pinyin": "xing1 fen4", "definition": "excited"}
+    {"value": "興奮", "pinyin": "xing1 fen4", "definition": "excited"},
+    {"value": "救命", "pinyin": "jiu4 ming4", "definition": "help!; save me!; to save a life"},
+    {"value": "兜售", "pinyin": "dou1 shou4", "definition": "to hawk; to peddle"},
+    {"value": "痛快", "pinyin": "tong4 kuai4", "definition": "joyful; enjoying to the fullest; frank; straightforward"},
+    {"value": "並", "pinyin": "bing4", "definition": "to be side by side; simultaneously, in fact (used before a negative for emphasis), and; moreover"},
+    {"value": "長方形", "pinyin": "chang2 fang1 xing2", "definition": "rectangle"}
 ]

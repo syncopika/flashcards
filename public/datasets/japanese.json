@@ -113,7 +113,7 @@
     {"value": "外", "romaji": "soto (そと)", "definition": "outside"},
     {"value": "反則", "romaji": "hansoku (はんそく)", "definition": "violation of the rules; of overwhelming (unfair) superiority"},
     {"value": "騒ぐ", "romaji": "sawagu (さわぐ)", "definition": "to make noise; to make merry; to clamor"},
-    {"value": "報酬", "romaji": "hoshu (ほうしゅう)", "definition": "renumeration, reward"},
+    {"value": "報酬", "romaji": "houshuu (ほうしゅう)", "definition": "renumeration, reward"},
     {"value": "日付", "romaji": "hizuke (ひづけ)", "definition": "date (point of time at which an event takes place)"},
     {"value": "達成", "romaji": "tassei (たっせい)", "definition": "achievement"},
     {"value": "王都", "romaji": "outo (おうと)", "definition": "royal capital"},
@@ -432,5 +432,12 @@
     {"value": "振り", "romaji": "furi (ふり)", "definition": "swing; shake; appearance; behavior; manner; to pretend"},
     {"value": "即席", "romaji": "sokuseki (そくせき)", "definition": "impromptu; instant (of a beverage or food)"},
     {"value": "試走", "romaji": "shisou (しそう)", "definition": "test drive; trial run"},
-    {"value": "狂言", "romaji": "kyougen (きょうげん)", "definition": "a kabuki piece, a charade; a performance meant to trick someone"}
+    {"value": "狂言", "romaji": "kyougen (きょうげん)", "definition": "a kabuki piece, a charade; a performance meant to trick someone"},
+    {"value": "現状", "romaji": "genjou (げんじょう)", "definition": "present situation; status quo"},
+    {"value": "意見", "romaji": "iken (いけん)", "definition": "opinion; advice; suggestion"},
+    {"value": "両方", "romaji": "ryouhou (りょうほう)", "definition": "both sides"},
+    {"value": "偵察", "romaji": "teisatsu (ていさつ)", "definition": "scouting; reconnaissance"},
+    {"value": "櫃", "romaji": "hitsu (ひつ)", "definition": "chest; an item used for storage"},
+    {"value": "依存", "romaji": "izon (いぞん)", "definition": "dependency"},
+    {"value": "控えめ", "romaji": "hikaeme (ひかえめ)", "definition": "moderate; reserved; modest"}
 ]

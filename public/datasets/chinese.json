@@ -935,7 +935,7 @@
     {"value": "奢華", "pinyin": "she1 hua2", "definition": "luxurious; lavish; extravagant"},
     {"value": "燻", "pinyin": "xun1", "definition": "smoke; fog; to cure meat"},
     {"value": "花枝", "pinyin": "hua1 zhi1", "definition": "cuttlefish"},
-    {"value": "什錦", "pinyin": "shi2 jin3", "definition": "subgum (seafood w/ vegetables)"},
+    {"value": "什錦", "pinyin": "shi2 jin3", "definition": "subgum (seafood w/ vegetables); assorted, mixed"},
     {"value": "旗魚", "pinyin": "qi2 yu2", "definition": "marlin; sailfish"},
     {"value": "漲", "pinyin": "zhang3", "definition": "to rise; to go up; to increase"},
     {"value": "紛紛", "pinyin": "fen1 fen1", "definition": "numerous and confused; in droves; in great numbers"},
@@ -2320,5 +2320,10 @@
     {"value": "兜售", "pinyin": "dou1 shou4", "definition": "to hawk; to peddle"},
     {"value": "痛快", "pinyin": "tong4 kuai4", "definition": "joyful; enjoying to the fullest; frank; straightforward"},
     {"value": "並", "pinyin": "bing4", "definition": "to be side by side; simultaneously, in fact (used before a negative for emphasis), and; moreover"},
-    {"value": "長方形", "pinyin": "chang2 fang1 xing2", "definition": "rectangle"}
+    {"value": "長方形", "pinyin": "chang2 fang1 xing2", "definition": "rectangle"},
+    {"value": "入鄉隨俗", "pinyin": "ru4 xiang1 sui2 su2", "definition": "when in Rome, do as the Romans do", "tags": ["idiom"]},
+    {"value": "榴槤", "pinyin": "liu2 lian2", "definition": "durian", "tags": ["food"]},
+    {"value": "幸運", "pinyin": "xing4 yun4", "definition": "lucky"},
+    {"value": "紫色", "pinyin": "zi3 se4", "definition": "purple"},
+    {"value": "啥", "pinyin": "sha2", "definition": "(colloquial) what"}
 ]

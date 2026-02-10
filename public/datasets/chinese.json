@@ -2325,5 +2325,16 @@
     {"value": "榴槤", "pinyin": "liu2 lian2", "definition": "durian", "tags": ["food"]},
     {"value": "幸運", "pinyin": "xing4 yun4", "definition": "lucky"},
     {"value": "紫色", "pinyin": "zi3 se4", "definition": "purple"},
-    {"value": "啥", "pinyin": "sha2", "definition": "(colloquial) what"}
+    {"value": "啥", "pinyin": "sha2", "definition": "(colloquial) what"},
+    {"value": "吸睛", "pinyin": "xi1 jing1", "definition": "to be eye-catching; to attract attention"},
+    {"value": "害羞", "pinyin": "hai4 xiu1", "definition": "to be shy; to be bashful"},
+    {"value": "即時", "pinyin": "ji2 shi2", "definition": "immediately; at once"},
+    {"value": "反饋", "pinyin": "fan3 kui4", "definition": "to give feedback"},
+    {"value": "定律", "pinyin": "ding4 lv4", "definition": "established law; fixed rule"},
+    {"value": "茯苓", "pinyin": "fu2 ling2", "definition": "Wolfiporia extensa (a fungus)"},
+    {"value": "不經意", "pinyin": "bu4 jing1 yi4", "definition": "careless; by accident; thoughtless"},
+    {"value": "有找", "pinyin": "you3 zhao3", "definition": "(chiefly Cantonese) to cost less than"},
+    {"value": "焢", "pinyin": "kong4", "definition": "to braise; to roast"},
+    {"value": "爐", "pinyin": "lu2", "definition": "fireplace; stove; oven; furnace"},
+    {"value": "燉", "pinyin": "dun4", "definition": "to stew"}
 ]

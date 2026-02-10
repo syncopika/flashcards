@@ -266,7 +266,7 @@
     {"value": "仕上げ", "romaji": "shiage (しあげ)", "definition": "finish; completion; elaboration"},
     {"value": "傷つく", "romaji": "kizutsuku (きずつく)", "definition": "to be injured; to be wounded; to have one's feelings hurt"},
     {"value": "叱る", "romaji": "shikaru (しかる)", "definition": "to scold"},
-    {"value": "掛ける", "romaji": "kakeru (かける)", "definition": "to hang; to hoist; to sit; to speak; to wear; multiply"},
+    {"value": "掛ける", "romaji": "kakeru (かける)", "definition": "to hang; to hoist; to sit; to speak; to wear; to pour; to spend; multiply"},
     {"value": "不幸", "romaji": "fukou (ふこう)", "definition": "unfortunate; misfortune; unhappiness"},
     {"value": "開催", "romaji": "kaisai (かいさい)", "definition": "to hold (a conference, exhibition); host an event"},
     {"value": "状態", "romaji": "joutai (じょうたい)", "definition": "state; condition"},
@@ -462,5 +462,13 @@
     {"value": "覗く", "romaji": "nozoku (のぞく)", "definition": "to peek into"},
     {"value": "巡る", "romaji": "meguru (めぐる)", "definition": "to go around; to make a circle around; to travel around"},
     {"value": "右折", "romaji": "usetsu (うせつ)", "definition": "right turn"},
-    {"value": "左折", "romaji": "sasetsu (させつ)", "definition": "left turn"}
+    {"value": "左折", "romaji": "sasetsu (させつ)", "definition": "left turn"},
+    {"value": "階", "romaji": "kai (かい)", "definition": "storey; floor; stairs"},
+    {"value": "送る", "romaji": "okuru (おくる)", "definition": "to send; to dispatch; to forward; to escort; to pass"},
+    {"value": "躊躇い", "romaji": "tamerai (ためらい)", "definition": "hesitation"},
+    {"value": "身も蓋もない", "romaji": "mimofutamonai (みもふたもない)", "definition": "frank; straightforward"},
+    {"value": "課題", "romaji": "kadai (かだい)", "definition": "homework exercise; task; problem"},
+    {"value": "重複", "romaji": "choufuku (ちょうふく)", "definition": "duplication"},
+    {"value": "故郷", "romaji": "kokyou (こきょう)", "definition": "hometown; homeland"},
+    {"value": "反響", "romaji": "hankyou (はんきょう)", "definition": "response; repercussion"}
 ]

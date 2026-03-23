@@ -2346,5 +2346,11 @@
     {"value": "蜘蛛", "pinyin": "zhi1 zhu1", "definition": "spider"},
     {"value": "遲延", "pinyin": "chi2 yan2", "definition": "to delay; to retard"},
     {"value": "都會", "pinyin": "du1 hui4", "definition": "metropolis; major city"},
-    {"value": "干預", "pinyin": "gan1 yu4", "definition": "to interfere; to intervene; to meddle"}
+    {"value": "干預", "pinyin": "gan1 yu4", "definition": "to interfere; to intervene; to meddle"},
+    {"value": "電子郵件", "pinyin": "dian4 zi3 you2 jian4", "definition": "email"},
+    {"value": "看頭", "pinyin": "kan4 tou", "definition": "qualities that make something worth seeing"},
+    {"value": "違停", "pinyin": "wei2 ting2", "definition": "to park illegally"},
+    {"value": "縱火", "pinyin": "zong4 huo3", "definition": "to commit arson; to set on fire"},
+    {"value": "肇事逃逸", "pinyin": "zhao4 shi4 tao2 yi4", "definition": "to commit a hit-and-run"},
+    {"value": "可惡", "pinyin": "ke3 wu4", "definition": "vile; repulsive; abominable"}
 ]

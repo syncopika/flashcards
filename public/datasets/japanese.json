@@ -494,5 +494,10 @@
     {"value": "穀食", "romaji": "kokushoku (こくしょく)", "definition": "cereal-eating"},
     {"value": "心掛ける", "romaji": "kokorogakeru (こころがける)", "definition": "bear in mind; try; endeavor"},
     {"value": "振り付け", "romaji": "furitsuke (ふりつけ)", "definition": "choreography"},
-    {"value": "絶滅", "romaji": "zetsumetsu (ぜつめつ)", "definition": "extinction"}
+    {"value": "絶滅", "romaji": "zetsumetsu (ぜつめつ)", "definition": "extinction"},
+    {"value": "死に損ない", "romaji": "shinizokonai (しにぞこない)", "definition": "someone who survived; someone who escaped death"},
+    {"value": "移設", "romaji": "isetsu (いせつ)", "definition": "relocate"},
+    {"value": "瞑る", "romaji": "tsuburu (つぶる)", "definition": "to close one's eyes"},
+    {"value": "日替わり", "romaji": "higawari (ひがわり)", "definition": "changing daily (e.g. daily special)"},
+    {"value": "掛かる", "romaji": "kakaru (かかる)", "definition": "to require (a resource, e.g. time or money); to hang; to pour over; to go across; to be set up; to be tricked; to function; to be affected; to begin"}
 ]

@@ -2352,5 +2352,16 @@
     {"value": "違停", "pinyin": "wei2 ting2", "definition": "to park illegally"},
     {"value": "縱火", "pinyin": "zong4 huo3", "definition": "to commit arson; to set on fire"},
     {"value": "肇事逃逸", "pinyin": "zhao4 shi4 tao2 yi4", "definition": "to commit a hit-and-run"},
-    {"value": "可惡", "pinyin": "ke3 wu4", "definition": "vile; repulsive; abominable"}
+    {"value": "可惡", "pinyin": "ke3 wu4", "definition": "vile; repulsive; abominable"},
+    {"value": "調查", "pinyin": "diao4 cha2", "definition": "to investigate; to survey; to poll"},
+    {"value": "福利", "pinyin": "fu2 li4", "definition": "welfare; well-being; benefit; advantage"},
+    {"value": "雄", "pinyin": "xiong2", "definition": "male; masculine; powerful; grand"},
+    {"value": "徒弟", "pinyin": "tu2 di4", "definition": "follower; apprentice; disciple"},
+    {"value": "按壓", "pinyin": "an4 ya1", "definition": "to press with one's hand; to suppress; to restrain"},
+    {"value": "胡說八道", "pinyin": "hu2 shuo1 ba1 dao4", "definition": "to talk nonsense", "tags": ["idiom"]},
+    {"value": "法案", "pinyin": "fa3 an4", "definition": "bill; draft of a law; legislation"},
+    {"value": "審查", "pinyin": "shen3 cha2", "definition": "to examine; to review; to censor"},
+    {"value": "郵政局", "pinyin": "you2 zheng4 ju2", "definition": "post office"},
+    {"value": "一貫", "pinyin": "yi1 guan4", "definition": "consistent"},
+    {"value": "鑰匙", "pinyin": "yao4 shi", "definition": "key"}
 ]

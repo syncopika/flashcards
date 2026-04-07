@@ -499,5 +499,11 @@
     {"value": "移設", "romaji": "isetsu (いせつ)", "definition": "relocate"},
     {"value": "瞑る", "romaji": "tsuburu (つぶる)", "definition": "to close one's eyes"},
     {"value": "日替わり", "romaji": "higawari (ひがわり)", "definition": "changing daily (e.g. daily special)"},
-    {"value": "掛かる", "romaji": "kakaru (かかる)", "definition": "to require (a resource, e.g. time or money); to hang; to pour over; to go across; to be set up; to be tricked; to function; to be affected; to begin"}
+    {"value": "掛かる", "romaji": "kakaru (かかる)", "definition": "to require (a resource, e.g. time or money); to hang; to pour over; to go across; to be set up; to be tricked; to function; to be affected; to begin"},
+    {"value": "際立つ", "romaji": "kiwadatsu (きわだつ)", "definition": "to stand out; to be prominent"},
+    {"value": "貴賤", "romaji": "kisen (きせん)", "definition": "valuable and valueless; superiority and inferiority"},
+    {"value": "誠に", "romaji": "makotoni (まことに)", "definition": "really; truly; extremely"},
+    {"value": "著作権侵害", "romaji": "chosakukenshingai (ちょさくけんしんがい)", "definition": "copyright infringement; piracy"},
+    {"value": "検閲", "romaji": "kenetsu (けんえつ)", "definition": "censorship; inspection"},
+    {"value": "激しい", "romaji": "hageshii (はげしい)", "definition": "violent; furious; intense; fierce; strong; relentless"}
 ]

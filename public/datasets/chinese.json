@@ -2167,7 +2167,7 @@
     {"value": "為難", "pinyin": "wei2 nan2", "definition": "Z(of a situation or person) in a difficult situation; awkward; uncomfortable; embarrassing"},
     {"value": "欺負", "pinyin": "qi1 fu4", "definition": "to bully; to push around; to pick on"},
     {"value": "警察", "pinyin": "jing3 cha2", "definition": "police force; police officer"},
-    {"value": "撒謊", "pinyin": "sa1 huang3", "definition": "to tell a lie"},
+    {"value": "撒謊", "pinyin": "sa1 huang3", "definition": "to tell a lie; to lie"},
     {"value": "開玩笑", "pinyin": "kai1 wan2 xiao4", "definition": "to joke; to kid"},
     {"value": "百貨公司", "pinyin": "bai3 huo4 gong1 si1", "definition": "department store"},
     {"value": "觀感", "pinyin": "guang1 gan3", "definition": "impression of something; reaction"},
@@ -2363,5 +2363,15 @@
     {"value": "審查", "pinyin": "shen3 cha2", "definition": "to examine; to review; to censor"},
     {"value": "郵政局", "pinyin": "you2 zheng4 ju2", "definition": "post office"},
     {"value": "一貫", "pinyin": "yi1 guan4", "definition": "consistent"},
-    {"value": "鑰匙", "pinyin": "yao4 shi", "definition": "key"}
+    {"value": "鑰匙", "pinyin": "yao4 shi", "definition": "key"},
+    {"value": "激烈", "pinyin": "ji1 lie4", "definition": "intense, acute; sharp; fierce; violent; harsh"},
+    {"value": "身份證", "pinyin": "shen1 fen4 zheng4", "definition": "identification document; ID"},
+    {"value": "內涵", "pinyin": "nei4 han2", "definition": "connotation; implication; significance"},
+    {"value": "透支", "pinyin": "tou4 zhi1", "definition": "overdraft; to overspend"},
+    {"value": "假借", "pinyin": "jia3 jie4", "definition": "to make use of; borrowed (e.g. 假借字 - borrowing existing Chinese words for new meanings)"},
+    {"value": "加入", "pinyin": "jia1 ru4", "definition": "to add in; to put in; to join; to become a member of"},
+    {"value": "單純", "pinyin": "dan1 chun2", "definition": "simple; uncomplicated; easy"},
+    {"value": "流通", "pinyin": "liu2 tong1", "definition": "to circulate"},
+    {"value": "初", "pinyin": "chu1", "definition": "initial; first; original; elementary"},
+    {"value": "戀", "pinyin": "lian4", "definition": "love; to long for"}
 ]

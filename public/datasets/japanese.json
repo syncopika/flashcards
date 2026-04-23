@@ -367,7 +367,7 @@
     {"value": "伝統的", "romaji": "dentouteki (でんとうてき)", "definition": "traditional; convential"},
     {"value": "治す", "romaji": "naosu (なおす)", "definition": "to cure; to heal"},
     {"value": "直す", "romaji": "naosu (なおす)", "definition": "to fix; to repair; to change; to alter"},
-    {"value": "類似点", "romaji": "ruijiten (るいじてん)", "definition": "point in common; common feature"},
+    {"value": "類似点", "romaji": "ruijiten (るいじてん)", "definition": "point in common; common feature; similarity"},
     {"value": "解決", "romaji": "kaiketsu (かいけつ)", "definition": "resolution; settlement"},
     {"value": "両替", "romaji": "ryougae (りょうがえ)", "definition": "to exchange currency"},
     {"value": "評価", "romaji": "hyouka (ひょうか)", "definition": "appraisal; evaluation"},
@@ -505,5 +505,12 @@
     {"value": "誠に", "romaji": "makotoni (まことに)", "definition": "really; truly; extremely"},
     {"value": "著作権侵害", "romaji": "chosakukenshingai (ちょさくけんしんがい)", "definition": "copyright infringement; piracy"},
     {"value": "検閲", "romaji": "kenetsu (けんえつ)", "definition": "censorship; inspection"},
-    {"value": "激しい", "romaji": "hageshii (はげしい)", "definition": "violent; furious; intense; fierce; strong; relentless"}
+    {"value": "激しい", "romaji": "hageshii (はげしい)", "definition": "violent; furious; intense; fierce; strong; relentless"},
+    {"value": "身分証", "romaji": "mibunshou (みぶんしょう)", "definition": "identification document; ID"},
+    {"value": "先月", "romaji": "sengetsu (せんげつ)", "definition": "last month"},
+    {"value": "脅迫", "romaji": "kyouhaku (きょうはく)", "definition": "threat"},
+    {"value": "差し入れ", "romaji": "sashiire (さしいいれ)", "definition": "things given to someone in confinement"},
+    {"value": "混乱", "romaji": "konran (こんらん)", "definition": "chaos; disorder; confusion"},
+    {"value": "彗星", "romaji": "suisei (すいせい)", "definition": "comet"},
+    {"value": "枚", "romaji": "mai (まい)", "definition": "counter for thin, flat objects; counter for gyoza or soba"}
 ]

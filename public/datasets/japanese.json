@@ -512,5 +512,17 @@
     {"value": "差し入れ", "romaji": "sashiire (さしいいれ)", "definition": "things given to someone in confinement"},
     {"value": "混乱", "romaji": "konran (こんらん)", "definition": "chaos; disorder; confusion"},
     {"value": "彗星", "romaji": "suisei (すいせい)", "definition": "comet"},
-    {"value": "枚", "romaji": "mai (まい)", "definition": "counter for thin, flat objects; counter for gyoza or soba"}
+    {"value": "枚", "romaji": "mai (まい)", "definition": "counter for thin, flat objects; counter for gyoza or soba"},
+    {"value": "純粋", "romaji": "jinsui (じんすい)", "definition": "pure; unmixed; innocent"},
+    {"value": "裏切り", "romaji": "uragiri (うらぎり)", "definition": "betrayal; treachery"},
+    {"value": "人口", "romaji": "jinkou (じんこう)", "definition": "population"},
+    {"value": "焦げる", "romaji": "kogeru (こげる)", "definition": "to scorch; to burn"},
+    {"value": "包丁", "romaji": "houchou (ほうちょう)", "definition": "kitchen knife; cooking knife; cleaver"},
+    {"value": "節約", "romaji": "setsuyaku (せつやく)", "definition": "frugality"},
+    {"value": "翌日", "romaji": "yokujitsu (よくじつ)", "definition": "the next day"},
+    {"value": "所為", "romaji": "sei (せい)", "definition": "consequence; outcome; blame; fault"},
+    {"value": "盛る", "romaji": "moru (もる)", "definition": "to pile up; to exaggerate; to fill something with something"},
+    {"value": "共通", "romaji": "kyoutsuu (きょうつう)", "definition": "common; shared; universal"},
+    {"value": "明瞭", "romaji": "meiryou (めいりょう)", "definition": "clear; apparent"},
+    {"value": "寛ぐ", "romaji": "kutsurogu (くつろぐ)", "definition": "relax; feel at home"}
 ]

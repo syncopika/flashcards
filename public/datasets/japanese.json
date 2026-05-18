@@ -524,5 +524,15 @@
     {"value": "盛る", "romaji": "moru (もる)", "definition": "to pile up; to exaggerate; to fill something with something"},
     {"value": "共通", "romaji": "kyoutsuu (きょうつう)", "definition": "common; shared; universal"},
     {"value": "明瞭", "romaji": "meiryou (めいりょう)", "definition": "clear; apparent"},
-    {"value": "寛ぐ", "romaji": "kutsurogu (くつろぐ)", "definition": "relax; feel at home"}
+    {"value": "寛ぐ", "romaji": "kutsurogu (くつろぐ)", "definition": "relax; feel at home"},
+    {"value": "儘ならない", "romaji": "mamanaranai (ままならない)", "definition": "unable to do as one wishes; beyond one's control; not going the way one would like"},
+    {"value": "活気", "romaji": "kakki (かっき)", "definition": "energy; vigor; liveliness"},
+    {"value": "倍率", "romaji": "bairitsu (ばいりつ)", "definition": "magnification; magnifying power"},
+    {"value": "増える", "romaji": "fueru (ふえる)", "definition": "to multiply; to increase"},
+    {"value": "恐らく", "romaji": "osoraku (おそらく)", "definition": "probably; most likely"},
+    {"value": "慣れる", "romaji": "nareru (なれる)", "definition": "to get used to; to grow accustomed to"},
+    {"value": "資格", "romaji": "shikaku (しかく)", "definition": "qualifications; requirements; capabilities"},
+    {"value": "略称", "romaji": "ryakushou (りゃくしょう)", "definition": "abbreviation"},
+    {"value": "方向", "romaji": "houkou (ほうこう)", "definition": "direction; heading"},
+    {"value": "剥がす", "romaji": "hagasu (はがす)", "definition": "to peel off; to tear off"}
 ]

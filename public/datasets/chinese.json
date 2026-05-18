@@ -2397,5 +2397,16 @@
     {"value": "開通", "pinyin": "kai1 tong", "definition": "to clear obstacles; to inspire; to enlighten; to enable; open-minded"},
     {"value": "仍然", "pinyin": "reng2 ran2", "definition": "still; yet; as before"},
     {"value": "瑤柱", "pinyin": "yao2 zhu4", "definition": "dried scallops"},
-    {"value": "功效", "pinyin": "gong1 xiao4", "definition": "efficiency; efficacy; achievement"}
+    {"value": "功效", "pinyin": "gong1 xiao4", "definition": "efficiency; efficacy; achievement"},
+    {"value": "指尖", "pinyin": "zhi3 jian1", "definition": "fingertip"},
+    {"value": "嘎", "pinyin": "ga1", "definition": "a short but loud sound; crack; creak; screech"},
+    {"value": "致辭", "pinyin": "zhi4 ci2", "definition": "to deliver a speech"},
+    {"value": "法則", "pinyin": "fa3 ze2", "definition": "law; rule; code"},
+    {"value": "缺憾", "pinyin": "que1 han4", "definition": "regret; pity"},
+    {"value": "執行", "pinyin": "zhi2 xing2", "definition": "to carry out; to enforce; to execute"},
+    {"value": "不敗", "pinyin": "bu4 bai4", "definition": "to not lose; to be not defeated"},
+    {"value": "破產", "pinyin": "po4 chan3", "definition": "to go bankrupt"},
+    {"value": "翻來覆去", "pinyin": "fan1 lai2 fu4 qu4", "definition": "to toss and turn sleeplessly; to repeat; again and again", "tags":["idiom"]},
+    {"value": "任由", "pinyin": "ren4 you2", "definition": "to allow; to let someone do as they please"},
+    {"value": "保濕", "pinyin": "bao3 shi1", "definition": "to retain moisture; to moisturize"}
 ]

@@ -534,5 +534,13 @@
     {"value": "資格", "romaji": "shikaku (しかく)", "definition": "qualifications; requirements; capabilities"},
     {"value": "略称", "romaji": "ryakushou (りゃくしょう)", "definition": "abbreviation"},
     {"value": "方向", "romaji": "houkou (ほうこう)", "definition": "direction; heading"},
-    {"value": "剥がす", "romaji": "hagasu (はがす)", "definition": "to peel off; to tear off"}
+    {"value": "剥がす", "romaji": "hagasu (はがす)", "definition": "to peel off; to tear off"},
+    {"value": "治療", "romaji": "chiryou (ちりょう)", "definition": "to treat medically; to cure"},
+    {"value": "調べる", "romaji": "shiraberu (しらべる)", "definition": "to examine; to look up; to investigate"},
+    {"value": "口堅い", "romaji": "kuchigatai (くちがたい)", "definition": "closemouthed; tight-lipped"},
+    {"value": "量", "romaji": "ryou (りょう)", "definition": "volume; amount; portion"},
+    {"value": "落差", "romaji": "rakusa (らくさ)", "definition": "drop in elevation; discrepancy"},
+    {"value": "えぐい", "romaji": "egui (えぐい)", "definition": "acrid; pungent; terrifying; astonishing; remarkable"},
+    {"value": "狭い", "romaji": "semai (せまい)", "definition": "narrow; tight; small; cramped"},
+    {"value": "登場", "romaji": "toujou (とうじょう)", "definition": "entrance in a performance; appearance in a scene; arrival"}
 ]

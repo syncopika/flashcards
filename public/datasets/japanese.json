@@ -542,5 +542,8 @@
     {"value": "落差", "romaji": "rakusa (らくさ)", "definition": "drop in elevation; discrepancy"},
     {"value": "えぐい", "romaji": "egui (えぐい)", "definition": "acrid; pungent; terrifying; astonishing; remarkable"},
     {"value": "狭い", "romaji": "semai (せまい)", "definition": "narrow; tight; small; cramped"},
-    {"value": "登場", "romaji": "toujou (とうじょう)", "definition": "entrance in a performance; appearance in a scene; arrival"}
+    {"value": "登場", "romaji": "toujou (とうじょう)", "definition": "entrance in a performance; appearance in a scene; arrival"},
+    {"value": "違反", "romaji": "ihan (いはん)", "definition": "violation"},
+    {"value": "飽き", "romaji": "aki (あき)", "definition": "weariness; boredom; tedium"},
+    {"value": "抜ける", "romaji": "nukeru (ぬける)", "definition": "to come out; to fall out; to escape; to come loose; to leave (e.g. a meeting); to go/pass through"}
 ]

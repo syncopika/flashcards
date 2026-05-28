@@ -2428,5 +2428,14 @@
     {"value": "所作所為", "pinyin": "suo3 zuo4 suo3 wei2", "definition": "everything one does", "tags": ["idiom"]},
     {"value": "旅程", "pinyin": "lv3 cheng2", "definition": "journey; excurstion; trip; itinerary"},
     {"value": "親戚", "pinyin": "qin1 qi1", "definition": "relative; family relation"},
-    {"value": "嘗", "pinyin": "chang2", "definition": "to taste; to try the flavor of"}
+    {"value": "嘗", "pinyin": "chang2", "definition": "to taste; to try the flavor of"},
+    {"value": "未煮透", "pinyin": "wei4 zhu3 tou4", "definition": "undercooked"},
+    {"value": "擅長", "pinyin": "shan4 chang2", "definition": "to be good at something; to be expert in; to be skilled in"},
+    {"value": "社交", "pinyin": "she4 jiao1", "definition": "to socialize; to associate; to have dealings with"},
+    {"value": "不符", "pinyin": "bu4 fu2", "definition": "inconsistent; to not conform"},
+    {"value": "捧", "pinyin": "peng3", "definition": "to compliment; to exalt; to hold in two hands"},
+    {"value": "偵探", "pinyin": "zhen1 tan4", "definition": "detective"},
+    {"value": "推廣", "pinyin": "tui1 guang3", "definition": "to spread the influence of; to popularize; to promote"},
+    {"value": "涵蓋", "pinyin": "han2 gai4", "definition": "to contain; to cover; to include"},
+    {"value": "違反", "pinyin": "wei2 fan3", "definition": "to violate; to infringe"}
 ]

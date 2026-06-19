@@ -545,5 +545,12 @@
     {"value": "登場", "romaji": "toujou (とうじょう)", "definition": "entrance in a performance; appearance in a scene; arrival"},
     {"value": "違反", "romaji": "ihan (いはん)", "definition": "violation"},
     {"value": "飽き", "romaji": "aki (あき)", "definition": "weariness; boredom; tedium"},
-    {"value": "抜ける", "romaji": "nukeru (ぬける)", "definition": "to come out; to fall out; to escape; to come loose; to leave (e.g. a meeting); to go/pass through"}
+    {"value": "抜ける", "romaji": "nukeru (ぬける)", "definition": "to come out; to fall out; to escape; to come loose; to leave (e.g. a meeting); to go/pass through"},
+    {"value": "道徳", "romaji": "doutoku (どうとく)", "definition": "morality; ethics"},
+    {"value": "取引先", "romaji": "torihikisaki (とりひきさき)", "definition": "customer; client; business connection"},
+    {"value": "部下", "romaji": "buka (ぶか)", "definition": "subordinate"},
+    {"value": "退職", "romaji": "taishoku (たいしょく)", "definition": "retirement; resignation"},
+    {"value": "振り返る", "romaji": "furikaeru (ふりかえる)", "definition": "to look back; to turn around; to reminisce; to reflect on"},
+    {"value": "要る", "romaji": "iru (いる)", "definition": "to need; to want; to be required"},
+    {"value": "羨ましい", "romaji": "urayamashii (うらやましい)", "definition": "enviable; jealous"}
 ]

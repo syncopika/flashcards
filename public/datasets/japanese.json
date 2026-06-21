@@ -552,5 +552,15 @@
     {"value": "退職", "romaji": "taishoku (たいしょく)", "definition": "retirement; resignation"},
     {"value": "振り返る", "romaji": "furikaeru (ふりかえる)", "definition": "to look back; to turn around; to reminisce; to reflect on"},
     {"value": "要る", "romaji": "iru (いる)", "definition": "to need; to want; to be required"},
-    {"value": "羨ましい", "romaji": "urayamashii (うらやましい)", "definition": "enviable; jealous"}
+    {"value": "羨ましい", "romaji": "urayamashii (うらやましい)", "definition": "enviable; jealous"},
+    {"value": "手段", "romaji": "shudan (しゅだん)", "definition": "means; way; measure"},
+    {"value": "原理", "romaji": "genri (げんり)", "definition": "principle; theory"},
+    {"value": "梃子", "romaji": "teko (てこ)", "definition": "lever"},
+    {"value": "受付", "romaji": "uketsuke (うけつけ)", "definition": "reception (desk); information desk"},
+    {"value": "集い", "romaji": "tsudoi (つどい)", "definition": "gathering; meeting"},
+    {"value": "割", "romaji": "wari (わり)", "definition": "proportion; tenth (fraction)"},
+    {"value": "確認", "romaji": "kakunin (かくにん)", "definition": "confirmation; validation; check"},
+    {"value": "恐ろしい", "romaji": "osoroshii (おそろしい)", "definition": "terrifying; dreadful; terrible"},
+    {"value": "野党", "romaji": "yatou (やとう)", "definition": "opposition party; the opposition"},
+    {"value": "議員", "romaji": "giin (ぎいん)", "definition": "member of an assembly; member of parliament"}
 ]

@@ -562,5 +562,12 @@
     {"value": "確認", "romaji": "kakunin (かくにん)", "definition": "confirmation; validation; check"},
     {"value": "恐ろしい", "romaji": "osoroshii (おそろしい)", "definition": "terrifying; dreadful; terrible"},
     {"value": "野党", "romaji": "yatou (やとう)", "definition": "opposition party; the opposition"},
-    {"value": "議員", "romaji": "giin (ぎいん)", "definition": "member of an assembly; member of parliament"}
+    {"value": "議員", "romaji": "giin (ぎいん)", "definition": "member of an assembly; member of parliament"},
+    {"value": "適切", "romaji": "tekisetsu (てきせつ)", "definition": "appropriate; suitable; fitting"},
+    {"value": "本格", "romaji": "honkaku (ほんかく)", "definition": "basic rules; fundamental tenets"},
+    {"value": "画面", "romaji": "gamen (がめん)", "definition": "screen (of a TV, computer)"},
+    {"value": "予定", "romaji": "yotei (よてい)", "definition": "plans; arrangement; schedule"},
+    {"value": "撤去", "romaji": "tekkyo (てっきょ)", "definition": "removal; dismantlement"},
+    {"value": "懸念", "romaji": "kenen (けねん)", "definition": "worry; fear; anxiety"},
+    {"value": "運動", "romaji": "undou (うんどう)", "definition": "exercise; movement"}
 ]

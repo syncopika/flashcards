@@ -569,5 +569,16 @@
     {"value": "予定", "romaji": "yotei (よてい)", "definition": "plans; arrangement; schedule"},
     {"value": "撤去", "romaji": "tekkyo (てっきょ)", "definition": "removal; dismantlement"},
     {"value": "懸念", "romaji": "kenen (けねん)", "definition": "worry; fear; anxiety"},
-    {"value": "運動", "romaji": "undou (うんどう)", "definition": "exercise; movement"}
+    {"value": "運動", "romaji": "undou (うんどう)", "definition": "exercise; movement"},
+    {"value": "気軽", "romaji": "kigaru (きがる)", "definition": "freely; without hesitation; lighthearted; buoyant; cheerful; ease"},
+    {"value": "用意", "romaji": "youi (ようい)", "definition": "preparation; arrangements"},
+    {"value": "注文", "romaji": "chuumon (ちゅうもん)", "definition": "order (for an item)"},
+    {"value": "在庫", "romaji": "zaiko (ざいこ)", "definition": "stock; inventory"},
+    {"value": "きしょい", "romaji": "kishoi (きしょい)", "definition": "gross; creepy"},
+    {"value": "お通し", "romaji": "otooshi (おとおし)", "definition": "appetizer; starter"},
+    {"value": "有難う", "romaji": "arigatou (ありがとう)", "definition": "thank you"},
+    {"value": "暖かい", "romaji": "atatakai (あたたかい)", "definition": "warm; mild; pleasantly hot"},
+    {"value": "訪問", "romaji": "houmon (ほうもん)", "definition": "a visit"},
+    {"value": "楽器", "romaji": "gakki (がっき)", "definition": "musical instrument"},
+    {"value": "じめじめ", "romaji": "jimejime (じめじめ)", "definition": "muggy and uncomfortable"}
 ]

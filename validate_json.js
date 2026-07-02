@@ -12,13 +12,14 @@ function checkDatasets(){
         const json = readFileSync(dataset);
         try {
             const data = JSON.parse(json);
-            console.log(`${dataset} is valid JSON.`);
             
             // flag any duplicates
             checkDuplicates(data);
             
             // check if any data is missing a value
             data.forEach((row, idx) => checkValues(idx, row));
+            
+            console.log(`${dataset} is valid JSON.`);
         } catch(err) {
             console.log(`${dataset} is invalid JSON. error: ${err}`);
             process.exit(1);

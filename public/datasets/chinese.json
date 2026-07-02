@@ -1241,7 +1241,7 @@
     {"value": "異常", "pinyin": "yi4 chang2", "definition": "abnormal; unusual; out-of-the-ordinary"},
     {"value": "狀元", "pinyin": "zhuang4 yuan2", "definition": "top scorer; valedictorian; top performer; the very best in a field"},
     {"value": "過敏", "pinyin": "guo4 min3", "definition": "to have an allergy; to be allergic; oversensitive"},
-    {"value": "留言", "pinyin": "liu2 yan2", "definition": "message; comments"},
+    {"value": "留言", "pinyin": "liu2 yan2", "definition": "message; comments (in writing)"},
     {"value": "觀眾", "pinyin": "guan1 zhong4", "definition": "audience; spectator"},
     {"value": "鮭魚", "pinyin": "gui1 yu2", "definition": "salmon", "tags": ["food"]},
     {"value": "蓮藕", "pinyin": "lian2 ou3", "definition": "lotus root", "tags": ["food"]},
@@ -2524,5 +2524,14 @@
     {"value": "戲曲", "pinyin": "xi4 qu3", "definition": "Chinese opera"},
     {"value": "排擠", "pinyin": "pai2 ji3", "definition": "to push aside; to push out"},
     {"value": "落腳", "pinyin": "luo4 jiao3", "definition": "to stay; to put up; to stop over"},
-    {"value": "暫住", "pinyin": "zan4 zhu4", "definition": "to reside temporarily"}
+    {"value": "暫住", "pinyin": "zan4 zhu4", "definition": "to reside temporarily"},
+    {"value": "發瘋", "pinyin": "fa1 feng1", "definition": "to go crazy; to go mad"},
+    {"value": "設立", "pinyin": "she4 li4", "definition": "to establish; to found; to set up"},
+    {"value": "圍裙", "pinyin": "wei2 qun2", "definition": "apron"},
+    {"value": "示範", "pinyin": "shi4 fan4", "definition": "to set an example; to demonstrate"},
+    {"value": "什麼時候", "pinyin": "shen2 me shi2 hou", "definition": "when; what time"},
+    {"value": "昆蟲", "pinyin": "kun1 chong2", "definition": "insect"},
+    {"value": "不捨", "pinyin": "bu4 she3", "definition": "to not stop; to hate to part with"},
+    {"value": "認真", "pinyin": "ren4 zhen1", "definition": "meticulous; conscientious; to take seriously; earnestly"},
+    {"value": "羨慕", "pinyin": "xian4 mu4", "definition": "to envy; to be jealous of; to admire"}
 ]

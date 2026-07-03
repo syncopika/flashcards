@@ -1281,6 +1281,7 @@ function create_if_block_3(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
+      attr(a, "rel", "noopener noreferrer");
       attr(a, "target", "_blank");
       attr(a, "href", a_href_value = `http://google.com/search?q=${/*filteredData*/
       ctx[2][
@@ -1438,6 +1439,7 @@ function create_if_block_2(ctx) {
       t9 = space();
       button3 = element("button");
       button3.textContent = "next";
+      attr(a, "rel", "noopener noreferrer");
       attr(a, "target", "_blank");
       attr(a, "href", a_href_value = `http://google.com/search?q=${/*filteredData*/
       ctx[2][
@@ -2381,14 +2383,17 @@ function instance($$self, $$props, $$invalidate) {
     if (choice === actualAnswer) {
       target.style.border = "1px solid #32cd32";
       target.style.backgroundColor = "#32cd32";
+      target.classList.add("correct-quiz-answer");
     } else {
       target.style.border = "1px solid #cd3232";
       target.style.backgroundColor = "#cd3232";
+      target.classList.add("incorrect-quiz-answer");
     }
     setTimeout(
       () => {
         target.style.border = "1px solid #000";
         target.style.backgroundColor = originalBtnBgColor;
+        target.classList.remove("correct-quiz-answer", "incorrect-quiz-answer");
       },
       2e3
     );

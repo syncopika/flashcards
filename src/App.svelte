@@ -129,8 +129,7 @@ const onChangeSearch = async () => {
           // but also handle case where user might be trying to lookup by definition
           // and their input contains multiple words
           
-          // TODO: maybe need to refine search params for definition, pinyin, and character 
-          // instead of card side?
+          // TODO: maybe need to refine search params for definition, pinyin, and character instead of card side?
           filteredData = data.filter(x => {
             const val = inputVal.split(' ').join('');
             const regex = x.pinyin.toLowerCase().match(/[a-z]+/g).join('');
@@ -225,14 +224,17 @@ const checkQuizAnswer = (evt: Event) => {
   if(choice === actualAnswer){
     target.style.border = "1px solid #32cd32";
     target.style.backgroundColor = "#32cd32";
+    target.classList.add('correct-quiz-answer');
   }else{
     target.style.border = "1px solid #cd3232";
     target.style.backgroundColor = "#cd3232";
+    target.classList.add('incorrect-quiz-answer');
   }
   
   setTimeout(() => {
     target.style.border = "1px solid #000";
     target.style.backgroundColor = originalBtnBgColor;
+    target.classList.remove('correct-quiz-answer', 'incorrect-quiz-answer');
   }, 2000);
 };
 
@@ -476,7 +478,7 @@ const openResults = (results: HanziLookupResult[]) => {
   {:else if currMode === 'quiz-pinyin'}
     {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
-      <h2>what is the pinyin for <a target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
+      <h2>what is the pinyin for <a rel="noopener noreferrer" target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[0].pinyin}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[1].pinyin}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[2].pinyin}</button>
@@ -485,7 +487,7 @@ const openResults = (results: HanziLookupResult[]) => {
   {:else if currMode === 'quiz-definition'}
     {@const possibleAnswers = getPossibleQuizAnswers(currCardIndex)}
     <div>
-      <h2>what is the definition for <a target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
+      <h2>what is the definition for <a rel="noopener noreferrer" target="_blank" href={`http://google.com/search?q=${filteredData[currCardIndex].value}`}>{filteredData[currCardIndex].value}</a>?</h2>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[0].definition}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[1].definition}</button>
       <button class="quiz-answer-choice" on:click={checkQuizAnswer}>{possibleAnswers[2].definition}</button>
@@ -500,7 +502,15 @@ const openResults = (results: HanziLookupResult[]) => {
   outline: 1px solid #000;
 }
 
-:global(.match-result){
+:global(.match-result) {
   color: #000;
+}
+
+:global(.correct-quiz-answer::after) {
+  content: " ✓";
+}
+
+:global(.incorrect-quiz-answer::after) {
+  content: " ✕";
 }
 </style>

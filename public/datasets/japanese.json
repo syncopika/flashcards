@@ -586,5 +586,15 @@
     {"value": "柔らかい", "romaji": "yawarakai (やわらかい)", "definition": "soft; tender; supple"},
     {"value": "下処理", "romaji": "shitashori (したしょり)", "definition": "(cooking) preparation of ingredients"},
     {"value": "損する", "romaji": "sonsuru (そんする)", "definition": "to lose (money, etc.); to suffer a loss; to miss out on; to waste one's time; to feel disappointed"},
-    {"value": "失う", "romaji": "ushinau (うしなう)", "definition": "to lose; to miss"}
+    {"value": "失う", "romaji": "ushinau (うしなう)", "definition": "to lose; to miss"},
+    {"value": "言動", "romaji": "gendou (げんどう)", "definition": "speech and conduct; words and actions"},
+    {"value": "与える", "romaji": "ataeru (あたえる)", "definition": "to give (especially to someone of lower status); to confer; to present; to provide; to bestow"},
+    {"value": "不快感", "romaji": "fukaikan (ふかいかん)", "definition": "displeasure"},
+    {"value": "他人", "romaji": "tanin (たにん)", "definition": "another person; stranger; other people"},
+    {"value": "小鉢", "romaji": "kobachi (こばち)", "definition": "small bowl"},
+    {"value": "誤って", "romaji": "ayamatte (あやまって)", "definition": "accidentally; by mistake"},
+    {"value": "軽い", "romaji": "karui (かるい)", "definition": "light; mild"},
+    {"value": "落とす", "romaji": "otosu (おとす)", "definition": "to drop something; to remove/take off"},
+    {"value": "加える", "romaji": "kuwaeru (くわえる)", "definition": "to add; to increase; to include"},
+    {"value": "ほぐれる", "romaji": "hogureru (ほぐれる)", "definition": "to become untangled; to come apart; to come loose"}
 ]

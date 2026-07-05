@@ -2561,5 +2561,21 @@
     {"value": "清澈", "pinyin": "qing1 che4", "definition": "(of a liquid, the sky, etc.) clear and clean"},
     {"value": "甘願", "pinyin": "gan1 yuan4", "definition": "to be willing; to be ready"},
     {"value": "薄利多銷", "pinyin": "bo2 li4 duo1 xiao1", "definition": "to sell at low prices to obtain small profits but quick returns", "tags": ["idiom"]},
-    {"value": "守望", "pinyin": "shou3 wang4", "definition": "to keep watch; to guard"}
+    {"value": "守望", "pinyin": "shou3 wang4", "definition": "to keep watch; to guard"},
+    {"value": "銀樓", "pinyin": "yin2 lou2", "definition": "jewelry store"},
+    {"value": "海豚", "pinyin": "hai3 tun2", "definition": "dolphin", "tags": ["animal"]},
+    {"value": "艱苦", "pinyin": "jian1 ku3", "definition": "laborious; difficult"},
+    {"value": "敬告", "pinyin": "jing4 gao4", "definition": "(humble) to notify; to inform; to tell"},
+    {"value": "殘", "pinyin": "can2", "definition": "to damage; to destroy; cruel; remaining; leftover"},
+    {"value": "砍", "pinyin": "kan3", "definition": "to hack; to chop; to cut; to reduce"},
+    {"value": "鏡", "pinyin": "jing4", "definition": "mirror; lens; scope; glasses"},
+    {"value": "懲罰", "pinyin": "cheng2 fa2", "definition": "to punish; to penalize"},
+    {"value": "禁止", "pinyin": "jin4 zhi3", "definition": "to prohibit; to forbid"},
+    {"value": "撥", "pinyin": "bo1", "definition": "to dispel; to scatter; to allocate; to dial; to push aside; to stir; to pluck"},
+    {"value": "通勤", "pinyin": "tong1 qin2", "definition": "to commute (e.g. to and from work, school, etc.)"},
+    {"value": "中立", "pinyin": "zhong1 li4", "definition": "to be neutral"},
+    {"value": "疊", "pinyin": "die2", "definition": "to fold; to duplicate; to stack; to pile up"},
+    {"value": "無所謂", "pinyin": "wu2 suo3 wei4", "definition": "to be unable to be called; to be not applicable; to not matter; (colloquial) nevermind"},
+    {"value": "煙火", "pinyin": "yan1 huo3", "definition": "fireworks; smoke and fire"},
+    {"value": "痛恨", "pinyin": "tong4 hen4", "definition": "utter hatred; abhorrence; to abhor"}
 ]

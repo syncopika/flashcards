@@ -596,5 +596,17 @@
     {"value": "軽い", "romaji": "karui (かるい)", "definition": "light; mild"},
     {"value": "落とす", "romaji": "otosu (おとす)", "definition": "to drop something; to remove/take off"},
     {"value": "加える", "romaji": "kuwaeru (くわえる)", "definition": "to add; to increase; to include"},
-    {"value": "ほぐれる", "romaji": "hogureru (ほぐれる)", "definition": "to become untangled; to come apart; to come loose"}
+    {"value": "ほぐれる", "romaji": "hogureru (ほぐれる)", "definition": "to become untangled; to come apart; to come loose"},
+    {"value": "比喩", "romaji": "hiyu (ひゆ)", "definition": "simile; metaphor; allegory"},
+    {"value": "図星", "romaji": "zuboshi (ずぼし)", "definition": "bullseye; exactly as one thought"},
+    {"value": "違和感", "romaji": "iwakan (いわかん)", "definition": "uncomfortable feeling; sense of discomfort"},
+    {"value": "貰う", "romaji": "morau (もらう)", "definition": "to receive; to take; to accept; to get someone to do something"},
+    {"value": "訪れ", "romaji": "otozure (おとずれ)", "definition": "visit; call"},
+    {"value": "立ち寄る", "romaji": "tachiyoru (たちよる)", "definition": "to stop by; to drop in"},
+    {"value": "乾燥", "romaji": "kansou (かんそう)", "definition": "dryness; aridity"},
+    {"value": "罰", "romaji": "batsu (ばつ)", "definition": "punishment"},
+    {"value": "お手数をおかけいたします", "romaji": "otesuuwokakeitashimasu (おてすうをおかけいたします)", "definition": "to be a burden; to make trouble for someone"},
+    {"value": "慢心", "romaji": "manshin (まんしん)", "definition": "pride; conceit; arrogrance"},
+    {"value": "ずれる", "romaji": "zureru (ずれる)", "definition": "slip; to get out of alignment"},
+    {"value": "黙々", "romaji": "mokumoku (もくもく)", "definition": "silent (especially when working)"}
 ]

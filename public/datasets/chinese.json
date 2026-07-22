@@ -2605,5 +2605,12 @@
     {"value": "舒暢", "pinyin": "shu1 chang4", "definition": "carefree; without worry or concern"},
     {"value": "簡捷", "pinyin": "jian3 jie2", "definition": "simple and fast; quick and easy"},
     {"value": "拘役", "pinyin": "ju1 yi4", "definition": "criminal detention; short-term imprisonment"},
-    {"value": "建築", "pinyin": "jian4 zhu4", "definition": "to build; to construct; to erect"}
+    {"value": "建築", "pinyin": "jian4 zhu4", "definition": "to build; to construct; to erect"},
+    {"value": "順序", "pinyin": "shun4 xu4", "definition": "sequence; order"},
+    {"value": "適宜", "pinyin": "shi4 yi2", "definition": "suitable; appropriate"},
+    {"value": "果斷", "pinyin": "guo3 duan4", "definition": "firm; resolute; decisive"},
+    {"value": "支支吾吾", "pinyin": "zhi1 zhi1 wu2 wu2", "definition": "to falter; to hum and haw"},
+    {"value": "公平", "pinyin": "gong1 ping2", "definition": "fair; impartial; just"},
+    {"value": "憑", "pinyin": "ping2", "definition": "to lean on; to depend on"},
+    {"value": "得罪", "pinyin": "de2 zui4", "definition": "to offend; to commit a faux pas"}
 ]

@@ -608,5 +608,8 @@
     {"value": "お手数をおかけいたします", "romaji": "otesuuwokakeitashimasu (おてすうをおかけいたします)", "definition": "to be a burden; to make trouble for someone"},
     {"value": "慢心", "romaji": "manshin (まんしん)", "definition": "pride; conceit; arrogrance"},
     {"value": "ずれる", "romaji": "zureru (ずれる)", "definition": "slip; to get out of alignment"},
-    {"value": "黙々", "romaji": "mokumoku (もくもく)", "definition": "silent (especially when working)"}
+    {"value": "黙々", "romaji": "mokumoku (もくもく)", "definition": "silent (especially when working)"},
+    {"value": "監視", "romaji": "kanshi (かんし)", "definition": "surveillance; supervision"},
+    {"value": "別に", "romaji": "betsuni (べつに)", "definition": "not really; not especially"},
+    {"value": "責める", "romaji": "semeru (せめる)", "definition": "to blame; to scold"}
 ]

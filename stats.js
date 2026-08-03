@@ -95,6 +95,22 @@ function getUniqueChineseCharacters(){
   return uniqueCharsSeen;
 }
 
+function getTotalNumChineseCharacters(){
+  const chineseJson = readFileSync("public/datasets/chinese.json");
+  const data = JSON.parse(chineseJson);
+  
+  let totalNumChars = 0;
+  
+  data.forEach(row => {
+    const chars = row.value.split('');
+    chars.forEach(c => {
+      totalNumChars++;
+    });
+  });
+  
+  return totalNumChars;
+}
+
 function getMostCommonChineseCharacter(characterCountMap, numToReturn){  
   const maxHeap = new PriorityQueue();
   for(let char in characterCountMap){
@@ -112,18 +128,22 @@ function getMostCommonChineseCharacter(characterCountMap, numToReturn){
 
 // if using a Windows terminal, try running "chcp 950" first to be able to see traditional Chinese in the terminal
 function getStats(){
+  // count of all Chinese characters in dataset
+  const totalNumChars = getTotalNumChineseCharacters();
+  
   // count number of unique Chinese characters
   const uniqueChineseChars = getUniqueChineseCharacters();
   const totalUniqueCount = Object.keys(uniqueChineseChars).length;
   const mostCommonChars = getMostCommonChineseCharacter(uniqueChineseChars, 10);
   
+  console.log(`total number of Chinese characters in Chinese dataset: ${totalNumChars}`);
   console.log(`number of unique Chinese characters in Chinese dataset: ${totalUniqueCount}`);
   
   console.log('--------------------');
   
   console.log('10 most common Chinese characters in dataset: ');
   for(let char of mostCommonChars){
-    console.log(`character: ${char.character}, freq: ${char.freq} times`);
+    console.log(`character: ${char.character}, freq: ${char.freq} times (${(char.freq / totalNumChars * 100).toFixed(2)}%)`);
   }
   
   console.log('--------------------');

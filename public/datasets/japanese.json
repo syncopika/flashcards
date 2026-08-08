@@ -611,5 +611,12 @@
     {"value": "黙々", "romaji": "mokumoku (もくもく)", "definition": "silent (especially when working)"},
     {"value": "監視", "romaji": "kanshi (かんし)", "definition": "surveillance; supervision"},
     {"value": "別に", "romaji": "betsuni (べつに)", "definition": "not really; not especially"},
-    {"value": "責める", "romaji": "semeru (せめる)", "definition": "to blame; to scold"}
+    {"value": "責める", "romaji": "semeru (せめる)", "definition": "to blame; to scold"},
+    {"value": "正面", "romaji": "shoumen (しょうめん)", "definition": "front"},
+    {"value": "習慣", "romaji": "shuukan (しゅうかん)", "definition": "habit"},
+    {"value": "癖", "romaji": "kuse (くせ)", "definition": "tendency; quirk"},
+    {"value": "騒がしい", "romaji": "sawagashii (さわがしい)", "definition": "noisy; boisterous"},
+    {"value": "籠", "romaji": "kago (かご)", "definition": "basket"},
+    {"value": "粗筋", "romaji": "arasuji (あらすじ)", "definition": "synopsis; short summary"},
+    {"value": "全滅", "romaji": "zenmetsu (ぜんめつ)", "definition": "total destruction; annihilation; total defeat"}
 ]

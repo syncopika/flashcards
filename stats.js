@@ -126,6 +126,40 @@ function getMostCommonChineseCharacter(characterCountMap, numToReturn){
   return results;
 }
 
+
+function getMostCommonWordsInChineseDatasetDefinitions(numToReturn){
+  const chineseJson = readFileSync("public/datasets/chinese.json");
+  const data = JSON.parse(chineseJson);
+  const definitionWordCounts = {};
+  data.forEach(row => {
+    // remove any commas or semicolons
+    const definitionWords = row.definition.replaceAll(';', ' ').replaceAll(',', ' ').split(' '); 
+    definitionWords.forEach(w => {
+      if(w.trim() === '') return;
+      if(!definitionWordCounts[w]){
+        definitionWordCounts[w] = 1;
+      }else{
+        definitionWordCounts[w]++;
+      }
+    });
+  });
+  
+  // max heapify to get <numToReturn> most common words that appear in the definitions
+  const maxHeap = new PriorityQueue();
+  for(let word in definitionWordCounts){
+    maxHeap.add({word, freq: definitionWordCounts[word]});
+  }
+  
+  const results = [];
+  
+  for(let i = 0; i < numToReturn; i++){
+    results.push(maxHeap.remove());
+  }  
+  
+  return results;
+}
+
+// TODO: just load the dataset once and then process it!
 // if using a Windows terminal, try running "chcp 950" first to be able to see traditional Chinese in the terminal
 function getStats(){
   // count of all Chinese characters in dataset
@@ -134,7 +168,6 @@ function getStats(){
   // count number of unique Chinese characters
   const uniqueChineseChars = getUniqueChineseCharacters();
   const totalUniqueCount = Object.keys(uniqueChineseChars).length;
-  const mostCommonChars = getMostCommonChineseCharacter(uniqueChineseChars, 10);
   
   console.log(`total number of Chinese characters in Chinese dataset: ${totalNumChars}`);
   console.log(`number of unique Chinese characters in Chinese dataset: ${totalUniqueCount}`);
@@ -142,8 +175,17 @@ function getStats(){
   console.log('--------------------');
   
   console.log('10 most common Chinese characters in dataset: ');
+  const mostCommonChars = getMostCommonChineseCharacter(uniqueChineseChars, 10);
   for(let char of mostCommonChars){
     console.log(`character: ${char.character}, freq: ${char.freq} times (${(char.freq / totalNumChars * 100).toFixed(2)}%)`);
+  }
+  
+  console.log('--------------------');
+  
+  console.log('10 most common words that appear in the definitions: ');
+  const mostCommonDefinitionWords = getMostCommonWordsInChineseDatasetDefinitions(10);
+  for(let w of mostCommonDefinitionWords){
+    console.log(`word: ${w.word}, freq: ${w.freq} times`);
   }
   
   console.log('--------------------');

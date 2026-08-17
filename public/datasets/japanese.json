@@ -618,5 +618,12 @@
     {"value": "騒がしい", "romaji": "sawagashii (さわがしい)", "definition": "noisy; boisterous"},
     {"value": "籠", "romaji": "kago (かご)", "definition": "basket"},
     {"value": "粗筋", "romaji": "arasuji (あらすじ)", "definition": "synopsis; short summary"},
-    {"value": "全滅", "romaji": "zenmetsu (ぜんめつ)", "definition": "total destruction; annihilation; total defeat"}
+    {"value": "全滅", "romaji": "zenmetsu (ぜんめつ)", "definition": "total destruction; annihilation; total defeat"},
+    {"value": "休暇", "romaji": "kyuuka (きゅうか)", "definition": "vacation; holiday"},
+    {"value": "増し", "romaji": "mashi (まし)", "definition": "better; preferable; less objectionable; more; extra"},
+    {"value": "単語", "romaji": "tango (たんご)", "definition": "word; vocabulary"},
+    {"value": "揺れる", "romaji": "yureru (ゆれる)", "definition": "to shake; to sway; to waver"},
+    {"value": "個人", "romaji": "kojin (こじん)", "definition": "individual; personal"},
+    {"value": "勝手", "romaji": "katte (かって)", "definition": "one's own convenience; one's way; selfish"},
+    {"value": "退屈", "romaji": "taikutsu (たいくつ)", "definition": "boring; tedious; dull; uninteresting"}
 ]

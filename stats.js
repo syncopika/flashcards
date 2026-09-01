@@ -75,10 +75,8 @@ function PriorityQueue(){
   };
 }
 
-function getUniqueChineseCharacters(){
-  const chineseJson = readFileSync("public/datasets/chinese.json");
-  const data = JSON.parse(chineseJson);
-  
+// returns frequency map of characters
+function getUniqueChineseCharacters(data){
   const uniqueCharsSeen = {};
   
   data.forEach(row => {
@@ -95,10 +93,7 @@ function getUniqueChineseCharacters(){
   return uniqueCharsSeen;
 }
 
-function getTotalNumChineseCharacters(){
-  const chineseJson = readFileSync("public/datasets/chinese.json");
-  const data = JSON.parse(chineseJson);
-  
+function getTotalNumChineseCharacters(data){  
   let totalNumChars = 0;
   
   data.forEach(row => {
@@ -111,7 +106,7 @@ function getTotalNumChineseCharacters(){
   return totalNumChars;
 }
 
-function getMostCommonChineseCharacter(characterCountMap, numToReturn){  
+function getMostCommonChineseCharacters(characterCountMap, numToReturn){  
   const maxHeap = new PriorityQueue();
   for(let char in characterCountMap){
     maxHeap.add({character: char, freq: characterCountMap[char]});
@@ -126,10 +121,7 @@ function getMostCommonChineseCharacter(characterCountMap, numToReturn){
   return results;
 }
 
-
-function getMostCommonWordsInChineseDatasetDefinitions(numToReturn){
-  const chineseJson = readFileSync("public/datasets/chinese.json");
-  const data = JSON.parse(chineseJson);
+function getMostCommonWordsInChineseDatasetDefinitions(data, numToReturn){
   const definitionWordCounts = {};
   data.forEach(row => {
     // remove any commas or semicolons
@@ -154,19 +146,48 @@ function getMostCommonWordsInChineseDatasetDefinitions(numToReturn){
   
   for(let i = 0; i < numToReturn; i++){
     results.push(maxHeap.remove());
-  }  
+  }
   
   return results;
+}
+
+function getMostCommonPinyinInChineseDataset(data, numToReturn){
+  const pinyinFreq = {};
+  data.forEach(row => {
+    row.pinyin.trim().split(' ').forEach(p => {
+      if(pinyinFreq[p]){
+        pinyinFreq[p]++;
+      }else{
+        pinyinFreq[p] = 1;
+      }
+    });
+  });
+  
+  const maxHeap = new PriorityQueue();
+  for(let pinyin in pinyinFreq){
+    maxHeap.add({pinyin, freq: pinyinFreq[pinyin]});
+  }
+  
+  const results = [];
+  
+  for(let i = 0; i < numToReturn; i++){
+    results.push(maxHeap.remove());
+  }
+  
+  return results;  
 }
 
 // TODO: just load the dataset once and then process it!
 // if using a Windows terminal, try running "chcp 950" first to be able to see traditional Chinese in the terminal
 function getStats(){
+  const chineseJson = readFileSync("public/datasets/chinese.json");
+  const chineseData = JSON.parse(chineseJson);
+  
   // count of all Chinese characters in dataset
-  const totalNumChars = getTotalNumChineseCharacters();
+  const totalNumChars = getTotalNumChineseCharacters(chineseData);
   
   // count number of unique Chinese characters
-  const uniqueChineseChars = getUniqueChineseCharacters();
+  const uniqueChineseChars = getUniqueChineseCharacters(chineseData);
   const totalUniqueCount = Object.keys(uniqueChineseChars).length;
   
   console.log(`total number of Chinese characters in Chinese dataset: ${totalNumChars}`);
@@ -175,17 +196,25 @@ function getStats(){
   console.log('--------------------');
   
   console.log('10 most common Chinese characters in dataset: ');
-  const mostCommonChars = getMostCommonChineseCharacter(uniqueChineseChars, 10);
+  const mostCommonChars = getMostCommonChineseCharacters(uniqueChineseChars, 10);
   for(let char of mostCommonChars){
     console.log(`character: ${char.character}, freq: ${char.freq} times (${(char.freq / totalNumChars * 100).toFixed(2)}%)`);
   }
   
   console.log('--------------------');
   
-  console.log('10 most common words that appear in the definitions: ');
-  const mostCommonDefinitionWords = getMostCommonWordsInChineseDatasetDefinitions(10);
+  console.log('10 most common words that appear in the definitions of the Chinese dataset: ');
+  const mostCommonDefinitionWords = getMostCommonWordsInChineseDatasetDefinitions(chineseData, 10);
   for(let w of mostCommonDefinitionWords){
     console.log(`word: ${w.word}, freq: ${w.freq} times`);
+  }
+  
+  console.log('--------------------');
+  
+  console.log('10 most common pinyin that appear in the Chinese dataset: ');
+  const mostCommonPinyin = getMostCommonPinyinInChineseDataset(chineseData, 10);
+  for(let p of mostCommonPinyin){
+    console.log(`pinyin: ${p.pinyin}, freq: ${p.freq} times`);
   }
   
   console.log('--------------------');

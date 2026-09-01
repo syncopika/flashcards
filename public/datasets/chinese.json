@@ -2708,5 +2708,19 @@
     {"value": "養生", "pinyin": "yang3 sheng1", "definition": "to care for life; to preserve one's health"},
     {"value": "機構", "pinyin": "ji1 gou4", "definition": "mechanism; organization; agency; authority"},
     {"value": "擦掉", "pinyin": "ca1 diao4", "definition": "to wipe off"},
-    {"value": "海蜇", "pinyin": "hai3 zhe1", "definition": "jellyfish"}
+    {"value": "海蜇", "pinyin": "hai3 zhe1", "definition": "(edible) jellyfish"},
+    {"value": "抵制", "pinyin": "di3 zhi4", "definition": "to resist; to reject; to refuse; to boycott"},
+    {"value": "簡稱", "pinyin": "jian3 cheng1", "definition": "abbreviation"},
+    {"value": "判決", "pinyin": "pan4 jue2", "definition": "to make a judgement; to reach a decision"},
+    {"value": "步調", "pinyin": "bu4 diao4", "definition": "step; pace"},
+    {"value": "飄", "pinyin": "piao1", "definition": "to drift; to flutter; complacent"},
+    {"value": "偶然", "pinyin": "ou3 ran2", "definition": "by chance; accidental; random; fortuitous"},
+    {"value": "汗", "pinyin": "han4", "definition": "sweat; perspiration"},
+    {"value": "眠", "pinyin": "mian2", "definition": "to sleep"},
+    {"value": "浮誇", "pinyin": "fu2 kua1", "definition": "boastful; pompous; exaggerative"},
+    {"value": "覆盆子", "pinyin": "fu4 pen2 zi3", "definition": "raspberry", "tags": ["food"]},
+    {"value": "損傷", "pinyin": "sun3 shang1", "definition": "to harm; to damage; to injure"},
+    {"value": "腦下垂體", "pinyin": "nao3 xia4 chu2 ti3", "definition": "pituitary gland"},
+    {"value": "屏幕", "pinyin": "ping2 mu4", "definition": "computer screen; screen"},
+    {"value": "恰當", "pinyin": "qia4 dang4", "definition": "appropriate; suitable; fitting"}
 ]

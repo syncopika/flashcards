@@ -1,5 +1,6 @@
 // functions for analyzing the JSON datasets
 import { readFileSync } from 'fs';
+import { exec } from 'child_process';
 
 // https://github.com/syncopika/piano_roll_browser/blob/master/src/classes.js#L456C1-L518C2
 // max-heap to help find out things like top 10 frequent Chinese characters
@@ -177,9 +178,9 @@ function getMostCommonPinyinInChineseDataset(data, numToReturn){
   return results;  
 }
 
-// TODO: just load the dataset once and then process it!
 // if using a Windows terminal, try running "chcp 950" first to be able to see traditional Chinese in the terminal
-function getStats(){
+function getChineseDatasetStats(){
+  // load Chinese dataset
   const chineseJson = readFileSync("public/datasets/chinese.json");
   const chineseData = JSON.parse(chineseJson);
   
@@ -195,7 +196,7 @@ function getStats(){
   
   console.log('--------------------');
   
-  console.log('10 most common Chinese characters in dataset: ');
+  console.log('10 most common Chinese characters in the Chinese dataset: ');
   const mostCommonChars = getMostCommonChineseCharacters(uniqueChineseChars, 10);
   for(let char of mostCommonChars){
     console.log(`character: ${char.character}, freq: ${char.freq} times (${(char.freq / totalNumChars * 100).toFixed(2)}%)`);
@@ -218,9 +219,14 @@ function getStats(){
   }
   
   console.log('--------------------');
- 
-  process.exit(0);
 }
 
-getStats();
+const isWindows = process.platform === 'win32';
+if(isWindows){
+  exec('chcp 950');
+  getChineseDatasetStats();
+}else{
+  getChineseDatasetStats();
+}
 
+process.exit(0);

@@ -2722,5 +2722,9 @@
     {"value": "損傷", "pinyin": "sun3 shang1", "definition": "to harm; to damage; to injure"},
     {"value": "腦下垂體", "pinyin": "nao3 xia4 chu2 ti3", "definition": "pituitary gland"},
     {"value": "屏幕", "pinyin": "ping2 mu4", "definition": "computer screen; screen"},
-    {"value": "恰當", "pinyin": "qia4 dang4", "definition": "appropriate; suitable; fitting"}
+    {"value": "恰當", "pinyin": "qia4 dang4", "definition": "appropriate; suitable; fitting"},
+    {"value": "頸", "pinyin": "jing3", "definition": "neck"},
+    {"value": "折", "pinyin": "zhe2", "definition": "to break; to snap; to bend; to change direction; to lose"},
+    {"value": "戲劇", "pinyin": "xi4 ju4", "definition": "drama; theater; play"},
+    {"value": "愛好", "pinyin": "ai4 hao4", "definition": "to like; to be fond of"}
 ]

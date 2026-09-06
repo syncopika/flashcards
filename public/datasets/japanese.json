@@ -661,5 +661,15 @@
     {"value": "映す", "romaji": "utsusu (うつす)", "definition": "to project; to display"},
     {"value": "損傷", "romaji": "sonshou (そんしょう)", "definition": "damage; injury"},
     {"value": "栗鼠", "romaji": "risu (りす)", "definition": "squirrel"},
-    {"value": "脳下垂体", "romaji": "noukasuitai (のうかすいたい)", "definition": "pituitary gland"}
+    {"value": "脳下垂体", "romaji": "noukasuitai (のうかすいたい)", "definition": "pituitary gland"},
+    {"value": "非常", "romaji": "hijou (ひじょう)", "definition": "emergency; extreme; great; severe"},
+    {"value": "通販", "romaji": "tsuhan (つうはん)", "definition": "online order (short for 通信販売)"},
+    {"value": "常日頃", "romaji": "tsunehigoro (つねひごろ)", "definition": "everyday; always"},
+    {"value": "卑怯", "romaji": "hikyou (ひきょう)", "definition": "cowardly; underhanded; unfair; sneaky"},
+    {"value": "頸", "romaji": "kubi (くび)", "definition": "neck"},
+    {"value": "壊す", "romaji": "kowasu (こわす)", "definition": "to break"},
+    {"value": "政府", "romaji": "seifu (せいふ)", "definition": "government"},
+    {"value": "趣味", "romaji": "shumi (しゅみ)", "definition": "hobby; pastime"},
+    {"value": "下手", "romaji": "heta (へた)", "definition": "unskilled; bad at; poor at"},
+    {"value": "生煮え", "romaji": "namanie (なまにえ)", "definition": "undercooked; rare"}
 ]

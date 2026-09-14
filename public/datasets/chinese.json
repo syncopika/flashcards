@@ -2726,5 +2726,18 @@
     {"value": "頸", "pinyin": "jing3", "definition": "neck"},
     {"value": "折", "pinyin": "zhe2", "definition": "to break; to snap; to bend; to change direction; to lose"},
     {"value": "戲劇", "pinyin": "xi4 ju4", "definition": "drama; theater; play"},
-    {"value": "愛好", "pinyin": "ai4 hao4", "definition": "to like; to be fond of"}
+    {"value": "愛好", "pinyin": "ai4 hao4", "definition": "to like; to be fond of"},
+    {"value": "退役", "pinyin": "tui4 yi4", "definition": "to retire; to be discharged (from service); to decommission"},
+    {"value": "顧慮", "pinyin": "gu4 lv4", "definition": "to have worries; misgivings or apprehensions"},
+    {"value": "客觀", "pinyin": "ke4 guan1", "definition": "objective"},
+    {"value": "主觀", "pinyin": "zhu3 guan1", "definition": "subjective"},
+    {"value": "椪餅", "pinyin": "peng4 bing3", "definition": "puffed-up cookie; hollow cookie"},
+    {"value": "排序", "pinyin": "pai2 xu4", "definition": "to sort; to sequence"},
+    {"value": "發布", "pinyin": "fa1 bu4", "definition": "to release; to issue; to announce (news, instructions, orders, etc.)"},
+    {"value": "排行", "pinyin": "pai2 hang2", "definition": "to rank"},
+    {"value": "捕食", "pinyin": "bu3 shi2", "definition": "to hunt for food; to prey on"},
+    {"value": "辦桌", "pinyin": "ban4 zhuo1", "definition": "to throw a feast or banquet"},
+    {"value": "老老實實", "pinyin": "lao3 lao3 shi2 shi2", "definition": "truthfully; honestly"},
+    {"value": "政客", "pinyin": "zheng4 ke4", "definition": "(derogatory) politician who places personal gain above public interests"},
+    {"value": "單賣", "pinyin": "dan1 mai4", "definition": "to sell individually"}
 ]

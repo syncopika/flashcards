@@ -690,5 +690,22 @@
     {"value": "偶に", "romaji": "tamani (たまに)", "definition": "occasionally; once in a while"},
     {"value": "切っ掛け", "romaji": "kikkake (きっかけ)", "definition": "a start; a chance; an opportunity; a clue; a lead; motive"},
     {"value": "重量", "romaji": "juuryou (じゅうりょう)", "definition": "weight"},
-    {"value": "無邪気", "romaji": "mujaki (むじゃき)", "definition": "innocence"}
+    {"value": "無邪気", "romaji": "mujaki (むじゃき)", "definition": "innocence"},
+    {"value": "反射", "romaji": "hansha (はんしゃ)", "definition": "reflection"},
+    {"value": "不公平", "romaji": "fukouhei (ふこうへい)", "definition": "unfair; unjust"},
+    {"value": "前々日", "romaji": "zenzenjitsu (ぜんぜんじつ)", "definition": "2 days before"},
+    {"value": "揃い", "romaji": "soroi (そろい)", "definition": "set; suit; matching items; entirely; all"},
+    {"value": "害虫", "romaji": "gaichuu (がいちゅう)", "definition": "pest; harmful insect"},
+    {"value": "許可", "romaji": "kyoka (きょか)", "definition": "permission; approval"},
+    {"value": "芝居", "romaji": "shibai (しばい)", "definition": "play; theatrical performance"},
+    {"value": "もみほぐす", "romaji": "momihogusu(もみほぐす)", "definition": "to massage away (body stiffness)"},
+    {"value": "揉む", "romaji": "momu (もむ)", "definition": "to knead; to rub; to crumple"},
+    {"value": "予告", "romaji": "yokoku (よこく)", "definition": "preview; advance notice"},
+    {"value": "検査", "romaji": "kensa (けんさ)", "definition": "inspection; check; examination"},
+    {"value": "不得手", "romaji": "fuete (ふえて)", "definition": "unskillful; weak"},
+    {"value": "結末", "romaji": "ketsumatsu (けつまつ)", "definition": "consequence; end; ending"},
+    {"value": "できたはず", "romaji": "dekitahazu (できたはず)", "definition": "should be able to; could have; should have"},
+    {"value": "地元", "romaji": "jimoto (じもと)", "definition": "home area; hometown; local"},
+    {"value": "会場", "romaji": "kaijou (かいじょう)", "definition": "meeting place; venue site"},
+    {"value": "救難", "romaji": "kyuunan (きゅうなん)", "definition": "rescue"}
 ]

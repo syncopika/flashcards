@@ -2764,5 +2764,9 @@
     {"value": "結局", "pinyin": "jie2 ju2", "definition": "final result; outcome; conclusion; ending"},
     {"value": "歧義", "pinyin": "qi2 yi4", "definition": "ambiguous; ambiguity"},
     {"value": "拆解", "pinyin": "chai1 jie3", "definition": "to disassemble; to break apart; to explain"},
-    {"value": "聯程", "pinyin": "lian2 cheng2", "definition": "connection (attributive, e.g. for flights, interline ticketing)"}
+    {"value": "聯程", "pinyin": "lian2 cheng2", "definition": "connection (attributive, e.g. for flights, interline ticketing)"},
+    {"value": "直撥", "pinyin": "zhi1 bo2", "definition": "to dial directly; to allocate goods/resources directly to"},
+    {"value": "清關", "pinyin": "qing1 guan1", "definition": "to go through customs; to clear customs; to clear immigration"},
+    {"value": "直掛", "pinyin": "zhi2 gua4", "definition": "to check through to final destination (e.g. baggage)"},
+    {"value": "膏藥", "pinyin": "gao1 yao4", "definition": "herbal plaster; medicated patch"}
 ]

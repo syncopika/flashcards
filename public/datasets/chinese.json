@@ -1647,7 +1647,7 @@
     {"value": "奮鬥", "pinyin": "fen4 dou4", "definition": "to struggle; to fight; to strive"},
     {"value": "無敵", "pinyin": "wu2 di2", "definition": "invincible"},
     {"value": "聯結車", "pinyin": "lian2 jie2 che1", "definition": "tractor trailer"},
-    {"value": "載具", "pinyin": "zai4 ju4", "definition": "vehicle"},
+    {"value": "載具", "pinyin": "zai3 ju4", "definition": "vehicle; digital receipt carrier (Taiwan)"},
     {"value": "優惠券", "pinyin": "you1 hui4 quan4", "definition": "discount coupon"},
     {"value": "誤導", "pinyin": "wu4 dao3", "definition": "to mislead"},
     {"value": "準確", "pinyin": "zhun3 que4", "definition": "accurate; precise"},
@@ -2768,5 +2768,13 @@
     {"value": "直撥", "pinyin": "zhi1 bo2", "definition": "to dial directly; to allocate goods/resources directly to"},
     {"value": "清關", "pinyin": "qing1 guan1", "definition": "to go through customs; to clear customs; to clear immigration"},
     {"value": "直掛", "pinyin": "zhi2 gua4", "definition": "to check through to final destination (e.g. baggage)"},
-    {"value": "膏藥", "pinyin": "gao1 yao4", "definition": "herbal plaster; medicated patch"}
+    {"value": "膏藥", "pinyin": "gao1 yao4", "definition": "herbal plaster; medicated patch"},
+    {"value": "航廈", "pinyin": "hang2 sha4", "definition": "airport terminal"},
+    {"value": "走道座位", "pinyin": "zou3 dao4 zuo4 wei4", "definition": "aisle seat"},
+    {"value": "靠窗座位", "pinyin": "kao4 chuang1 zuo4 wei4", "definition": "window seat"},
+    {"value": "投訴", "pinyin": "tou2 su4", "definition": "to file a complaint"},
+    {"value": "蝙蝠", "pinyin": "bian1 fu2", "definition": "bat (mammal)"},
+    {"value": "蟑螂", "pinyin": "zhang1 lang2", "definition": "cockroach"},
+    {"value": "簽名", "pinyin": "qian1 ming2", "definition": "to sign one's name"},
+    {"value": "鉛筆", "pinyin": "qian1 bi3", "definition": "pencil"}
 ]

@@ -707,5 +707,10 @@
     {"value": "できたはず", "romaji": "dekitahazu (できたはず)", "definition": "should be able to; could have; should have"},
     {"value": "地元", "romaji": "jimoto (じもと)", "definition": "home area; hometown; local"},
     {"value": "会場", "romaji": "kaijou (かいじょう)", "definition": "meeting place; venue site"},
-    {"value": "救難", "romaji": "kyuunan (きゅうなん)", "definition": "rescue"}
+    {"value": "救難", "romaji": "kyuunan (きゅうなん)", "definition": "rescue"},
+    {"value": "蝙蝠", "romaji": "koumori (こうもり)", "definition": "bat (mammal)"},
+    {"value": "ゴキブリ", "romaji": "gokiburi (ごきぶり)", "definition": "cockroach"},
+    {"value": "景色", "romaji": "keshiki (けしき)", "definition": "scenery"},
+    {"value": "苦情", "romaji": "kujou (くじょう)", "definition": "difficult circumstances; complaint; grievance"},
+    {"value": "保冷剤", "romaji": "horeizai (ほれいざい)", "definition": "refrigerant; ice pack"}
 ]

@@ -715,5 +715,15 @@
     {"value": "保冷剤", "romaji": "horeizai (ほれいざい)", "definition": "refrigerant; ice pack"},
     {"value": "連絡", "romaji": "renraku (れんらく)", "definition": "contact; getting in touch; correspondence"},
     {"value": "返事", "romaji": "henji (へんじ)", "definition": "reply; answer; response"},
-    {"value": "体操", "romaji": "taisou (たいそう)", "definition": "gymnastics; exercises; calisthenics"}
+    {"value": "体操", "romaji": "taisou (たいそう)", "definition": "gymnastics; exercises; calisthenics"},
+    {"value": "端っこ", "romaji": "hajikko (はじっこ)", "definition": "very end; far end"},
+    {"value": "隅", "romaji": "sumi (すみ)", "definition": "corner; nook"},
+    {"value": "廃棄", "romaji": "haiki (はいき)", "definition": "disposal; discarding; abandonment"},
+    {"value": "実績", "romaji": "jisseki (じっせき)", "definition": "achievements; results"},
+    {"value": "大豆", "romaji": "daizu (だいず)", "definition": "soybean"},
+    {"value": "しょっちゅう", "romaji": "shocchuu (しょっちゅう)", "definition": "all the time; always"},
+    {"value": "価値", "romaji": "kachi (かち)", "definition": "value; merit; worth"},
+    {"value": "開けっ広げ", "romaji": "akeppiroge (あけっぴろげ)", "definition": "wide open; completely open"},
+    {"value": "くるり", "romaji": "kururi (くるり)", "definition": "with a spin"},
+    {"value": "適当", "romaji": "tekitou (てきとう)", "definition": "sloppy; perfunctory; careless; random; suitable; appropriate"}
 ]

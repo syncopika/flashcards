@@ -178,6 +178,32 @@ function getMostCommonPinyinInChineseDataset(data, numToReturn){
   return results;  
 }
 
+function getLeastCommonPinyinInChineseDataset(data, numToReturn){
+  const pinyinFreq = new Map();
+  data.forEach(row => {
+    row.pinyin.trim().split(' ').forEach(p => {
+      const freq = pinyinFreq.get(p);
+      if(freq){
+        pinyinFreq.set(p, freq + 1);
+      }else{
+        pinyinFreq.set(p, 1);
+      }
+    });
+  });
+  
+  const reversed = new Map([...pinyinFreq.entries()].sort((a, b) => a[1] - b[1])); // ascending order
+  
+  const results = [];
+  let counter = 0;
+  for(const [k, v] of reversed){
+    if(counter === numToReturn) break;
+    results.push({pinyin: k, freq: v});
+    counter++;
+  }
+  
+  return results;
+}
+
 // if using a Windows terminal, try running "chcp 950" first to be able to see traditional Chinese in the terminal
 function getChineseDatasetStats(){
   // load Chinese dataset
@@ -216,6 +242,14 @@ function getChineseDatasetStats(){
   const mostCommonPinyin = getMostCommonPinyinInChineseDataset(chineseData, 10);
   for(let p of mostCommonPinyin){
     console.log(`pinyin: ${p.pinyin}, freq: ${p.freq} times`);
+  }
+  
+  console.log('--------------------');
+  
+  console.log('10 least common pinyin that appear in the Chinese dataset: ');
+  const leastCommonPinyin = getLeastCommonPinyinInChineseDataset(chineseData, 10);
+  for(let p of leastCommonPinyin){
+    console.log(`pinyin: ${p.pinyin}, freq: ${p.freq} time${p.freq > 1 ? 's' : ''}`);
   }
   
   console.log('--------------------');

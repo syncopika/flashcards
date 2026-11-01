@@ -1,0 +1,51 @@
+total number of Chinese characters in Chinese dataset: 5634
+number of unique Chinese characters in Chinese dataset: 2053
+--------------------
+10 most common Chinese characters in the Chinese dataset: 
+character: 不, freq: 51 times (0.91%)
+character: 人, freq: 28 times (0.50%)
+character: 一, freq: 25 times (0.44%)
+character: 子, freq: 25 times (0.44%)
+character: 發, freq: 22 times (0.39%)
+character: 有, freq: 21 times (0.37%)
+character: 心, freq: 21 times (0.37%)
+character: 無, freq: 20 times (0.35%)
+character: 手, freq: 17 times (0.30%)
+character: 生, freq: 17 times (0.30%)
+--------------------
+10 most common words that appear in the definitions of the Chinese dataset: 
+word: to, freq: 2883 times
+word: a, freq: 227 times
+word: be, freq: 218 times
+word: of, freq: 142 times
+word: in, freq: 133 times
+word: the, freq: 99 times
+word: and, freq: 95 times
+word: for, freq: 78 times
+word: with, freq: 75 times
+word: or, freq: 57 times
+--------------------
+10 most common pinyin that appear in the Chinese dataset: 
+pinyin: shi4, freq: 62 times
+pinyin: bu4, freq: 57 times
+pinyin: yi4, freq: 56 times
+pinyin: shi2, freq: 41 times
+pinyin: li4, freq: 40 times
+pinyin: zhi4, freq: 40 times
+pinyin: cheng2, freq: 34 times
+pinyin: xin1, freq: 33 times
+pinyin: ji4, freq: 33 times
+pinyin: yi1, freq: 32 times
+--------------------
+10 least common pinyin that appear in the Chinese dataset: 
+pinyin: pou1,pou3, freq: 1 time
+pinyin: kuang1, freq: 1 time
+pinyin: rang2, freq: 1 time
+pinyin: juan4, freq: 1 time
+pinyin: xie4, freq: 1 time
+pinyin: hong3, freq: 1 time
+pinyin: jiao2, freq: 1 time
+pinyin: lin1, freq: 1 time
+pinyin: xia2, freq: 1 time
+pinyin: bai, freq: 1 time
+--------------------

@@ -2828,5 +2828,7 @@
     {"value": "聖地", "pinyin": "sheng4 di4", "definition": "sacred place; holy city; mecca"},
     {"value": "頂級", "pinyin": "ding3 ji2", "definition": "top-notch; first-rate"},
     {"value": "重飛", "pinyin": "chong2 fei1", "definition": "(aviation) go-around; missed approach"},
-    {"value": "疑問", "pinyin": "yi2 wen4", "definition": "query; question; doubt"}
+    {"value": "疑問", "pinyin": "yi2 wen4", "definition": "query; question; doubt"},
+    {"value": "讚許", "pinyin": "zan4 xu3", "definition": "to praise; to laud"},
+    {"value": "好客", "pinyin": "hao4 ke4", "definition": "hospitable"}
 ]

@@ -744,5 +744,13 @@
     {"value": "疑問", "romaji": "gimon (ぎもん)", "definition": "question (implies a doubt about something); doubt or suspicion"},
     {"value": "誇り", "romaji": "hokori (ほこり)", "definition": "pride; boast"},
     {"value": "しっとり", "romaji": "shittori (しっとり)", "definition": "damp; gentle"},
-    {"value": "さっくり", "romaji": "sakkuri (さっくり)", "definition": "cutting or breaking easily; pleasantly soft to chew"}
+    {"value": "さっくり", "romaji": "sakkuri (さっくり)", "definition": "cutting or breaking easily; pleasantly soft to chew"},
+    {"value": "判定", "romaji": "hantei (はんてい)", "definition": "judgement; decision; ruling"},
+    {"value": "頼む", "romaji": "tanomu (たのむ)", "definition": "to beg; to ask; to request"},
+    {"value": "文句", "romaji": "monku (もんく)", "definition": "complaint; grumbling; objection"},
+    {"value": "短時間", "romaji": "tankikan (たんきかん)", "definition": "a short span of time"},
+    {"value": "購入", "romaji": "kounyuu (こうにゅう)", "definition": "purchase; buy"},
+    {"value": "伺う", "romaji": "ukagau (うかがう)", "definition": "to call on someone; to ask; to inquire; to be told"},
+    {"value": "慚愧", "romaji": "zanki (ざんき)", "definition": "feeling shame"},
+    {"value": "冷水", "romaji": "reisui (れいすい)", "definition": "cold water"}
 ]
